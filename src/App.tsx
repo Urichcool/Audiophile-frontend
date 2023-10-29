@@ -1,13 +1,12 @@
-import React from 'react';
-import { useGetNewGoodsQuery } from './redux/services/goods';
+import React, { FC } from "react";
+import { Route, Routes } from "react-router-dom";
 
-function App() {
-  const { data } = useGetNewGoodsQuery();
+const App: FC = () => {
   return (
-    <div className="App">
-      <h1>{data?.name}</h1>
+    <div className="container">
+      <Routes></Routes>
     </div>
   );
-}
+};
 
 export default App;

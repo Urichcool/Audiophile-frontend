@@ -1,0 +1,89 @@
+$fontFamily: Manrope;
+
+.H1-manrope-bold {
+  font-family: $fontFamily;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 58px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.H2-manrope-bold {
+  font-family: $fontFamily;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: 1.429px;
+  text-transform: uppercase;
+}
+
+.H3-manrope-bold {
+  font-family: $fontFamily;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 1.143px;
+  text-transform: uppercase;
+}
+
+.H4-manrope-bold {
+  font-family: $fontFamily;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.H5-manrope-bold {
+  font-family: $fontFamily;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.714px;
+  text-transform: uppercase;
+}
+
+.H6-manrope-bold {
+  font-family: $fontFamily;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.286px;
+  text-transform: uppercase;
+}
+
+.Overline-manrope-regular {
+  font-family: $fontFamily;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+
+.Sub-title-manrope-bold {
+  font-family: $fontFamily;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0.929px;
+  text-transform: uppercase;
+}
+
+.Body-manrope-medium {
+  font-family: $fontFamily;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
+}
