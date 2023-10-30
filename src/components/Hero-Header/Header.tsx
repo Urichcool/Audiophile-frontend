@@ -20,9 +20,9 @@ const Header:FC = () => {
               <NavLink className="header-navigation-link" to={"/"}>
                 Home
               </NavLink>
-              <NavLink className="header-navigation-link" to={"/headphones"}>headphones</NavLink>
-              <NavLink className="header-navigation-link" to={"/speakers"}>Speakers</NavLink>
-              <NavLink className="header-navigation-link" to={"/earphones"}>Earphones</NavLink>
+              <NavLink className="header-navigation-link" to={"headphones"}>headphones</NavLink>
+              <NavLink className="header-navigation-link" to={"speakers"}>Speakers</NavLink>
+              <NavLink className="header-navigation-link" to={"earphones"}>Earphones</NavLink>
             </nav>
             <button className="cart-button">
               <CartIcon />

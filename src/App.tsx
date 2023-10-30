@@ -8,9 +8,9 @@ const App: FC = () => {
     <Routes>
       <Route element={<Layout />} path="/">
         <Route index element={<Home />} />
-        <Route element={<div>headphones</div>} path="headphones" />
-        <Route element={<div>speakers</div>} path="speakers" />
-        <Route element={<div>earphones</div>} path="earphones" />
+        <Route element={<div></div>} path="headphones" />
+        <Route element={<div></div>} path="speakers" />
+        <Route element={<div></div>} path="earphones" />
       </Route>
     </Routes>
   );
