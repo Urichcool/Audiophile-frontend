@@ -1,0 +1,22 @@
+.button1{
+color: $primaryWhite;
+font-family: Manrope;
+font-size: 13px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 1px;
+text-transform: uppercase;
+width: 160px;
+height: 48px;
+flex-shrink: 0;
+border: none;
+cursor: pointer;
+background-color: $primaryOrange;
+transition: 500ms;
+transition-property: background-color;
+&:hover,
+&:focus{
+    background-color: $secondaryOrange;
+}
+}

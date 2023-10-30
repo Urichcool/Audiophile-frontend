@@ -1,5 +1,58 @@
-.hero{
-    background-color: #0E0E0E;
-    width:100%;
-    height:500px;
+.hero {
+  background-color: #0e0e0e;
+  width: 100%;
+  padding-top: 108px;
+  padding-bottom: 108px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  @include tablet {
+    padding-top: 126px;
+    padding-bottom: 126px;
+  }
+  @include desktop {
+    padding-top: 128px;
+    padding-bottom: 128px;
+    text-align: start;
+    justify-content: flex-start;
+  }
+}
+
+.hero-new-product-text {
+  color: $primaryWhite;
+  opacity: 0.4964;
+  margin-bottom: 16px;
+  @include tablet{
+margin-bottom: 24px;
+  }
+}
+
+.hero-new-product-title {
+  color: $primaryWhite;
+  margin-bottom: 24px;
+  @include tablet {
+    width: 396px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include desktop {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.hero-new-product-description {
+  color: $primaryWhite;
+  margin-bottom: 28px;
+  opacity: 0.75;
+  @include tablet {
+    width: 349px;
+    margin-left: auto;
+    margin-right: auto;
+     margin-bottom: 40px;
+  }
+  @include desktop {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
