@@ -1,13 +1,19 @@
-import React from 'react';
-import { useGetNewGoodsQuery } from './redux/services/goods';
+import React, { FC } from "react";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
 
-function App() {
-  const { data } = useGetNewGoodsQuery();
+const App: FC = () => {
   return (
-    <div className="App">
-      <h1>{data?.name}</h1>
-    </div>
+    <Routes>
+      <Route element={<Layout />} path="/">
+        <Route index element={<Home />} />
+        <Route element={<div></div>} path="headphones" />
+        <Route element={<div></div>} path="speakers" />
+        <Route element={<div></div>} path="earphones" />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;

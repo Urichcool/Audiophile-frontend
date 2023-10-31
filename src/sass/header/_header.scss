@@ -1,0 +1,117 @@
+.header {
+  background-color: #0e0e0e;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 32px;
+  padding-bottom: 32px;
+  @include desktop {
+    padding-top: 35px;
+    padding-bottom: 36px;
+  }
+}
+
+.burger-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  svg {
+    margin-top: 2px;
+    fill: white;
+    transition: 500ms;
+    transition-property: fill;
+  }
+  &:hover,
+  &:focus {
+    svg {
+      fill: $primaryOrange;
+    }
+  }
+  @include desktop {
+    display: none;
+  }
+}
+
+.audiophile-logo {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  @include tablet {
+    margin-left: 42px;
+  }
+  @include desktop {
+    margin-left: 0;
+  }
+  svg {
+    fill: white;
+    transition: 500ms;
+    transition-property: fill;
+  }
+  &:hover,
+  &:focus {
+    svg {
+      fill: $primaryOrange;
+    }
+  }
+}
+
+.cart-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: auto;
+  svg {
+    margin-top: 2px;
+    fill: white;
+    transition: 500ms;
+    transition-property: fill;
+  }
+  &:hover,
+  &:focus {
+    svg {
+      fill: $primaryOrange;
+    }
+  }
+}
+
+.header-navigation {
+  display: none;
+  @include desktop {
+    display: flex;
+    align-items: center;
+    margin-left: 197px;
+  }
+}
+
+.header-navigation-link {
+  color: #fff;
+  height: 24px;
+  padding-bottom: 1px;
+  font-family: Manrope;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-right: 34px;
+  transition: 500ms;
+  transition-property: color;
+  &:hover,
+  &:focus {
+    color: $primaryOrange;
+  }
+  &:last-of-type {
+    margin-right: 0;
+  }
+  &.active {
+    border-bottom: 1px solid $primaryOrange;
+  }
+}

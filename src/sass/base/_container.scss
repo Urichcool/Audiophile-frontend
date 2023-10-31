@@ -1,0 +1,15 @@
+.container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: 327px;
+  @include tablet {
+    max-width: 689px;
+  }
+  @include desktop {
+    max-width: 1110px;
+  }
+
+}

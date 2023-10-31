@@ -15,4 +15,9 @@ export interface IGoods {
     second: { mobile: string; tablet: string; desktop: string };
     third: { mobile: string; tablet: string; desktop: string };
   };
+  newImage: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
 }
