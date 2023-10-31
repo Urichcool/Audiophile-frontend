@@ -1,0 +1,44 @@
+.categories-list{
+@include tablet{
+    display: flex;
+    justify-content: space-between;
+}
+}
+
+.categories-list-item{
+display: flex;
+justify-content: center;
+flex-direction: column;
+width: 327px;
+height: 165px;
+background-color: $secondaryWhite;
+border-radius: 8px;
+margin-bottom: 68px;
+padding-bottom: 22px;
+&:last-of-type{
+    margin-bottom: 0;
+}
+@include tablet{
+    width: 208px;
+    height: 165px;
+    margin-bottom: 0;
+}
+@include desktop{
+    width: 335px;
+    height: 204px;
+    padding-bottom: 30px;
+}
+}
+
+.categories-list-item-title{
+color: $primaryBlack;
+text-align: center;
+padding-top: 88px;
+margin-bottom: 17px;
+@include desktop{
+    padding-top: 116px;
+    margin-bottom: 15px;
+}
+}
+
+

@@ -1,0 +1,35 @@
+.button3 {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    p {
+      color: $primaryOrange;
+    }
+    svg{
+        transform: translateX(30%);
+    }
+  }
+  p {
+    transition: 500ms;
+    transition-property: color;
+    margin-right: 13px;
+    color: $primaryBlack;
+    font-family: Manrope;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  svg{
+     transition: 500ms;
+    transition-property: transform;
+  }
+}
