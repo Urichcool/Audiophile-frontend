@@ -1,0 +1,114 @@
+.categories-list {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.categories-list-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+  height: 165px;
+  background-color: $primaryGray;
+  border-radius: 8px;
+  margin-bottom: 68px;
+  padding-bottom: 22px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  @include tablet {
+    width: 208px;
+    height: 165px;
+    margin-bottom: 0;
+  }
+  @include desktop {
+    width: 335px;
+    height: 204px;
+    padding-bottom: 30px;
+  }
+}
+
+.categories-list-item-title {
+  color: $primaryBlack;
+  text-align: center;
+  padding-top: 88px;
+  margin-bottom: 17px;
+  @include desktop {
+    padding-top: 116px;
+    margin-bottom: 15px;
+  }
+}
+
+.categories-list-icon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.categories-list-hadphones-image {
+  top: -50px;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-image: url("../../images/categories-list/image-category-thumbnail-headphones.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 5;
+  left: 45%;
+  transform: translate(-45%);
+  @include desktop {
+    width: 220px;
+    height: 220px;
+    top: -75px;
+  }
+}
+
+.categories-list-speakers-image {
+  top: -50px;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-image: url("../../images/categories-list/image-category-thumbnail-speakers.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 5;
+  left: 45%;
+  transform: translate(-45%);
+  @include desktop {
+    width: 220px;
+    height: 220px;
+    top: -75px;
+  }
+}
+
+.categories-list-earphones-image {
+  top: -50px;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-image: url("../../images/categories-list/image-category-thumbnail-earphones.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 5;
+   left: 43%;
+    transform: translate(-43%);
+  @include tablet {
+    left: 30%;
+    transform: translate(-30%);
+  }
+  @include desktop {
+    left: 33%;
+    transform: translate(-33%);
+    width: 220px;
+    height: 220px;
+    top: -75px;
+  }
+}

@@ -94,14 +94,14 @@
     }
   }
   position: absolute;
-  top: -135px;
-  right: -80px;
+  top: -35px;
+  right: 33px;
   @include tablet {
     top: -210px;
     right: 160px;
   }
   @include desktop {
-    top: -100px;
+    top: -90px;
     right: 0;
     z-index: 1;
   }
