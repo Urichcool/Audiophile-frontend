@@ -22,7 +22,6 @@ const Header: FC = () => {
               className="burger-button"
               onClick={():void => {
                 dispatch(switchMenu(!isMenuOpen));
-                console.log(isMenuOpen)
               }}
             >
               <BurgerIcon />
