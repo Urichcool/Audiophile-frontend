@@ -126,6 +126,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  position: relative;
   @include tablet {
     padding-top: 105px;
     padding-bottom: 97px;

@@ -3,7 +3,6 @@ import type {
   Action,
   PayloadAction,
   Reducer,
-  Selector,
   Slice,
 } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
@@ -29,9 +28,8 @@ const mobileMenuSlice: Slice = createSlice({
   },
 });
 
-export const switchMenu: Action = mobileMenuSlice.actions.switchMenu;
+export const switchMenu = mobileMenuSlice.actions.switchMenu;
 
-export const selectIsMenuOpen: Selector = (state: RootState) =>
-  state.mobileMenu.isOpen;
+export const selectIsMenuOpen = (state: RootState) => state.mobileMenu.isOpen;
 
 export const mobileMenuSliceReducer: Reducer = mobileMenuSlice.reducer;

@@ -4,6 +4,7 @@ import { shortDescrFunc } from "../../utils/shortDescrFunc";
 import Button1 from "../Reusable-Components/Buttons/Button1";
 import HeroLoader from "./HeroLoader";
 import { useLocation } from "react-router-dom";
+import MobileMenu from "../Mobile-Menu/MobileMenu";
 
 const Hero: FC = () => {
   const { data, isFetching } = useGetNewGoodsQuery();
@@ -13,6 +14,7 @@ const Hero: FC = () => {
     <>
       {pathname === "/" ? (
         <div className="hero">
+          <MobileMenu />
           {isFetching ? (
             <HeroLoader />
           ) : (
@@ -45,6 +47,7 @@ const Hero: FC = () => {
         </div>
       ) : (
         <div className="hero-categories">
+          <MobileMenu />
           <div className="container">
             <h2 className="H2-manrope-bold hero-categories-title">
               {pathname.substring(1)}
