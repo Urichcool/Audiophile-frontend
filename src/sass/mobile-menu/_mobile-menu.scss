@@ -1,0 +1,58 @@
+.mobile-menu {
+  transition: 500ms;
+  transition-property: transform;
+  background-color: $primaryWhite;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 750px;
+  z-index: 12;
+  border-radius: 0px 0px 8px 8px;
+  @include tablet {
+    height: 340px;
+  }
+}
+
+.mobile-menu-backdrop {
+  transition: 500ms;
+  transition-property: opacity;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primaryBlack;
+}
+
+.mobile-menu-categories-container {
+  padding-top: 85px;
+  padding-bottom: 32px;
+  @include tablet {
+    padding-top: 108px;
+    padding-bottom: 67px;
+  }
+}
+
+.mobile-menu-open {
+  transform: translateY(0);
+  @include desktop {
+    display: none;
+  }
+}
+.mobile-menu-close {
+  transform: translateY(-130%);
+}
+
+.mobile-menu-backdrop-open {
+  opacity: 0.4;
+  @include desktop {
+    display: none;
+  }
+}
+
+.mobile-menu-backdrop-close {
+  pointer-events: none;
+  opacity: 0;
+}
