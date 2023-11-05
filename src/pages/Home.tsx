@@ -1,14 +1,18 @@
 import { FC } from 'react';
 import CategoriesList from '../components/Reusable-Components/CategoriesList';
+import HomeProducts from '../components/Home/HomeProducts';
 
 const Home:FC = () => {
-    return (
+  return (
+    <div className="container">
       <section className="home-categories-list-section">
-        <div className='container'> 
-          <CategoriesList />
-        </div>
+        <CategoriesList />
       </section>
-    );
+      <section className="home-products-section">
+        <HomeProducts/>
+     </section>
+    </div>
+  );
 }
 
 export default Home;
