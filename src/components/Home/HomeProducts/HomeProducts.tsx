@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useGetOtherGoodsQuery } from "../../../redux/services/goods";
-import HomeProductsSpeaker from "../HomeProductsSpeaker";
+import HomeProductsSpeaker from "./HomeProductsSpeaker";
 
 const HomeProducts: FC = () => {
   const { data, isFetching } = useGetOtherGoodsQuery();
