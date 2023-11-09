@@ -24,7 +24,8 @@ const HomeProductsSpeaker: FC<IHomeProductsSpeakerProps> = ({
             animateIn="animate__fadeIn"
             delay={2000}
             animateOnce
-              style={{ zIndex: "2", position: "relative" }}
+            style={{ zIndex: "2", position: "relative" }}
+            offset={0}
           >
             <picture className="home-products-speakers-picture">
               <source
@@ -51,6 +52,7 @@ const HomeProductsSpeaker: FC<IHomeProductsSpeakerProps> = ({
             animateIn="animate__fadeIn"
             delay={500}
             animateOnce
+            offset={0}
           >
             <div className="home-products-speakers-circle1" />
           </AnimationOnScroll>
@@ -58,6 +60,7 @@ const HomeProductsSpeaker: FC<IHomeProductsSpeakerProps> = ({
             animateIn="animate__fadeIn"
             delay={1000}
             animateOnce
+            offset={0}
           >
             <div className="home-products-speakers-circle2"></div>
           </AnimationOnScroll>
@@ -65,13 +68,15 @@ const HomeProductsSpeaker: FC<IHomeProductsSpeakerProps> = ({
             animateIn="animate__fadeIn"
             delay={1500}
             animateOnce
+            offset={0}
           >
             <div className="home-products-speakers-circle3"></div>
           </AnimationOnScroll>
           <AnimationOnScroll
-            animateIn="animate__backInDown"
+            animateIn="animate__fadeInDown"
             delay={2500}
             animateOnce
+            offset={150}
           >
             <div className="home-products-speakers-content">
               <h2 className="H1-manrope-bold home-products-speakers-title">
