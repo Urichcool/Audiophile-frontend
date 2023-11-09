@@ -33,14 +33,14 @@ const Hero: FC = () => {
               </div>
               <picture className="hero-new-product-picture">
                 <source
-                  srcSet={data?.newImage.desktop}
+                  srcSet={data?.previewImage.desktop}
                   media="(min-width: 1440px)"
                 />
                 <source
-                  srcSet={data?.newImage.tablet}
+                  srcSet={data?.previewImage.tablet}
                   media="(min-width: 768px)"
                 />
-                <img src={data?.newImage.mobile} alt={data?.name} />
+                <img src={data?.previewImage.mobile} alt={data?.name} />
               </picture>
             </div>
           )}
