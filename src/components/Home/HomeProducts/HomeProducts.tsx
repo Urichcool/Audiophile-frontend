@@ -1,15 +1,21 @@
 import { FC } from "react";
 import { useGetOtherGoodsQuery } from "../../../redux/services/goods";
 import HomeProductsSpeaker from "./HomeProductsSpeaker";
+import HomeProductsHeadphone from "./HomeProductsHeadphone";
 
 const HomeProducts: FC = () => {
   const { data, isFetching } = useGetOtherGoodsQuery();
 
   return (
-    <>
-      <HomeProductsSpeaker data={data && data[2]} isFetching={isFetching} />
-      <div className="home-products-headprones-container"></div>
-    </>
+    <ul>
+      <li>
+        <HomeProductsSpeaker data={data && data[2]} isFetching={isFetching} />
+      </li>
+      <li>
+        <HomeProductsHeadphone data={data && data[0]} isFetching={isFetching} />
+      </li>
+      <li></li>
+    </ul>
   );
 };
 

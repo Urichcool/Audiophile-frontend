@@ -29,20 +29,20 @@ const HomeProductsSpeaker: FC<IHomeProductsSpeakerProps> = ({
           >
             <picture className="home-products-speakers-picture">
               <source
-                srcSet={data && data.previewImage.desktop}
+                srcSet={data?.previewImage.desktop}
                 media="(min-width: 1440px)"
                 width={"410"}
                 height={"493"}
               />
               <source
-                srcSet={data && data.previewImage.desktop}
+                srcSet={data?.previewImage.desktop}
                 media="(min-width: 768px)"
                 width={"197"}
                 height={"237"}
               />
               <img
-                src={data && data.previewImage.desktop}
-                alt={data && data.name}
+                src={data?.previewImage.desktop}
+                alt={data?.name}
                 width={"172"}
                 height={"207"}
               />
