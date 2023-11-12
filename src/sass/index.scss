@@ -1,8 +1,9 @@
 @import "../sass/mixins/mixins";
 @import './base';
 @import './variables';
-@import './layout/hero/index';
+@import './layout/hero/';
 @import './layout/header/';
+@import "./layout/footer/";
 @import './reusable-styles/buttons/';
 @import './reusable-styles/categories-list/';
 @import './home-page';

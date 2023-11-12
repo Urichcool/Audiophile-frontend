@@ -1,0 +1,58 @@
+.footer {
+  background-color: $secondaryBlack;
+  padding-top: 52px;
+  padding-bottom: 38px;
+  position: relative;
+}
+
+.footer-line {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 101px;
+  height: 4px;
+  background-color: $primaryOrange;
+}
+
+.footer-audiophile-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48px;
+  svg {
+    fill: white;
+    transition: 500ms;
+    transition-property: fill;
+  }
+  &:hover,
+  &:focus {
+    svg {
+      fill: $primaryOrange;
+    }
+  }
+}
+
+.footer-navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.footer-navigation-link {
+  color: $primaryWhite;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  &:hover,
+  &:focus {
+    color: $primaryOrange;
+  }
+  &:last-of-type {
+    margin-right: 0;
+  }
+  &.active {
+    border-bottom: 1px solid $primaryOrange;
+  }
+}
