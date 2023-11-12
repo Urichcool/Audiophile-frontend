@@ -5,8 +5,8 @@ const Loader: FC = () => {
   return (
     <div className="loader">
           <Oval
-        height={200}
-        width={200}
+        height={100}
+        width={100}
         color="#fff"
         wrapperStyle={{}}
         wrapperClass=""

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import CategoriesList from "../components/Reusable-Components/CategoriesList";
-import HomeProducts from "../components/Home/HomeProducts/HomeProducts";
+import HomeProductsList from "../components/Home/HomeProducts/HomeProductsList";
 
 const Home: FC = () => {
   return (
@@ -9,7 +9,7 @@ const Home: FC = () => {
         <CategoriesList />
       </section>
       <section className="home-products-section">
-        <HomeProducts />
+        <HomeProductsList />
       </section>
     </div>
   );

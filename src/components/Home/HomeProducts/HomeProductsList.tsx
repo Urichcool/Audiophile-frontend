@@ -2,8 +2,9 @@ import { FC } from "react";
 import { useGetOtherGoodsQuery } from "../../../redux/services/goods";
 import HomeProductsSpeaker from "./HomeProductsSpeaker";
 import HomeProductsHeadphone from "./HomeProductsHeadphone";
+import HomeProductsEarphone from "./HomeProductsEarphone";
 
-const HomeProducts: FC = () => {
+const HomeProductsList: FC = () => {
   const { data, isFetching } = useGetOtherGoodsQuery();
 
   return (
@@ -14,9 +15,11 @@ const HomeProducts: FC = () => {
       <li>
         <HomeProductsHeadphone data={data && data[0]} isFetching={isFetching} />
       </li>
-      <li></li>
+      <li>
+        <HomeProductsEarphone data={data && data[1]} isFetching={isFetching} />
+      </li>
     </ul>
   );
 };
 
-export default HomeProducts;
+export default HomeProductsList;
