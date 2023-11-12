@@ -21,3 +21,13 @@ padding-bottom: 120px;
         padding-bottom: 200px;
     }
 }
+
+.home-site-description-section{
+padding-bottom: 120px;
+@include tablet{
+    padding-bottom: 96px;
+}
+@include desktop{
+    padding-bottom: 200px;
+}
+}

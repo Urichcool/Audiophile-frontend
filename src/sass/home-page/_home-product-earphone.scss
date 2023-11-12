@@ -28,6 +28,8 @@
 }
 
 .home-products-earphone-content-container {
+  display: flex;
+  align-items: center;
   position: relative;
   overflow-x: hidden;
   width: 100%;
@@ -45,11 +47,10 @@
 }
 
 .home-products-earphone-content {
-  padding-top: 31px;
   padding-left: 24px;
   width: 245px;
   @include tablet {
-    padding-top: 101px;
+  
     padding-left: 41px;
     width: 320px;
   }
@@ -65,3 +66,4 @@
     margin-bottom: 32px;
   }
 }
+
