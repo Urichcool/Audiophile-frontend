@@ -20,8 +20,8 @@
 }
 
 .hero-container {
-  animation: showText 1s;
-  animation-delay: 1s;
+  animation: showText 1s 1;
+  animation-delay: 1.5s;
   opacity: 0;
   animation-fill-mode: forwards;
   @keyframes showText {
@@ -85,6 +85,8 @@
 
 .hero-new-product-picture {
   animation: show 1s 1;
+  animation-delay: 0.5s;
+  opacity: 0;
   animation-fill-mode: forwards;
   @keyframes show {
     0% {
@@ -96,15 +98,12 @@
   }
   position: absolute;
   top: -35px;
-  right: 33px;
-  @include tablet {
-    top: -210px;
-    right: 160px;
-  }
+   right: 50%;
+    transform: translateX(50%);
   @include desktop {
-    top: -90px;
+    top: 10px;
     right: 0;
-    z-index: 1;
+    transform: translateX(0);
   }
 }
 

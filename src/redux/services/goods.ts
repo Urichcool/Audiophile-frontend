@@ -10,19 +10,19 @@ export const goodsApi = createApi({
     getNewGoods: builder.query<IGoods, void>({
       query: () => "goods/new",
     }),
-    getOtherGoods: builder.query<IGoods, void>({
+    getOtherGoods: builder.query<IGoods[], void>({
       query: () => "goods/other",
     }),
     getGoodsById: builder.query<IGoods, string>({
       query: (id) => `goods/${id}`,
     }),
-    getAllHeadphones: builder.query<IGoods, void>({
+    getAllHeadphones: builder.query<IGoods[], void>({
       query: () => "headphones",
     }),
-    getAllEarphones: builder.query<IGoods, void>({
+    getAllEarphones: builder.query<IGoods[], void>({
       query: () => "earphones",
     }),
-    getAllSpeakers: builder.query<IGoods, void>({
+    getAllSpeakers: builder.query<IGoods[], void>({
       query: () => "speakers",
     }),
   }),

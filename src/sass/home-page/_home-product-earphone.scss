@@ -1,0 +1,67 @@
+.home-products-earphone-container {
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.home-products-earphone-picture-container {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 200px;
+  background-color: #181818;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  @include tablet {
+    margin-bottom: 0;
+    width: 339px;
+    height: 328px;
+  }
+  @include desktop {
+    width: 540px;
+    height: 320px;
+  }
+}
+
+.home-products-earphone-content-container {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  background-color: $primaryGray;
+  @include tablet {
+    width: 339px;
+    height: 328px;
+  }
+  @include desktop {
+    width: 540px;
+    height: 320px;
+  }
+}
+
+.home-products-earphone-content {
+  padding-top: 31px;
+  padding-left: 24px;
+  width: 245px;
+  @include tablet {
+    padding-top: 101px;
+    padding-left: 41px;
+    width: 320px;
+  }
+  @include desktop {
+    padding-left: 95px;
+  }
+}
+
+.home-products-earphone-title {
+  color: $primaryBlack;
+  margin-bottom: 22px;
+  @include tablet {
+    margin-bottom: 32px;
+  }
+}

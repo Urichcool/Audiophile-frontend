@@ -1,0 +1,21 @@
+.button4 {
+  width: 160px;
+  height: 48px;
+  background-color: $primaryBlack;
+  cursor: pointer;
+  color: $primaryWhite;
+  font-family: Manrope;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  transition: 500ms;
+  transition-property: background-color;
+  &:hover,
+  &:focus {
+    background-color: #4c4c4c;
+  }
+}

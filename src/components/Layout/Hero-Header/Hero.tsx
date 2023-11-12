@@ -1,14 +1,14 @@
 import { FC } from "react";
-import { useGetNewGoodsQuery } from "../../redux/services/goods";
-import { shortDescrFunc } from "../../utils/shortDescrFunc";
-import Button1 from "../Reusable-Components/Buttons/Button1";
+import { useGetNewGoodsQuery } from "../../../redux/services/goods";
+import { shortDescrFunc } from "../../../utils/shortDescrFunc";
+import Button1 from "../../Reusable-Components/Buttons/Button1";
 import HeroLoader from "./HeroLoader";
 import { useLocation } from "react-router-dom";
-import MobileMenu from "../Mobile-Menu/MobileMenu";
+import MobileMenu from "../../Mobile-Menu/MobileMenu";
 
 const Hero: FC = () => {
   const { data, isFetching } = useGetNewGoodsQuery();
-  const { pathname }:{pathname:string} = useLocation();
+  const { pathname }: { pathname: string } = useLocation();
 
   return (
     <>
@@ -33,14 +33,14 @@ const Hero: FC = () => {
               </div>
               <picture className="hero-new-product-picture">
                 <source
-                  srcSet={data?.newImage.desktop}
+                  srcSet={data?.previewImage.desktop}
                   media="(min-width: 1440px)"
                 />
                 <source
-                  srcSet={data?.newImage.tablet}
+                  srcSet={data?.previewImage.tablet}
                   media="(min-width: 768px)"
                 />
-                <img src={data?.newImage.mobile} alt={data?.name} />
+                <img src={data?.previewImage.mobile} alt={data?.name} />
               </picture>
             </div>
           )}

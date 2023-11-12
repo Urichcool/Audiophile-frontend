@@ -1,0 +1,48 @@
+.home-products-headprone-container {
+  background-color: #dcdcdc;
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  overflow-x: hidden;
+  @include tablet {
+    margin-bottom: 32px;
+  }
+  @include desktop {
+    margin-bottom: 48px;
+  }
+}
+
+
+.home-products-headphone-picture{
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+right: -110px;
+@include tablet{
+  right: 20px;
+}
+@include desktop{
+  right: 120px;
+}
+}
+
+.home-products-headprone-content{
+  padding-top: 101px;
+  padding-left: 24px;
+  @include tablet{
+    padding-left: 62px;
+     padding-top: 90px;
+  }
+  @include desktop{
+    padding-left: 145px;
+   
+  }
+}
+
+.home-products-headprone-title{
+  width: 202px;
+  margin-bottom: 32px;
+  color: $primaryBlack;
+}

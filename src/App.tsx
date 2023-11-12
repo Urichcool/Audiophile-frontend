@@ -1,9 +1,14 @@
-import React, { FC } from "react";
+import  { FC, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
 
 const App: FC = () => {
+//  useEffect(() => {
+//    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+//  }, []);
+
+
   return (
     <Routes>
       <Route element={<Layout />} path="/">

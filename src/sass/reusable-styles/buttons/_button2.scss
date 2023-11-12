@@ -1,0 +1,22 @@
+.button2 {
+  width: 160px;
+  height: 48px;
+  color: $primaryBlack;
+  border: 1px solid $primaryBlack;
+  font-family: Manrope;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 500ms;
+  transition-property: background-color color;
+  &:hover,
+  &:focus{
+    background-color: $primaryBlack;
+    color: $primaryWhite;
+  }
+}

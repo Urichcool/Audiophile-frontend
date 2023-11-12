@@ -1,0 +1,149 @@
+.home-products-speakers-container {
+  position: relative;
+  background-color: $primaryOrange;
+  width: 100%;
+  height: 600px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  @include tablet {
+    height: 720px;
+    margin-bottom: 32px;
+  }
+  @include desktop {
+    height: 560px;
+    margin-bottom: 48px;
+  }
+}
+
+.home-products-speakers-picture {
+  z-index: 2;
+  position: absolute;
+  top: 57px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 207px;
+  @include tablet {
+    top: 52px;
+  }
+  @include desktop {
+    left: 117px;
+    top: 92px;
+    transform: translateX(0);
+  }
+}
+
+.home-products-speakers-circle1 {
+  position: absolute;
+  width: 558px;
+  height: 558px;
+  border-radius: 558px;
+  border: 1px solid #fff;
+  opacity: 0.3;
+  bottom: 163px;
+  right: 50%;
+  transform: translateX(50%);
+  @include tablet {
+    bottom: 64px;
+    width: 944px;
+    height: 944px;
+    border-radius: 944px;
+  }
+  @include desktop {
+    right: 315px;
+    transform: translateX(0);
+    bottom: -348px;
+  }
+}
+
+.home-products-speakers-circle2 {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 320px;
+  border: 1px solid #fff;
+  opacity: 0.3;
+  right: 50%;
+  transform: translateX(50%);
+  top: -2px;
+  @include tablet {
+    width: 542px;
+    height: 542px;
+    top: -87px;
+    border-radius: 542px;
+  }
+  @include desktop {
+    right: 516px;
+    transform: translateX(0);
+    top: 165px;
+  }
+}
+
+.home-products-speakers-circle3 {
+  position: absolute;
+  width: 279px;
+  height: 279px;
+  flex-shrink: 0;
+  border-radius: 279px;
+  border: 1px solid #fff;
+  opacity: 0.3;
+  right: 50%;
+  transform: translateX(50%);
+  top: 19px;
+  @include tablet {
+    width: 472px;
+    height: 472px;
+    border-radius: 472px;
+    top:-52px;
+  }
+  @include desktop{
+    right: 551px;
+    transform: translateX(0);
+    top:200px;
+  }
+}
+
+.home-products-speakers-content {
+  z-index: 2;
+  margin-top: 296px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  @include tablet {
+    margin-top: 353px;
+  }
+  @include desktop {
+    margin-top: 133px;
+    margin-left: 666px;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.home-products-speakers-title {
+  color: $primaryWhite;
+  width: 220px;
+  height: 80px;
+  margin-bottom: 24px;
+  @include tablet {
+    width: 261px;
+    height: 116px;
+  }
+}
+
+.home-products-speakers-description {
+  color: $primaryWhite;
+  opacity: 0.75;
+  width: 280px;
+  height: 75px;
+  margin-bottom: 24px;
+  @include tablet {
+    width: 349px;
+    margin-bottom: 40px;
+  }
+}
