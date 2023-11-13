@@ -32,4 +32,7 @@ export const {
   useGetNewGoodsQuery,
   useGetOtherGoodsQuery,
   useGetGoodsByIdQuery,
+  useGetAllHeadphonesQuery,
+  useGetAllEarphonesQuery,
+  useGetAllSpeakersQuery
 } = goodsApi;
