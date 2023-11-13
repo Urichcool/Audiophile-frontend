@@ -1,0 +1,147 @@
+.footer {
+  background-color: $secondaryBlack;
+  padding-top: 52px;
+  padding-bottom: 38px;
+  position: relative;
+}
+
+.footer-line {
+  position: absolute;
+  top: -52px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 101px;
+  height: 4px;
+  background-color: $primaryOrange;
+  @include tablet{
+  left: 0;
+    transform: translateX(0);
+  }
+}
+
+.footer-audiophile-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48px;
+  svg {
+    fill: white;
+    transition: 500ms;
+    transition-property: fill;
+  }
+  &:hover,
+  &:focus {
+    svg {
+      fill: $primaryOrange;
+    }
+  }
+  @include tablet{
+    justify-content: flex-start;
+    margin-bottom: 32px;
+  }
+  @include desktop{
+    margin-bottom: 36px;
+  }
+}
+
+.footer-navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48px;
+  @include tablet{
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+    @include desktop{
+      position: absolute;
+    right: 0;
+    top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.footer-navigation-link {
+  color: $primaryWhite;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  transition: 500ms;
+  transition-property: color;
+
+  &:hover,
+  &:focus {
+    color: $primaryOrange;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  &.active {
+    border-bottom: 1px solid $primaryOrange;
+  }
+  @include tablet{
+    margin-right: 34px;
+    margin-bottom: 0;
+    &:last-of-type {
+    margin-right: 0;
+  }
+  }
+}
+
+.footer-description {
+  color: $primaryWhite;
+  opacity: 0.5;
+  text-align: center;
+  margin-bottom: 48px;
+  @include tablet{
+    text-align: start;
+    margin-bottom: 80px;
+    &:last-of-type{
+      margin-bottom: 0;
+    }
+  }
+  @include desktop{
+    margin-bottom: 56px;
+    width: 540px;
+    &:last-of-type{
+      margin-bottom: 0;
+    }
+  }
+}
+
+.footer-socials-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include tablet{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  @include desktop{
+    bottom: 88px;
+  }
+}
+
+.footer-socials-list-item {
+  margin-right: 16px;
+  &:last-of-type {
+    margin-right: 0;
+  }
+  svg {
+    fill: $primaryWhite;
+    transition: 500ms;
+    transition-property: fill;
+  }
+  a {
+    cursor: pointer;
+  }
+  &:hover,
+  &:focus {
+    svg {
+      fill: $primaryOrange;
+    }
+  }
+}
