@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { IGoods } from "../../interfaces/goods/goods";
+import CategoriesProductsListItem from "./CategoriesProductsListItem";
 
 interface ICategoriesProductsListSectionProps {
   data: IGoods[] | undefined;
@@ -10,13 +11,25 @@ const CategoriesProductsListSection: FC<
   ICategoriesProductsListSectionProps
 > = ({ data, isFetching }) => {
   const dataSortedByNew: IGoods[] | [] = data
-    ? [...data].sort((product1: IGoods, product2: IGoods) => {
-        return Number(product1.new) + Number(product2.new);
-      })
+    ? [...data].sort(
+        (product1: IGoods, product2: IGoods) =>
+          Number(product2.new) - Number(product1.new)
+      )
     : [];
   return (
     <section className="categories-products-list-section">
-      <ul>{dataSortedByNew.sort().map((product) => <li>{product.name}</li>)}</ul>
+      <ul>
+        {dataSortedByNew.sort().map((product, index) => (
+          <CategoriesProductsListItem
+            key={product._id}
+            previewImage={product.previewImage}
+            isNew={product.new}
+            name={product.name}
+            description={product.description}
+            isPair={index + 1 / 2 === 0}
+          />
+        ))}
+      </ul>
     </section>
   );
 };

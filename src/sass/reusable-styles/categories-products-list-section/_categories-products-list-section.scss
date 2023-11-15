@@ -1,4 +1,11 @@
-.categories-products-list-section{
-    padding-bottom: 172px;
-    padding-top: 64px;
+.categories-products-list-section {
+  padding-bottom: 172px;
+  padding-top: 64px;
+  @include tablet {
+    padding-top: 120px;
+  }
+  @include desktop {
+    padding-top: 160px;
+    padding-bottom: 240px;
+  }
 }
