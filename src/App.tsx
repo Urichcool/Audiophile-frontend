@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/HomePage";
 import HeadphonesPage from "./pages/HeadphonesPage";
+import SpeakersPage from "./pages/SpeakersPage";
+import EarphonesPage from "./pages/EarphonesPage";
 
 const App: FC = () => {
 //  useEffect(() => {
@@ -15,8 +17,8 @@ const App: FC = () => {
       <Route element={<Layout />} path="/">
         <Route index element={<Home />} />
         <Route element={<HeadphonesPage/>} path="headphones" />
-        <Route element={<div></div>} path="speakers" />
-        <Route element={<div></div>} path="earphones" />
+        <Route element={<SpeakersPage/>} path="speakers" />
+        <Route element={<EarphonesPage/>} path="earphones" />
       </Route>
     </Routes>
   );
