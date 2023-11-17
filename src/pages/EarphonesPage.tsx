@@ -12,10 +12,10 @@ const EarphonesPage:FC = () => {
           data={data && data}
           isFetching={isFetching}
         />
-        <section className="headphones-page-site-categories-list-section">
+        <section className="categories-products-list-site-categories-list-section">
           <CategoriesList />
         </section>
-        <section className="headphones-page-site-description-section">
+        <section className="categories-products-list-site-description-section">
           <WebSiteDescription />
         </section>
       </div>

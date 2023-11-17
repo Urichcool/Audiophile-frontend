@@ -9,3 +9,23 @@
     padding-bottom: 240px;
   }
 }
+
+.categories-products-list-section-loading{
+width: 100vh;
+height: 2000px;
+}
+
+
+.categories-products-list-site-description-section{
+    padding-bottom: 120px;
+    @include desktop{
+        padding-bottom: 160px;
+    }
+}
+
+.categories-products-list-site-categories-list-section{
+    padding-bottom: 120px;
+       @include desktop{
+        padding-bottom: 160px;
+    }
+}
