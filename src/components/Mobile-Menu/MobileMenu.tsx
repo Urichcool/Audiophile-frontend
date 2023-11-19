@@ -44,7 +44,6 @@ const MobileMenu: FC = () => {
         onClick={(): void => {
           dispatch(switchMenu(!isMenuOpen));
         }}
-        onKeyDown={(e) => {}}
       />
     </>
   );

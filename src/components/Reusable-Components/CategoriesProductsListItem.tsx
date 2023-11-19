@@ -1,12 +1,13 @@
 import { FC } from "react";
 import Button1 from "./Buttons/Button1";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 interface ICategoriesProductsListItemProps {
   previewImage: { mobile: string; tablet: string; desktop: string };
   isNew: boolean;
   name: string;
   description: string;
-  isPair: boolean;
+  isEven: boolean;
 }
 
 const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
@@ -14,52 +15,66 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
   name,
   isNew,
   description,
-  isPair,
+  isEven,
 }) => {
   return (
     <li
       className={
-        isPair
-          ? "categories-products-list-item-pair"
+        isEven
+          ? "categories-products-list-item-even"
           : "categories-products-list-item"
       }
     >
       <div className="categories-products-list-item-picture-container">
-        <picture>
-          <source
-            srcSet={previewImage.desktop}
-            media="(min-width: 1440px)"
-            width={"270"}
-            height={"300"}
-          />
-          <source
-            srcSet={previewImage.desktop}
-            media="(min-width: 768px)"
-            width={"220"}
-            height={"250"}
-          />
-          <img
-            src={previewImage.desktop}
-            alt={name}
-            width={"160"}
-            height={"180"}
-          />
-        </picture>
+        <AnimationOnScroll
+          animateIn="animate__fadeIn"
+          delay={1000}
+          animateOnce
+          offset={0}
+        >
+          <picture>
+            <source
+              srcSet={previewImage.desktop}
+              media="(min-width: 1440px)"
+              width={"270"}
+              height={"300"}
+            />
+            <source
+              srcSet={previewImage.desktop}
+              media="(min-width: 768px)"
+              width={"220"}
+              height={"250"}
+            />
+            <img
+              src={previewImage.desktop}
+              alt={name}
+              width={"160"}
+              height={"180"}
+            />
+          </picture>
+        </AnimationOnScroll>
       </div>
-      <div className="categories-products-list-item-content-container">
-        {isNew && (
-          <p className="Overline-manrope-regular categories-products-list-item-new-product-text">
-            NEW PRODUCT
+      <AnimationOnScroll
+        animateIn={isEven ? "animate__fadeInLeft" : "animate__fadeInRight"}
+        delay={1500}
+        animateOnce
+        offset={0}
+      >
+        <div className="categories-products-list-item-content-container">
+          {isNew && (
+            <p className="Overline-manrope-regular categories-products-list-item-new-product-text">
+              NEW PRODUCT
+            </p>
+          )}
+          <h2 className="H2-manrope-bold categories-products-list-item-title">
+            {name}
+          </h2>
+          <p className="Body-manrope-medium categories-products-list-item-description">
+            {description}
           </p>
-        )}
-        <h2 className="H2-manrope-bold categories-products-list-item-title">
-          {name}
-        </h2>
-        <p className="Body-manrope-medium categories-products-list-item-description">
-          {description}
-        </p>
-        <Button1 />
-      </div>
+          <Button1 />
+        </div>
+      </AnimationOnScroll>
     </li>
   );
 };

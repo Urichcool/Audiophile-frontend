@@ -20,10 +20,13 @@ justify-content: center;
 
 
 .categories-products-list-site-description-section{
-    padding-bottom: 120px;
-    @include desktop{
-        padding-bottom: 160px;
-    }
+padding-bottom: 120px;
+@include tablet{
+    padding-bottom: 96px;
+}
+@include desktop{
+    padding-bottom: 200px;
+}
 }
 
 .categories-products-list-site-categories-list-section{

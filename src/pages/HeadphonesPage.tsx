@@ -5,12 +5,12 @@ import CategoriesProductsListSection from "../components/Reusable-Components/Cat
 import { useGetAllHeadphonesQuery } from "../redux/services/goods";
 
 const HeadphonesPage: FC = () => {
+const { data, isFetching } = useGetAllHeadphonesQuery();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+  }, [data]);
 
-  const { data, isFetching } = useGetAllHeadphonesQuery();
-
+  
   return (
     <>
       <CategoriesProductsListSection

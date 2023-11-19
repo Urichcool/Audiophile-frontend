@@ -8,7 +8,7 @@ const SpeakersPage:FC = () => {
   const { data, isFetching } = useGetAllSpeakersQuery();
    useEffect(() => {
      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-   }, []);
+   }, [data]);
 
   return (
     <>
