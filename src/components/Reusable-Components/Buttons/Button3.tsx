@@ -12,7 +12,7 @@ import {
 } from "../../../redux/slices/mobileMenuSlice";
 
 interface IButton3Props {
-  to: "headphones" | "speakers" | "earphones";
+  to: "/headphones" | "/speakers" | "/earphones";
   isMobile: boolean | undefined;
 }
 

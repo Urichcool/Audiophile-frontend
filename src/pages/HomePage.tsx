@@ -4,6 +4,8 @@ import HomeProductsList from "../components/Home/HomeProducts/HomeProductsList";
 import WebSiteDescription from "../components/Reusable-Components/WebSiteDescription";
 
 const Home: FC = () => {
+
+  
   return (
     <div className="container">
       <section className="home-categories-list-section">

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useGetNewGoodsQuery } from "../../../redux/services/goods";
 import { shortDescrFunc } from "../../../utils/shortDescrFunc";
 import Button1 from "../../Reusable-Components/Buttons/Button1";
@@ -9,6 +9,10 @@ import MobileMenu from "../../Mobile-Menu/MobileMenu";
 const Hero: FC = () => {
   const { data, isFetching } = useGetNewGoodsQuery();
   const { pathname }: { pathname: string } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [pathname, data]);
 
   return (
     <>

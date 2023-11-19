@@ -13,8 +13,8 @@
   width: 101px;
   height: 4px;
   background-color: $primaryOrange;
-  @include tablet{
-  left: 0;
+  @include tablet {
+    left: 0;
     transform: translateX(0);
   }
 }
@@ -24,22 +24,23 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 48px;
+ cursor: default;
   svg {
     fill: white;
     transition: 500ms;
     transition-property: fill;
-  }
-  &:hover,
-  &:focus {
-    svg {
+    cursor: pointer;
+    &:hover,
+    &:focus {
       fill: $primaryOrange;
     }
   }
-  @include tablet{
+
+  @include tablet {
     justify-content: flex-start;
     margin-bottom: 32px;
   }
-  @include desktop{
+  @include desktop {
     margin-bottom: 36px;
   }
 }
@@ -50,14 +51,14 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 48px;
-  @include tablet{
+  @include tablet {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
     margin-bottom: 32px;
   }
-    @include desktop{
-      position: absolute;
+  @include desktop {
+    position: absolute;
     right: 0;
     top: 0;
     margin-bottom: 0;
@@ -81,12 +82,12 @@
   &.active {
     border-bottom: 1px solid $primaryOrange;
   }
-  @include tablet{
+  @include tablet {
     margin-right: 34px;
     margin-bottom: 0;
     &:last-of-type {
-    margin-right: 0;
-  }
+      margin-right: 0;
+    }
   }
 }
 
@@ -95,17 +96,17 @@
   opacity: 0.5;
   text-align: center;
   margin-bottom: 48px;
-  @include tablet{
+  @include tablet {
     text-align: start;
     margin-bottom: 80px;
-    &:last-of-type{
+    &:last-of-type {
       margin-bottom: 0;
     }
   }
-  @include desktop{
+  @include desktop {
     margin-bottom: 56px;
     width: 540px;
-    &:last-of-type{
+    &:last-of-type {
       margin-bottom: 0;
     }
   }
@@ -115,12 +116,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  @include tablet{
+  @include tablet {
     position: absolute;
     right: 0;
     bottom: 0;
   }
-  @include desktop{
+  @include desktop {
     bottom: 88px;
   }
 }
