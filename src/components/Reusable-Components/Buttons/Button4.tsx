@@ -1,8 +1,14 @@
 import { FC } from 'react';
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
-const Button4:FC = () => {
-    return (
-     <button className='button4'>See Product</button>
+interface IButton4Props {
+  id: string | undefined;
+}
+
+const Button4: FC<IButton4Props> = ({ id }) => {
+    const navigate: NavigateFunction = useNavigate();
+    return ( 
+     <button className='button4' onClick={():void => {navigate(`/${id}`)}}>See Product</button>
     );
 }
 

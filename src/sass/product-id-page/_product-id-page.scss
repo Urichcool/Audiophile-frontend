@@ -1,0 +1,25 @@
+.product-id-page-section{
+    padding-top: 16px;
+    padding-bottom: 120px;
+    @include tablet{
+        padding-top: 33px;
+    }
+    @include desktop{
+      padding-top: 79px;
+      padding-bottom: 200px;
+    }
+}
+
+.product-id-page-website-description-section{
+  padding-top: 120px;
+@include desktop{
+  padding-top: 160px;
+}
+}
+
+.product-id-page-website-categories-list-section{
+  padding-top: 172px;
+  @include desktop {
+    padding-top: 240px;
+  }
+}

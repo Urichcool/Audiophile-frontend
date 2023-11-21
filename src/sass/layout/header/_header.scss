@@ -16,6 +16,19 @@
   }
 }
 
+.header-container-productId{
+    position: relative;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  @include desktop {
+    padding-top: 35px;
+    padding-bottom: 36px;
+  }
+}
+
 .burger-button {
   background-color: transparent;
   border: none;

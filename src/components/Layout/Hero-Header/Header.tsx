@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Params, useParams } from "react-router-dom";
 import AudiophileIcon from "../../../images/icons/AudiophileIcon";
 import BurgerIcon from "../../../images/icons/BurgerIcon";
 import CartIcon from "../../../images/icons/CartIcon";
@@ -15,11 +15,16 @@ import { switchMenu } from "../../../redux/slices/mobileMenuSlice";
 const Header: FC = () => {
   const isMenuOpen: boolean = useAppSelector(selectIsMenuOpen);
   const dispatch: AppDispatch = useAppDispatch();
+  const { productId }: Readonly<Params<string>> = useParams();
 
   return (
     <header className="header">
       <div className="container">
-        <div className="header-container">
+        <div
+          className={
+            productId ? "header-container-productId" : "header-container"
+          }
+        >
           <button
             className="burger-button"
             onClick={(): void => {
