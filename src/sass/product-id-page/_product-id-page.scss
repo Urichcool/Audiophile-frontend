@@ -23,3 +23,10 @@
     padding-top: 240px;
   }
 }
+
+.product-id-page-may-also-like-list-section{
+  padding-top: 120px;
+  @include desktop{
+    padding-top: 160px;
+  }
+}

@@ -1,0 +1,17 @@
+.also-like-list{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.also-like-list-title{
+    color: $primaryBlack;
+    text-align: center;
+    margin-bottom: 40px;
+    @include tablet{
+        margin-bottom: 56px;
+    }
+    @include desktop {
+        margin-bottom: 64px;
+    }
+}
