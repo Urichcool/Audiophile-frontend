@@ -2,10 +2,7 @@ import { FC } from "react";
 import WebSiteDescription from "../components/Reusable-Components/WebSiteDescription";
 import CategoriesList from "../components/Reusable-Components/CategoriesList";
 import AlsoLikeList from "../components/Product-Id/AlsoLikeList";
-import {
-  useGetGoodsByIdQuery,
-  useGetOtherGoodsQuery,
-} from "../redux/services/goods";
+
 
 const ProductIdPage: FC = () => {
   return (
