@@ -1,0 +1,13 @@
+.go-back-button {
+  color: $primaryBlack;
+  opacity: 0.5;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transition: 500ms;
+  transition-property: color;
+  &:hover,
+  &:focus {
+    color: $primaryOrange;
+  }
+}
