@@ -3,6 +3,7 @@ import GoBackButton from "../Reusable-Components/Buttons/GoBackButton";
 import { Params, useParams } from "react-router-dom";
 import { useGetGoodsByIdQuery } from "../../redux/services/goods";
 import { priceWithCommas } from "../../utils/priceWithCommas";
+import AddToCartForm from "./AddToCartForm";
 
 const ProductIdContent = () => {
   const { productId }: Readonly<Params<string>> = useParams();
@@ -48,6 +49,7 @@ const ProductIdContent = () => {
           <p className="product-id-page-product-price">
             {priceWithCommas(data?.price)}
           </p>
+          <AddToCartForm />
         </div>
       </div>
     </>

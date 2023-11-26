@@ -27,7 +27,7 @@ const AlsoLikeListItem: FC<IAlsoLikeListItemProps> = ({name, image, isFetching, 
             srcSet={image.tablet}
             media="(min-width: 768px)"
             width={"170"}
-            height={"193"}
+            height={"180"}
           />
           <img src={image.mobile} alt={name} width={"87"} height={"93"} />
         </picture>
