@@ -3,13 +3,14 @@ import WebSiteDescription from "../components/Reusable-Components/WebSiteDescrip
 import CategoriesList from "../components/Reusable-Components/CategoriesList";
 import AlsoLikeList from "../components/Product-Id/AlsoLikeList";
 import GoBackButton from "../components/Reusable-Components/Buttons/GoBackButton";
+import ProductIdContent from "../components/Product-Id/ProductIdContent";
 
 const ProductIdPage: FC = () => {
   return (
     <section className="product-id-page-section">
       <div className="container">
         <section className="product-id-page-product-section">
-          <GoBackButton />
+         <ProductIdContent/>
         </section>
         <section className="product-id-page-may-also-like-list-section">
           <AlsoLikeList />
