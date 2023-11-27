@@ -1,0 +1,89 @@
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.add-to-cart-form {
+  position: relative;
+  width: 120px;
+  height: 48px;
+}
+
+.add-to-cart-input {
+  color: $primaryBlack;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: default;
+  outline: none;
+  width: 120px;
+  height: 48px;
+  background-color: $primaryGray;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 52px;
+}
+
+.add-to-cart-input-plus-button {
+  color: $primaryBlack;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+  transition: 500ms;
+  transition-property: color;
+  &:hover,
+  &:focus {
+    color: $primaryOrange;
+  }
+}
+
+.add-to-cart-input-minus-button {
+  color: $primaryBlack;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+  transition: 500ms;
+  transition-property: color;
+  &:hover,
+  &:focus {
+    color: $primaryOrange;
+  }
+}

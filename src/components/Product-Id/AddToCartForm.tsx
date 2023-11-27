@@ -14,9 +14,36 @@ const AddToCartForm: FC = () => {
         console.log(values);
       }}
     >
-      <Form>
-        <Field id="quantity" name="quantity" type="number" />
-      </Form>
+      {(props) => (
+        <Form className="add-to-cart-form">
+          <Field
+            id="quantity"
+            name="quantity"
+            type="number"
+            className="add-to-cart-input"
+            readOnly="readonly"
+            value={props.values.quantity}
+          />
+          <button
+            className="add-to-cart-input-plus-button"
+            onClick={() => {
+              props.values.quantity += 1;
+            }}
+            type="button"
+          >
+            +
+          </button>
+          <button
+            className="add-to-cart-input-minus-button"
+            onClick={() => {
+              props.values.quantity -= 1;
+            }}
+            type="button"
+          >
+            -
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };
