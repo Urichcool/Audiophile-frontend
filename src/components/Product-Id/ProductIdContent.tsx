@@ -61,7 +61,7 @@ const ProductIdContent = () => {
             {data?.features}
           </p>
         </div>
-        <div>
+        <div className="product-id-page-includes-container">
           <h3 className="H3-manrope-bold product-id-page-includes-title">
             in the box
           </h3>
