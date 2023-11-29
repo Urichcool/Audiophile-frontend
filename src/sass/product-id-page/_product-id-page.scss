@@ -56,10 +56,15 @@
 .product-id-page-picture-and-description-container {
   display: flex;
   flex-direction: column;
+  margin-bottom: 88px;
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 120px;
+  }
+  @include desktop {
+    margin-bottom: 160px;
   }
 }
 
@@ -110,10 +115,44 @@
   letter-spacing: 1.286px;
   text-transform: uppercase;
   margin-bottom: 31px;
-  @include tablet{
+  @include tablet {
     margin-bottom: 32px;
   }
-  @include desktop{
+  @include desktop {
     margin-bottom: 47px;
   }
 }
+
+.product-id-page-features-and-includes-container{
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.product-id-page-features-container{
+  margin-bottom: 88px;
+  @include tablet {
+    margin-bottom: 120px;
+  }
+  @include desktop {
+    margin-bottom: 0;
+  }
+}
+
+.product-id-page-features-title {
+  color: $primaryBlack;
+  margin-bottom: 24px;
+  @include tablet {
+    margin-bottom: 32px;
+  }
+}
+
+.product-id-page-features-text {
+  color: $primaryBlack;
+  opacity: 0.5;
+  @include desktop {
+    width: 635px;
+  }
+}
+

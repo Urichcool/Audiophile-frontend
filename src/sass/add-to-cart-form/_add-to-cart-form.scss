@@ -48,7 +48,7 @@ input[type="number"]::-webkit-outer-spin-button {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.5);
-  padding-left: 13px;
+  padding-right: 13px;
   cursor: pointer;
   border: none;
   background-color: $primaryGray;
@@ -71,7 +71,7 @@ input[type="number"]::-webkit-outer-spin-button {
   line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
-  padding-right: 13px;
+  padding-left: 13px;
   cursor: pointer;
   border: none;
   background-color: $primaryGray;

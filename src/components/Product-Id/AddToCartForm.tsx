@@ -18,13 +18,13 @@ const AddToCartForm: FC = () => {
       {(props) => (
         <Form className="add-to-cart-form">
           <button
-            className="add-to-cart-input-plus-button"
+            className="add-to-cart-input-minus-button"
             onClick={() => {
-              props.setFieldValue("quantity", (props.values.quantity += 1));
+              props.setFieldValue("quantity", (props.values.quantity -= 1));
             }}
             type="button"
           >
-            +
+            -
           </button>
           <Field
             id="quantity"
@@ -36,13 +36,13 @@ const AddToCartForm: FC = () => {
           />
 
           <button
-            className="add-to-cart-input-minus-button"
+            className="add-to-cart-input-plus-button"
             onClick={() => {
-              props.setFieldValue("quantity", (props.values.quantity -= 1));
+              props.setFieldValue("quantity", (props.values.quantity += 1));
             }}
             type="button"
           >
-            -
+            +
           </button>
           <AddToCartButton />
         </Form>
