@@ -50,6 +50,7 @@ const ProductIdContent = () => {
             {priceWithCommas(data?.price)}
           </p>
           <AddToCartForm />
+          
         </div>
       </div>
     </>

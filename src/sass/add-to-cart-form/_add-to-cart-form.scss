@@ -10,8 +10,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .add-to-cart-form {
   position: relative;
-  width: 120px;
   height: 48px;
+  display: flex;
 }
 
 .add-to-cart-input {
@@ -26,17 +26,18 @@ input[type="number"]::-webkit-outer-spin-button {
   text-transform: uppercase;
   cursor: default;
   outline: none;
-  width: 120px;
+  width: 80px;
   height: 48px;
   background-color: $primaryGray;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px 52px;
+  padding: 15px 20px;
 }
 
 .add-to-cart-input-plus-button {
+  width: 20px;
   color: $primaryBlack;
   text-align: center;
   font-family: Manrope;
@@ -46,14 +47,11 @@ input[type="number"]::-webkit-outer-spin-button {
   line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
-  opacity: 0.5;
+  color: rgba(0, 0, 0, 0.5);
+  padding-left: 13px;
   cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
   border: none;
-  background-color: transparent;
+  background-color: $primaryGray;
   transition: 500ms;
   transition-property: color;
   &:hover,
@@ -63,7 +61,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .add-to-cart-input-minus-button {
-  color: $primaryBlack;
+  width: 20px;
+  color: rgba(0, 0, 0, 0.5);
   text-align: center;
   font-family: Manrope;
   font-size: 13px;
@@ -72,14 +71,10 @@ input[type="number"]::-webkit-outer-spin-button {
   line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
-  opacity: 0.5;
+  padding-right: 13px;
   cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  transform: translateY(-50%);
   border: none;
-  background-color: transparent;
+  background-color: $primaryGray;
   transition: 500ms;
   transition-property: color;
   &:hover,

@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Formik, Form, Field } from "formik";
+import AddToCartButton from "../Reusable-Components/Buttons/AddToCartButton";
 
 interface IAddToCartFormValues {
   quantity: number;
@@ -16,6 +17,15 @@ const AddToCartForm: FC = () => {
     >
       {(props) => (
         <Form className="add-to-cart-form">
+          <button
+            className="add-to-cart-input-plus-button"
+            onClick={() => {
+              props.setFieldValue("quantity", (props.values.quantity += 1));
+            }}
+            type="button"
+          >
+            +
+          </button>
           <Field
             id="quantity"
             name="quantity"
@@ -24,24 +34,17 @@ const AddToCartForm: FC = () => {
             readOnly="readonly"
             value={props.values.quantity}
           />
-          <button
-            className="add-to-cart-input-plus-button"
-            onClick={() => {
-              props.setFieldValue("quantity", props.values.quantity += 1);
-            }}
-            type="button"
-          >
-            +
-          </button>
+
           <button
             className="add-to-cart-input-minus-button"
             onClick={() => {
-             props.setFieldValue("quantity", (props.values.quantity -= 1));
+              props.setFieldValue("quantity", (props.values.quantity -= 1));
             }}
             type="button"
           >
             -
           </button>
+          <AddToCartButton />
         </Form>
       )}
     </Formik>
