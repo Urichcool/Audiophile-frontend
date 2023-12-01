@@ -65,7 +65,84 @@ const ProductIdContent = () => {
           <h3 className="H3-manrope-bold product-id-page-includes-title">
             in the box
           </h3>
+          <ul className="product-id-page-includes-list">
+            {data?.includes.map(({ quantity, item, _id }) => (
+              <li className="product-id-page-includes-list-item" key={_id}>
+                <p className="product-id-page-includes-list-item-quantity-text">{`${quantity}x`}</p>
+                <p className="product-id-page-includes-list-item-text Body-manrope-medium">
+                  {item}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
+      <div className="product-id-page-gallery">
+        <div>
+          <picture>
+            <source
+              srcSet={data?.gallery.first.desktop}
+              media="(min-width: 1440px)"
+              width={"445"}
+              height={"282"}
+            />
+            <source
+              srcSet={data?.gallery.first.tablet}
+              media="(min-width: 768px)"
+              width={"277"}
+              height={"174"}
+            />
+            <img
+              className="product-id-page-gallery-picture-1"
+              src={data?.gallery.first.mobile}
+              alt={data?.name}
+              width={"327"}
+              height={"174"}
+            />
+          </picture>
+          <picture>
+            <source
+              srcSet={data?.gallery.second.desktop}
+              media="(min-width: 1440px)"
+              width={"445"}
+              height={"282"}
+            />
+            <source
+              srcSet={data?.gallery.second.tablet}
+              media="(min-width: 768px)"
+              width={"277"}
+              height={"174"}
+            />
+            <img
+              className="product-id-page-gallery-picture-2"
+              src={data?.gallery.second.mobile}
+              alt={data?.name}
+              width={"327"}
+              height={"174"}
+            />
+          </picture>
+        </div>
+        <picture>
+          <source
+            srcSet={data?.gallery.third.desktop}
+            media="(min-width: 1440px)"
+            width={"635"}
+            height={"586"}
+          />
+          <source
+            srcSet={data?.gallery.third.tablet}
+            media="(min-width: 768px)"
+            width={"395"}
+            height={"370"}
+          />
+          <img
+            className="product-id-page-gallery-picture-3"
+            src={data?.gallery.third.mobile}
+            alt={data?.name}
+            width={"327"}
+            height={"370"}
+          />
+        </picture>
       </div>
     </>
   );

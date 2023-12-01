@@ -9,7 +9,7 @@ export interface IGoods {
   price: number;
   description: string;
   features: string;
-  includes: { quantity: number; item: string }[];
+  includes: { quantity: number; item: string; _id:string }[];
   gallery: {
     first: { mobile: string; tablet: string; desktop: string };
     second: { mobile: string; tablet: string; desktop: string };
