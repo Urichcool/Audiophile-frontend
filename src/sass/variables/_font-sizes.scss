@@ -33,13 +33,17 @@ $fontFamily: Manrope;
 }
 
 .H3-manrope-bold {
+  font-size: 24px;
+  letter-spacing: 1.714px;
   font-family: $fontFamily;
-  font-size: 32px;
   font-style: normal;
   font-weight: 700;
   line-height: 36px;
-  letter-spacing: 1.143px;
   text-transform: uppercase;
+  @include tablet {
+    font-size: 32px;
+    letter-spacing: 1.143px;
+  }
 }
 
 .H4-manrope-bold {
@@ -54,12 +58,16 @@ $fontFamily: Manrope;
 
 .H5-manrope-bold {
   font-family: $fontFamily;
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: 1.714px;
+  letter-spacing: 1.4px;
   text-transform: uppercase;
+  @include desktop {
+    font-size: 24px;
+    letter-spacing: 1.714px;
+  }
 }
 
 .H6-manrope-bold {

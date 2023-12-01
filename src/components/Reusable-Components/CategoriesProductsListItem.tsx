@@ -8,6 +8,7 @@ interface ICategoriesProductsListItemProps {
   name: string;
   description: string;
   isEven: boolean;
+  id: string
 }
 
 const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
@@ -16,6 +17,7 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
   isNew,
   description,
   isEven,
+  id
 }) => {
   return (
     <li
@@ -28,7 +30,6 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
       <div className="categories-products-list-item-picture-container">
         <AnimationOnScroll
           animateIn="animate__fadeIn"
-          delay={1000}
           animateOnce
           offset={0}
         >
@@ -56,7 +57,7 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
       </div>
       <AnimationOnScroll
         animateIn={isEven ? "animate__fadeInLeft" : "animate__fadeInRight"}
-        delay={1500}
+        delay={500}
         animateOnce
         offset={0}
       >
@@ -72,7 +73,7 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
           <p className="Body-manrope-medium categories-products-list-item-description">
             {description}
           </p>
-          <Button1 />
+          <Button1 id={id} />
         </div>
       </AnimationOnScroll>
     </li>

@@ -1,0 +1,22 @@
+.add-to-cart-button {
+  width: 160px;
+  height: 48px;
+  background-color: $primaryOrange;
+  margin-left: 16px;
+  color: $primaryWhite;
+  font-family: Manrope;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+transition: 500ms;
+transition-property: background-color;
+&:hover,
+&:focus{
+    background-color: $secondaryOrange;
+}
+}

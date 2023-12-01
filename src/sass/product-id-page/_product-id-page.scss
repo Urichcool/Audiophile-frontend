@@ -1,0 +1,242 @@
+.product-id-page-section {
+  padding-top: 16px;
+  padding-bottom: 120px;
+  @include tablet {
+    padding-top: 33px;
+  }
+  @include desktop {
+    padding-top: 79px;
+    padding-bottom: 200px;
+  }
+}
+
+.product-id-page-website-description-section {
+  padding-top: 120px;
+  @include desktop {
+    padding-top: 160px;
+  }
+}
+
+.product-id-page-website-categories-list-section {
+  padding-top: 172px;
+  @include desktop {
+    padding-top: 240px;
+  }
+}
+
+.product-id-page-may-also-like-list-section {
+  padding-top: 120px;
+  @include desktop {
+    padding-top: 160px;
+  }
+}
+
+.product-id-page-picture-container {
+  width: 100%;
+  height: 327px;
+  border-radius: 8px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+  background-color: $primaryGray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include tablet {
+    width: 281px;
+    height: 480px;
+    margin-bottom: 0;
+  }
+  @include desktop {
+    width: 540px;
+    height: 560px;
+    margin-top: 56px;
+  }
+}
+
+.product-id-page-picture-and-description-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 88px;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 120px;
+  }
+  @include desktop {
+    margin-bottom: 160px;
+  }
+}
+
+.product-id-page-description-container {
+  @include tablet {
+    width: 339px;
+  }
+  @include desktop {
+    width: 445px;
+  }
+}
+
+.product-id-page-new-product-text {
+  margin-bottom: 24px;
+  color: $primaryOrange;
+  @include tablet {
+    margin-bottom: 17px;
+  }
+  @include desktop {
+    margin-bottom: 16px;
+  }
+}
+
+.product-id-page-product-title {
+  margin-bottom: 24px;
+  color: $primaryBlack;
+  @include tablet {
+    margin-bottom: 32px;
+  }
+}
+
+.product-id-page-product-description {
+  opacity: 0.5;
+  color: $primaryBlack;
+  margin-bottom: 24px;
+  @include tablet {
+    margin-bottom: 32px;
+  }
+}
+
+.product-id-page-product-price {
+  color: $primaryBlack;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.286px;
+  text-transform: uppercase;
+  margin-bottom: 31px;
+  @include tablet {
+    margin-bottom: 32px;
+  }
+  @include desktop {
+    margin-bottom: 47px;
+  }
+}
+
+.product-id-page-features-and-includes-container{
+  margin-bottom: 88px;
+  @include tablet {
+    margin-bottom: 120px;
+  }
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 160px;
+  }
+}
+
+.product-id-page-features-container{
+  margin-bottom: 88px;
+  @include tablet {
+    margin-bottom: 120px;
+  }
+  @include desktop {
+    margin-bottom: 0;
+  }
+}
+
+.product-id-page-features-title {
+  color: $primaryBlack;
+  margin-bottom: 24px;
+  @include tablet {
+    margin-bottom: 32px;
+  }
+}
+
+.product-id-page-features-text {
+  color: $primaryBlack;
+  opacity: 0.5;
+  @include desktop {
+    width: 635px;
+  }
+}
+
+.product-id-page-includes-container{
+  @include tablet{
+    display: flex;
+  }
+  @include desktop{
+    display: block;
+  }
+}
+
+.product-id-page-includes-title{
+  color: $primaryBlack;
+  margin-bottom: 24px;
+  @include tablet{
+    margin-bottom: 0;
+    width: 339px;
+  }
+  @include desktop{
+    margin-bottom: 32px;
+  }
+}
+
+
+.product-id-page-includes-list-item{
+  display: flex;
+  margin-bottom: 8px;
+  align-items: center;
+  &:last-of-type{
+    margin-bottom: 0;
+  }
+}
+
+.product-id-page-includes-list-item-quantity-text{
+  margin-right: 24px;
+  color: $primaryOrange;
+width: 15px;
+height: 25px;
+font-family: Manrope;
+font-size: 15px;
+font-style: normal;
+font-weight: 700;
+line-height: 25px;
+}
+
+.product-id-page-includes-list-item-text{
+  opacity: 0.5;
+  color: $primaryBlack;
+}
+
+.product-id-page-gallery{
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.product-id-page-gallery-picture-1{
+  border-radius: 8px;
+  margin-bottom: 22px;
+}
+
+.product-id-page-gallery-picture-2{
+  border-radius: 8px;
+  margin-bottom: 22px;
+  @include tablet{
+    margin-bottom: 0;
+  }
+}
+
+.product-id-page-gallery-picture-3{
+  border-radius: 8px;
+}
+
+.product-id-page-loader{
+  width: 100%;
+height: 600px;
+display: flex;
+padding-top: 150px;
+justify-content: center;
+}

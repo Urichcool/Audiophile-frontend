@@ -27,7 +27,7 @@ const CategoriesProductsListSection: FC<
         <section className="categories-products-list-section">
           <div className="container">
             <ul>
-              {dataSortedByNew.sort().map((product, index) => (
+              {dataSortedByNew.map((product, index) => (
                 <CategoriesProductsListItem
                   key={product._id}
                   previewImage={product.previewImage}
@@ -35,6 +35,7 @@ const CategoriesProductsListSection: FC<
                   name={product.name}
                   description={product.description}
                   isEven={(index + 1) % 2 === 0}
+                  id={product._id}
                 />
               ))}
             </ul>

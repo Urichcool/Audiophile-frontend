@@ -19,6 +19,12 @@
   }
 }
 
+.hero-productId{
+  height: 1px;
+  width: 100%;
+  position: relative;
+}
+
 .hero-container {
   animation: showText 1s 1;
   animation-delay: 1.5s;

@@ -62,7 +62,7 @@ const HomeProductsEarphone: FC<IHomeProductsEarphoneProps> = ({
               <h3 className="H4-manrope-bold  home-products-earphone-title">
                 {data?.name}
               </h3>
-              <Button2 />
+                <Button2 id={data?._id} />
             </div>
           </AnimationOnScroll>
         )}
