@@ -20,7 +20,9 @@ const AddToCartForm: FC = () => {
           <button
             className="add-to-cart-input-minus-button"
             onClick={() => {
-              props.setFieldValue("quantity", (props.values.quantity -= 1));
+              if (props.values.quantity !== 1) {
+                props.setFieldValue("quantity", (props.values.quantity -= 1));
+              }
             }}
             type="button"
           >
@@ -38,7 +40,9 @@ const AddToCartForm: FC = () => {
           <button
             className="add-to-cart-input-plus-button"
             onClick={() => {
-              props.setFieldValue("quantity", (props.values.quantity += 1));
+              if (props.values.quantity !== 99) {
+                props.setFieldValue("quantity", (props.values.quantity += 1));
+              }
             }}
             type="button"
           >

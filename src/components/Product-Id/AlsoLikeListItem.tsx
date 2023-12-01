@@ -8,11 +8,10 @@ interface IAlsoLikeListItemProps {
     tablet: string;
     desktop: string;
   };
-    isFetching: boolean;
     id:string
 }
 
-const AlsoLikeListItem: FC<IAlsoLikeListItemProps> = ({name, image, isFetching, id}) => {
+const AlsoLikeListItem: FC<IAlsoLikeListItemProps> = ({name, image, id}) => {
   return (
     <li className="also-like-list-item">
       <div className="also-like-list-item-picture-container">

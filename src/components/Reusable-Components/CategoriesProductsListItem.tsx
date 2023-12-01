@@ -30,7 +30,6 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
       <div className="categories-products-list-item-picture-container">
         <AnimationOnScroll
           animateIn="animate__fadeIn"
-          delay={1000}
           animateOnce
           offset={0}
         >
@@ -58,7 +57,7 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
       </div>
       <AnimationOnScroll
         animateIn={isEven ? "animate__fadeInLeft" : "animate__fadeInRight"}
-        delay={1500}
+        delay={500}
         animateOnce
         offset={0}
       >
