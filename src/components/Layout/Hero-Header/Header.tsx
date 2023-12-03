@@ -33,20 +33,40 @@ const Header: FC = () => {
           >
             <BurgerIcon />
           </button>
-          <Link to={"/"} className="audiophile-logo">
+          <Link
+            data-testid="header-logo-home-link"
+            to={"/"}
+            className="audiophile-logo"
+          >
             <AudiophileIcon />
           </Link>
           <nav className="header-navigation">
-            <NavLink className="header-navigation-link" to={"/"}>
+            <NavLink
+              data-testid="header-home-link"
+              className="header-navigation-link"
+              to={"/"}
+            >
               Home
             </NavLink>
-            <NavLink className="header-navigation-link" to={"headphones"}>
+            <NavLink
+              data-testid="header-headphones-link"
+              className="header-navigation-link"
+              to={"headphones"}
+            >
               headphones
             </NavLink>
-            <NavLink className="header-navigation-link" to={"speakers"}>
+            <NavLink
+              data-testid="header-speakers-link"
+              className="header-navigation-link"
+              to={"speakers"}
+            >
               Speakers
             </NavLink>
-            <NavLink className="header-navigation-link" to={"earphones"}>
+            <NavLink
+              data-testid="header-earphones-link"
+              className="header-navigation-link"
+              to={"earphones"}
+            >
               Earphones
             </NavLink>
           </nav>
