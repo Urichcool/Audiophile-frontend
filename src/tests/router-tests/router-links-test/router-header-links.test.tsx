@@ -1,8 +1,8 @@
-import App from "../../App";
-import { screen, fireEvent, getByTestId } from "@testing-library/react";
-import { renderWithReduxAndRouter } from "../helpers/RenderWithReduxAndRouter";
+import App from "../../../App";
+import { screen, fireEvent} from "@testing-library/react";
+import { renderWithReduxAndRouter } from "../../helpers/RenderWithReduxAndRouter";
 
-describe("router-links-test", () => {
+describe("router-header-links-test", () => {
   test("header-logo-home-link-test", () => {
     renderWithReduxAndRouter(<App />);
     const headerLogoHomeLink: HTMLElement = screen.getByTestId(

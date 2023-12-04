@@ -10,30 +10,38 @@ const Footer: FC = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-line"></div>
-        <Link to={"/"} className="footer-audiophile-logo">
+        <Link
+          to={"/"}
+          data-testid="footer-logo-home-link"
+          className="footer-audiophile-logo"
+        >
           <AudiophileIcon />
         </Link>
         <nav className="footer-navigation">
           <NavLink
             to={"/"}
+            data-testid="footer-home-link"
             className={"Sub-title-manrope-bold footer-navigation-link"}
           >
             Home
           </NavLink>
           <NavLink
             to={"/headphones"}
+            data-testid="footer-headphones-link"
             className={"Sub-title-manrope-bold footer-navigation-link"}
           >
             Headphones
           </NavLink>
           <NavLink
             to={"/speakers"}
+            data-testid="footer-speakers-link"
             className={"Sub-title-manrope-bold footer-navigation-link"}
           >
             Speakers
           </NavLink>
           <NavLink
             to={"earphones"}
+            data-testid="footer-earphones-link"
             className={"Sub-title-manrope-bold footer-navigation-link"}
           >
             Earphones

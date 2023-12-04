@@ -18,7 +18,11 @@ const CategoriesList: FC<ICategoriesProps> = ({ isMobile }) => {
           <h6 className="H6-manrope-bold categories-list-item-title">
             headphones
           </h6>
-          <Button3 to={"/headphones"} isMobile={isMobile} />
+          <Button3
+            to={"/headphones"}
+            isMobile={isMobile}
+            testId={"navigation-button-headphones"}
+          />
         </li>
         <li className="categories-list-item">
           <div className="categories-list-speakers-image" />
@@ -28,7 +32,11 @@ const CategoriesList: FC<ICategoriesProps> = ({ isMobile }) => {
           <h6 className="H6-manrope-bold categories-list-item-title">
             speakers
           </h6>
-          <Button3 to={"/speakers"} isMobile={isMobile} />
+          <Button3
+            to={"/speakers"}
+            isMobile={isMobile}
+            testId={"navigation-button-speakers"}
+          />
         </li>
         <li className="categories-list-item">
           <div className="categories-list-earphones-image" />
@@ -38,7 +46,11 @@ const CategoriesList: FC<ICategoriesProps> = ({ isMobile }) => {
           <h6 className="H6-manrope-bold categories-list-item-title">
             earphones
           </h6>
-          <Button3 to={"/earphones"} isMobile={isMobile} />
+          <Button3
+            to={"/earphones"}
+            isMobile={isMobile}
+            testId={"navigation-button-earphones"}
+          />
         </li>
       </ul>
     </>
