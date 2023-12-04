@@ -32,4 +32,9 @@ describe("router-navigation-buttons-test", () => {
          const earphonesPage: HTMLElement = screen.getByTestId("earphones-page");
          expect(earphonesPage).toBeInTheDocument();
        });
+  test("router-navigation-productId-button-test", () => {
+    renderWithReduxAndRouter(<App />);
+    const productIdButton: HTMLElement[] =
+      screen.getAllByTestId("id-page-nav-button");
+  });
 })

@@ -33,7 +33,7 @@ const AlsoLikeListItem: FC<IAlsoLikeListItemProps> = ({name, image, id}) => {
       </div>
       <div className="also-like-list-item-content-container">
         <h4 className="H5-manrope-bold also-like-list-item-title">{name}</h4>
-        <Button1 id={id} />
+        <Button1 id={id} testId={"id-page-nav-button"} />
       </div>
     </li>
   );
