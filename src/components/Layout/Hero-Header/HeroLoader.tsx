@@ -4,7 +4,7 @@ import { Oval } from 'react-loader-spinner';
 const HeroLoader:FC = () => {
     return (
       <div className="container">
-        <div className="hero-loader">
+        <div className="hero-loader" data-testid="hero-loader">
           <Oval
             height={200}
             width={200}

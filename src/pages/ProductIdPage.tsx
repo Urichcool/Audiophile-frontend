@@ -7,7 +7,7 @@ import ProductIdContent from "../components/Product-Id/ProductIdContent";
 
 const ProductIdPage: FC = () => {
   return (
-    <section className="product-id-page-section">
+    <div className="product-id-page-section" data-testid="product-id-page">
       <div className="container">
         <section className="product-id-page-product-section">
          <ProductIdContent/>
@@ -22,7 +22,7 @@ const ProductIdPage: FC = () => {
           <WebSiteDescription />
         </section>
       </div>
-    </section>
+    </div>
   );
 };
 

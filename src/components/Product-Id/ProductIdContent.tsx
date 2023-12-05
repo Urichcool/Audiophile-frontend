@@ -12,7 +12,7 @@ const ProductIdContent = () => {
   const { data, isFetching } = useGetGoodsByIdQuery(productId!);
   return (
     <>
-      <GoBackButton />
+      <GoBackButton testId={"product-id-page-go-back-button" } />
       {isFetching ? (
         <div className="product-id-page-loader">
           <Audio width={"250"} height={"250"} color="#d87d4a" />
