@@ -32,7 +32,7 @@ const MobileMenu: FC = () => {
 
   return (
     <>
-      <div className={"mobile-menu" + menuClassName}>
+      <div className={"mobile-menu" + menuClassName} data-testId="mobile-menu">
         <div className="container">
           <div className="mobile-menu-categories-container">
             <CategoriesList isMobile={true} />

@@ -27,6 +27,7 @@ const Header: FC = () => {
         >
           <button
             className="burger-button"
+            data-testid="mobile-menu-button"
             onClick={(): void => {
               dispatch(switchMenu(!isMenuOpen));
             }}
