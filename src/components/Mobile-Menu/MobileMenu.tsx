@@ -44,6 +44,7 @@ const MobileMenu: FC = () => {
         onClick={(): void => {
           dispatch(switchMenu(!isMenuOpen));
         }}
+        data-testid="mobile-menu-backdrop"
       />
     </>
   );
