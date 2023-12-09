@@ -5,8 +5,13 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import { renderWithReduxAndRouter } from "../../helpers/RenderWithReduxAndRouter";
+import { store } from "../../../redux/store";
+import { goodsApi } from "../../../redux/services/goods";
 
 describe("router-navigation-buttons-test", () => {
+  afterEach(() => {
+    store.dispatch(goodsApi.util.resetApiState());
+  });
   test("router-navigation-headphones-button-test", () => {
     renderWithReduxAndRouter(<App />);
     const headphonesButton: HTMLElement[] = screen.getAllByTestId(

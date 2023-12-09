@@ -10,7 +10,7 @@ export const store:Store = configureStore({
     mobileMenu:mobileMenuSliceReducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(goodsApi.middleware),
+    getDefaultMiddleware().concat(goodsApi.middleware)
 });
 
 setupListeners(store.dispatch);
