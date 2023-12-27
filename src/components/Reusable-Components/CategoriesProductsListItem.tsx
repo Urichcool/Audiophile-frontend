@@ -28,11 +28,7 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
       }
     >
       <div className="categories-products-list-item-picture-container">
-        <AnimationOnScroll
-          animateIn="animate__fadeIn"
-          animateOnce
-          offset={0}
-        >
+        <AnimationOnScroll animateIn="animate__fadeIn" animateOnce offset={0}>
           <picture>
             <source
               srcSet={previewImage.desktop}
@@ -73,7 +69,7 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
           <p className="Body-manrope-medium categories-products-list-item-description">
             {description}
           </p>
-          <Button1 id={id} />
+          <Button1 id={id} testId={"id-page-nav-button"} />
         </div>
       </AnimationOnScroll>
     </li>

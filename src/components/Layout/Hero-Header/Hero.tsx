@@ -41,7 +41,7 @@ const Hero: FC = () => {
                     <p className="Body-manrope-medium hero-new-product-description">
                       {shortDescrFunc(data?.description)}
                     </p>
-                    <Button1 id={data?._id} />
+                      <Button1 id={data?._id} testId={"id-page-nav-button"} />
                   </div>
                   <picture className="hero-new-product-picture">
                     <source

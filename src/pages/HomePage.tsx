@@ -3,22 +3,22 @@ import CategoriesList from "../components/Reusable-Components/CategoriesList";
 import HomeProductsList from "../components/Home/HomeProducts/HomeProductsList";
 import WebSiteDescription from "../components/Reusable-Components/WebSiteDescription";
 
-const Home: FC = () => {
-
-  
+const HomePage: FC = () => {
   return (
-    <div className="container">
-      <section className="home-categories-list-section">
-        <CategoriesList />
-      </section>
-      <section className="home-products-section">
-        <HomeProductsList />
-      </section>
-      <section className="home-site-description-section">
-        <WebSiteDescription/>
-      </section>
+    <div data-testid = "home-page">
+      <div className="container">
+        <section className="home-categories-list-section">
+          <CategoriesList />
+        </section>
+        <section className="home-products-section">
+          <HomeProductsList />
+        </section>
+        <section className="home-site-description-section">
+          <WebSiteDescription />
+        </section>
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default HomePage;

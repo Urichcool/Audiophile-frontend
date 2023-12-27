@@ -11,7 +11,7 @@ const SpeakersPage:FC = () => {
    }, [data]);
 
   return (
-    <>
+    <div data-testid="speakers-page">
       <CategoriesProductsListSection
         data={data && data}
         isFetching={isFetching}
@@ -24,7 +24,7 @@ const SpeakersPage:FC = () => {
           <WebSiteDescription />
         </section>
       </div>
-    </>
+    </div>
   );
 }
 

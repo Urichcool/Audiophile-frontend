@@ -12,7 +12,7 @@ const { data, isFetching } = useGetAllHeadphonesQuery();
 
   
   return (
-    <>
+    <div data-testId="headphones-page">
       <CategoriesProductsListSection
         data={data && data}
         isFetching={isFetching}
@@ -25,7 +25,7 @@ const { data, isFetching } = useGetAllHeadphonesQuery();
           <WebSiteDescription />
         </section>
       </div>
-    </>
+    </div>
   );
 };
 
