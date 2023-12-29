@@ -2,32 +2,34 @@ import { FC } from "react";
 import { Formik, Form, Field } from "formik";
 import AddToCartButton from "../Reusable-Components/Buttons/AddToCartButton";
 import { useAppDispatch } from "../../redux/reduxHooks/reduxHooks";
-import { useAppSelector } from "../../redux/reduxHooks/reduxHooks";
 import { AppDispatch } from "../../redux/store";
 import { addProduct } from "../../redux/slices/cartSlice";
-import { selectCartProducts } from "../../redux/slices/cartSlice";
 
 interface IAddToCartFormValues {
   quantity: number;
 }
 
-const AddToCartForm: FC = () => {
+interface IAddToCartFormProps {
+  productId: string | undefined;
+  name: string | undefined;
+  price: number | undefined;
+}
+
+const AddToCartForm: FC<IAddToCartFormProps> = ({ productId, name, price }) => {
   const dispatch: AppDispatch = useAppDispatch();
   const initialValues: IAddToCartFormValues = { quantity: 1 };
-  const products = useAppSelector(selectCartProducts);
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={(values: IAddToCartFormValues) => {
         dispatch(
           addProduct({
-            id: "652bdfecc2dd2dacebf6dadf67",
-            name: "XX99 Mark II Headsdsades",
+            id: productId,
+            name: name,
             quantity: values.quantity,
-            price: 454554,
+            price: price,
           })
         );
-        console.log(products);
       }}
     >
       {(props) => (
