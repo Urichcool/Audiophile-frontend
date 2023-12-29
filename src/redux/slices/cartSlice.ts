@@ -23,7 +23,19 @@ const cartSlice: Slice = createSlice({
         price: number;
       }>
     ) => {
-      state.products.push(action.payload);
+      const product:
+        | { id: string; name: string; quantity: number; price: number }
+        | undefined = state.products.find(({ id }) => id === action.payload.id);
+      if (product) {
+        state.products[
+          state.products.findIndex(({ id }) => action.payload.id === id)
+        ].quantity += action.payload.quantity;
+        state.products[
+          state.products.findIndex(({ id }) => action.payload.id === id)
+        ].price += action.payload.price;
+      } else {
+        state.products.push(action.payload);
+      }
     },
     clearCart: (state: IInitialCartState) => {
       state.products = [];
@@ -32,7 +44,9 @@ const cartSlice: Slice = createSlice({
 });
 
 export const switchMenu = cartSlice.actions.clearCart;
+export const addProduct = cartSlice.actions.addProduct;
 
-export const selectCartProducts = (state: RootState) => state.products;
+
+export const selectCartProducts = (state: RootState) => state.cart.products;
 
 export const cartSliceReducer: Reducer = cartSlice.reducer;
