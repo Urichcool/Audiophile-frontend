@@ -11,8 +11,10 @@ import {
 import { selectIsMenuOpen } from "../../../redux/slices/mobileMenuSlice";
 import { AppDispatch } from "../../../redux/store";
 import { switchMenu } from "../../../redux/slices/mobileMenuSlice";
+import { selectCartProducts } from "../../../redux/slices/cartSlice";
 
 const Header: FC = () => {
+  const cartLength:number = useAppSelector(selectCartProducts).length
   const isMenuOpen: boolean = useAppSelector(selectIsMenuOpen);
   const dispatch: AppDispatch = useAppDispatch();
   const { productId }: Readonly<Params<string>> = useParams();
@@ -73,6 +75,11 @@ const Header: FC = () => {
           </nav>
           <button className="cart-button">
             <CartIcon />
+            {cartLength !==0 && (
+              <p className="cart-button-quantity H6-manrope-bold">
+                {cartLength}
+              </p>
+            )}
           </button>
         </div>
       </div>

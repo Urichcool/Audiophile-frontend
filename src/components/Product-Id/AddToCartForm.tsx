@@ -13,9 +13,15 @@ interface IAddToCartFormProps {
   productId: string | undefined;
   name: string | undefined;
   price: number | undefined;
+  picture: string | undefined;
 }
 
-const AddToCartForm: FC<IAddToCartFormProps> = ({ productId, name, price }) => {
+const AddToCartForm: FC<IAddToCartFormProps> = ({
+  productId,
+  name,
+  price,
+  picture,
+}) => {
   const dispatch: AppDispatch = useAppDispatch();
   const initialValues: IAddToCartFormValues = { quantity: 1 };
   return (
@@ -28,6 +34,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({ productId, name, price }) => {
             name: name,
             quantity: values.quantity,
             price: price,
+            picture: picture,
           })
         );
       }}

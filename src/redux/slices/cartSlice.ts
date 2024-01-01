@@ -3,7 +3,7 @@ import type { PayloadAction, Reducer, Slice } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 
 interface IInitialCartState {
-  products: { id: string; name: string; quantity: number; price: number }[];
+  products: { id: string; name: string; quantity: number; price: number;  picture:string}[];
 }
 
 const initialState: IInitialCartState = {
@@ -21,6 +21,7 @@ const cartSlice: Slice = createSlice({
         name: string;
         quantity: number;
         price: number;
+        picture:string
       }>
     ) => {
       const product:
