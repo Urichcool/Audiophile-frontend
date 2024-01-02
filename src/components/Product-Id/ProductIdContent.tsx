@@ -61,7 +61,7 @@ const ProductIdContent = () => {
               <p className="product-id-page-product-price">
                 {priceWithCommas(data?.price)}
               </p>
-              <AddToCartForm />
+                <AddToCartForm productId={data?._id} name={data?.name} price={data?.price} picture={data?.previewImage.desktop} />
             </div>
           </div>
           <div className="product-id-page-features-and-includes-container">
