@@ -1,0 +1,43 @@
+.cart-backdrop {
+  transition: 500ms;
+  transition-property: opacity;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 500ms;
+  transition-property: opacity;
+}
+
+.cart-backdrop-open {
+  opacity: 1;
+}
+
+.cart-backdrop-close {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.cart-content {
+  width: 327px;
+  border-radius: 8px;
+  padding: 28px 32px;
+  position: absolute;
+  top: 114px;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: $primaryWhite;
+  z-index: 10;
+  @include tablet {
+    width: 377px;
+    padding: 33px 32px;
+    right: -10px;
+    transform: translateX(0);
+  }
+  @include desktop {
+    top: 129px;
+  }
+}
