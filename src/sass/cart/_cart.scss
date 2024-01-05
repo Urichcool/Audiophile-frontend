@@ -3,7 +3,7 @@
   transition-property: opacity;
   top: 0;
   right: 0;
-  z-index: 9;
+  z-index: 10;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -39,5 +39,70 @@
   }
   @include desktop {
     top: 129px;
+  }
+}
+
+.cart-container{
+   transition: 500ms;
+  transition-property: opacity;
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.cart-container-open {
+  display: block;
+}
+
+.cart-container-close {
+  pointer-events: none;
+  display: none;
+}
+
+.cart-head-container{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.empty-cart-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  svg{
+    margin-left: 15px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.cart-title{
+  color: $primaryBlack;
+font-family: Manrope;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 1.286px;
+text-transform: uppercase;
+}
+
+.cart-remove-all-button{
+  color: $primaryBlack;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration-line: underline;
+  opacity: 0.5;
+    transition: 500ms;
+  transition-property: color;
+  &:hover,
+  &:focus {
+    color: $primaryOrange;
   }
 }

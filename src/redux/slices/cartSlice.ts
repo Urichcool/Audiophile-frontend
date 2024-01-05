@@ -16,8 +16,11 @@ const cartSlice: Slice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    switchCartModal: (state:IInitialCartState, action:PayloadAction<boolean>) => {
-      state.isCartModalOpen = action.payload
+    switchCartModal: (
+      state: IInitialCartState,
+      action: PayloadAction<boolean>
+    ) => {
+      state.isCartModalOpen = action.payload;
     },
     addProduct: (
       state: IInitialCartState,
@@ -26,7 +29,7 @@ const cartSlice: Slice = createSlice({
         name: string;
         quantity: number;
         price: number;
-        picture:string
+        picture: string;
       }>
     ) => {
       const product:
@@ -43,8 +46,8 @@ const cartSlice: Slice = createSlice({
         state.products.push(action.payload);
       }
     },
-    clearCart: (state: IInitialCartState) => {
-      state.products = [];
+    clearCart: (state: IInitialCartState, action:PayloadAction<[]>):void => {
+      state.products = action.payload;
     },
   },
 });
@@ -52,6 +55,7 @@ const cartSlice: Slice = createSlice({
 export const switchMenu = cartSlice.actions.clearCart;
 export const addProduct = cartSlice.actions.addProduct;
 export const switchCartModal = cartSlice.actions.switchCartModal;
+export const clearCart = cartSlice.actions.clearCart
 
 export const selectCartProducts = (state: RootState) => state.cart.products;
 export const selectIsCartModalOpen = (state: RootState) => state.cart.isCartModalOpen;
