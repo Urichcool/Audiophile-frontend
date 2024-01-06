@@ -128,3 +128,80 @@
     color: $primaryOrange;
   }
 }
+
+.cart-list {
+  margin-bottom: 32px;
+}
+
+.cart-list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.cart-list-item-picture-container {
+  width: 84px;
+  height: 84px;
+  background-color: $primaryGray;
+  border-radius: 8px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-item-picture {
+  width: 65px;
+  height: 65px;
+}
+
+.cart-item-name {
+  font-family: Manrope;
+  color: $primaryBlack;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  width: 100px;
+}
+
+.cart-item-price {
+  color: $primaryBlack;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  opacity: 0.5;
+}
+
+.cart-total-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-total-title {
+  text-transform: uppercase;
+  color: $primaryBlack;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
+  opacity: 0.5;
+}
+
+.cart-total {
+  color: $primaryBlack;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}

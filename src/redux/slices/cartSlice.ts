@@ -5,11 +5,13 @@ import type { RootState } from "../store";
 interface IInitialCartState {
   products: { id: string; name: string; quantity: number; price: number; picture: string }[];
   isCartModalOpen: boolean;
+  total: number;
 }
 
 const initialState: IInitialCartState = {
   products: [],
-  isCartModalOpen:false
+  isCartModalOpen: false,
+  total: 0
 };
 
 const cartSlice: Slice = createSlice({
@@ -46,18 +48,23 @@ const cartSlice: Slice = createSlice({
         state.products.push(action.payload);
       }
     },
-    clearCart: (state: IInitialCartState, action:PayloadAction<[]>):void => {
+    clearCart: (state: IInitialCartState, action:PayloadAction<[]>) => {
       state.products = action.payload;
     },
+    getTotal: (state: IInitialCartState, action: PayloadAction<number>) => {
+      state.total = action.payload
+    }
   },
 });
 
 export const switchMenu = cartSlice.actions.clearCart;
 export const addProduct = cartSlice.actions.addProduct;
 export const switchCartModal = cartSlice.actions.switchCartModal;
-export const clearCart = cartSlice.actions.clearCart
+export const clearCart = cartSlice.actions.clearCart;
+export const getTotal = cartSlice.actions.getTotal
 
 export const selectCartProducts = (state: RootState) => state.cart.products;
 export const selectIsCartModalOpen = (state: RootState) => state.cart.isCartModalOpen;
+export const selectTotal = (state:RootState) => state.cart.total
 
 export const cartSliceReducer: Reducer = cartSlice.reducer;

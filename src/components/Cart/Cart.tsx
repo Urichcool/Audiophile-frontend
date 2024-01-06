@@ -5,12 +5,16 @@ import {
 } from "../../redux/reduxHooks/reduxHooks";
 import {
   clearCart,
+  getTotal,
   selectCartProducts,
   selectIsCartModalOpen,
+  selectTotal,
   switchCartModal,
 } from "../../redux/slices/cartSlice";
 import { BsFillCartXFill } from "react-icons/bs";
 import { IoIosClose } from "react-icons/io";
+import CartItem from "./CartItem";
+import { priceWithCommas } from "../../utils/priceWithCommas";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
@@ -23,7 +27,30 @@ const Cart: FC = () => {
         picture: string;
       }[]
     | [] = useAppSelector(selectCartProducts);
+  const total:number = useAppSelector(selectTotal)
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(
+      getTotal(
+        cartProducts.length !== 0
+          ? [...cartProducts].reduce(
+              (
+                total: number,
+                product: {
+                  id: string;
+                  name: string;
+                  quantity: number;
+                  price: number;
+                  picture: string;
+                }
+              ) => (total += product.price),
+              0
+            )
+          : 0
+      )
+    );
+  }, [cartProducts, dispatch]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent): void => {
@@ -82,7 +109,24 @@ const Cart: FC = () => {
                     Remove all
                   </button>
                 </div>
-                <ul></ul>
+                <ul className="cart-list">
+                  {cartProducts.map(
+                    ({ id, name, quantity, price, picture }) => (
+                      <CartItem
+                        key={id}
+                        id={id}
+                        name={name}
+                        quantity={quantity}
+                        price={price}
+                        picture={picture}
+                      />
+                    )
+                  )}
+                </ul>
+                <div className="cart-total-container">
+                  <h6 className="cart-total-title">total</h6>
+                  <p className="cart-total">{priceWithCommas(total)}</p>
+                </div>
               </>
             )}
           </div>

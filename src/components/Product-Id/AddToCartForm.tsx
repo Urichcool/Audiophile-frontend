@@ -33,7 +33,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
             id: productId,
             name: name,
             quantity: values.quantity,
-            price: price,
+            price: price ? price * values.quantity : price,
             picture: picture,
           })
         );
