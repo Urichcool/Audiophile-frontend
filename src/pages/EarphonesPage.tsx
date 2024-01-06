@@ -10,7 +10,7 @@ const EarphonesPage:FC = () => {
      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
    }, [data]);
   return (
-    <div data-testId="earphones-page">
+    <div data-testid="earphones-page">
       <CategoriesProductsListSection
         data={data && data}
         isFetching={isFetching}

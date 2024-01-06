@@ -10,6 +10,7 @@ import {
   switchCartModal,
 } from "../../redux/slices/cartSlice";
 import { BsFillCartXFill } from "react-icons/bs";
+import { IoIosClose } from "react-icons/io";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
@@ -53,27 +54,40 @@ const Cart: FC = () => {
       >
         <div className="container">
           <div className="cart-content">
+            <button
+              className="cart-close-button"
+              onClick={(): void => {
+                dispatch(switchCartModal(!isCartModalOpen));
+              }}
+            >
+              <IoIosClose />
+            </button>
             {cartProducts.length === 0 ? (
               <div className="empty-cart-container">
                 <h6 className="cart-title">Your cart is empty</h6>
                 <BsFillCartXFill />
               </div>
             ) : (
-              <div className="cart-head-container">
-                <h6 className="cart-title">
-                  cart {`(${cartProducts.length})`}
-                </h6>
-                  <button className="cart-remove-all-button Body-manrope-medium" onClick={(): void => {
-                    dispatch(clearCart([]))
-                }}>
-                  Remove all
-                </button>
-              </div>
+              <>
+                <div className="cart-head-container">
+                  <h6 className="cart-title">
+                    cart {`(${cartProducts.length})`}
+                  </h6>
+                  <button
+                    className="cart-remove-all-button Body-manrope-medium"
+                    onClick={(): void => {
+                      dispatch(clearCart([]));
+                    }}
+                  >
+                    Remove all
+                  </button>
+                </div>
+                <ul></ul>
+              </>
             )}
           </div>
         </div>
       </div>
-      ;
     </>
   );
 };

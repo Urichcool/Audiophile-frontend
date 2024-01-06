@@ -28,7 +28,7 @@ const AlsoLikeListItem: FC<IAlsoLikeListItemProps> = ({name, image, id}) => {
             width={"170"}
             height={"180"}
           />
-          <img src={image.mobile} alt={name} width={"87"} height={"93"} />
+          <img src={image.mobile} alt={name} width={"100"} height={"93"} />
         </picture>
       </div>
       <div className="also-like-list-item-content-container">

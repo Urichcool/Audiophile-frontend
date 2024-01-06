@@ -12,7 +12,7 @@ const { data, isFetching } = useGetAllHeadphonesQuery();
 
   
   return (
-    <div data-testId="headphones-page">
+    <div data-testid="headphones-page">
       <CategoriesProductsListSection
         data={data && data}
         isFetching={isFetching}
