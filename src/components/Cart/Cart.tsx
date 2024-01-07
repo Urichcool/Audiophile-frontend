@@ -15,6 +15,7 @@ import { BsFillCartXFill } from "react-icons/bs";
 import { IoIosClose } from "react-icons/io";
 import CartItem from "./CartItem";
 import { priceWithCommas } from "../../utils/priceWithCommas";
+import CheckoutButton from "../Reusable-Components/Buttons/CheckoutButton";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
@@ -126,7 +127,8 @@ const Cart: FC = () => {
                 <div className="cart-total-container">
                   <h6 className="cart-total-title">total</h6>
                   <p className="cart-total">{priceWithCommas(total)}</p>
-                </div>
+                  </div>
+                  <CheckoutButton/>
               </>
             )}
           </div>

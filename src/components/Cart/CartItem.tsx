@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { priceWithCommas } from "../../utils/priceWithCommas";
+import CartQuantityButtons from "./CartQuantityButtons";
 
 interface ICartItemProps {
   id: string;
@@ -25,7 +26,7 @@ const CartItem: FC<ICartItemProps> = ({
         <h6 className="cart-item-name">{name}</h6>
         <p className="cart-item-price">{priceWithCommas(price)}</p>
       </div>
-      
+      <CartQuantityButtons id={id} quantity={quantity} />
     </li>
   );
 };
