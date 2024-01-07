@@ -8,6 +8,7 @@ interface ICartItemProps {
   quantity: number;
   price: number;
   picture: string;
+  totalPrice: number;
 }
 
 const CartItem: FC<ICartItemProps> = ({
@@ -16,6 +17,7 @@ const CartItem: FC<ICartItemProps> = ({
   quantity,
   price,
   picture,
+  totalPrice
 }) => {
   return (
     <li className="cart-list-item">
@@ -24,9 +26,9 @@ const CartItem: FC<ICartItemProps> = ({
       </div>
       <div className="cart-list-item-text-container">
         <h6 className="cart-item-name">{name}</h6>
-        <p className="cart-item-price">{priceWithCommas(price)}</p>
+        <p className="cart-item-price">{priceWithCommas(totalPrice)}</p>
       </div>
-      <CartQuantityButtons id={id} quantity={quantity} />
+      <CartQuantityButtons id={id} quantity={quantity} price={price}/>
     </li>
   );
 };
