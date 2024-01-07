@@ -3,7 +3,7 @@
   transition-property: opacity;
   top: 0;
   right: 0;
-  z-index: 9;
+  z-index: 10;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -40,4 +40,219 @@
   @include desktop {
     top: 129px;
   }
+}
+
+.cart-container {
+  transition: 500ms;
+  transition-property: opacity;
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.cart-container-open {
+  display: block;
+}
+
+.cart-container-close {
+  pointer-events: none;
+  display: none;
+}
+
+.cart-head-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 31px;
+}
+
+.empty-cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-left: 15px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.cart-title {
+  color: $primaryBlack;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.286px;
+  text-transform: uppercase;
+}
+
+.cart-remove-all-button {
+  color: $primaryBlack;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration-line: underline;
+  opacity: 0.5;
+  transition: 500ms;
+  transition-property: color;
+  &:hover,
+  &:focus {
+    color: $primaryOrange;
+  }
+}
+
+.cart-close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  border: none;
+  background-color: transparent;
+  svg {
+    width: 25px;
+    height: 25px;
+    transition: 500ms;
+    transition-property: color;
+  }
+  svg:hover,
+  svg:focus {
+    color: $primaryOrange;
+  }
+}
+
+.cart-list {
+  margin-bottom: 32px;
+}
+
+.cart-list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.cart-list-item-picture-container {
+  width: 84px;
+  height: 84px;
+  background-color: $primaryGray;
+  border-radius: 8px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-item-picture {
+  width: 65px;
+  height: 65px;
+}
+
+.cart-item-name {
+  font-family: Manrope;
+  color: $primaryBlack;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  width: 100px;
+}
+
+.cart-item-price {
+  color: $primaryBlack;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  opacity: 0.5;
+}
+
+.cart-total-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.cart-total-title {
+  text-transform: uppercase;
+  color: $primaryBlack;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
+  opacity: 0.5;
+}
+
+.cart-total {
+  color: $primaryBlack;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.cart-quantity-buttons-container{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-left: auto;
+}
+
+.cart-quantity-button{
+  width: 40px;
+  height: 100%;
+  background-color: $primaryGray;
+  border: none;
+  color: rgba(0, 0, 0, 0.25);
+text-align: center;
+font-family: Manrope;
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 1px;
+text-transform: uppercase;
+p{
+ cursor: pointer;
+transition: 500ms;
+transition-property: color;
+&:hover,
+&:focus{
+    color: $primaryOrange;
+}
+}
+}
+
+.cart-quantity-text{
+  background-color: $primaryGray;
+  height: 100%;
+  width: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primaryBlack;
+text-align: center;
+font-family: Manrope;
+font-size: 15px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 1px;
+text-transform: uppercase;
 }
