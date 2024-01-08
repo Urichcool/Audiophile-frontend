@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import AddToCartButton from "../Reusable-Components/Buttons/AddToCartButton";
 import { useAppDispatch } from "../../redux/reduxHooks/reduxHooks";
 import { AppDispatch } from "../../redux/store";
-import { addProduct } from "../../redux/slices/cartSlice";
+import { addProduct } from "../../redux/slices/cart/cartSlice";
 
 interface IAddToCartFormValues {
   quantity: number;
@@ -33,7 +33,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
             id: productId,
             name: name,
             quantity: values.quantity,
-            price: price ,
+            price: price,
             picture: picture,
             totalPrice: price ? price * values.quantity : price,
           })

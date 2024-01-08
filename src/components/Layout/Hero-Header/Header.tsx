@@ -8,14 +8,14 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../redux/reduxHooks/reduxHooks";
-import { selectIsMenuOpen } from "../../../redux/slices/mobileMenuSlice";
+import { selectIsMenuOpen } from "../../../redux/slices/mobile-menu/mobileMenuSlice";
 import { AppDispatch } from "../../../redux/store";
-import { switchMenu } from "../../../redux/slices/mobileMenuSlice";
+import { switchMenu } from "../../../redux/slices/mobile-menu/mobileMenuSlice";
 import {
   selectCartProducts,
   selectIsCartModalOpen,
-  switchCartModal,
-} from "../../../redux/slices/cartSlice";
+} from "../../../redux/slices/cart/selectors";
+import { switchCartModal } from "../../../redux/slices/cart/cartSlice";
 import Cart from "../../Cart/Cart";
 
 const Header: FC = () => {
@@ -38,9 +38,9 @@ const Header: FC = () => {
               className="burger-button"
               data-testid="mobile-menu-button"
               onClick={(): void => {
-                 if (isCartModalOpen) {
-                   dispatch(switchCartModal(!isCartModalOpen));
-                 }
+                if (isCartModalOpen) {
+                  dispatch(switchCartModal(!isCartModalOpen));
+                }
                 dispatch(switchMenu(!isMenuOpen));
               }}
             >
@@ -89,7 +89,7 @@ const Header: FC = () => {
                 if (isMenuOpen) {
                   dispatch(switchMenu(!isMenuOpen));
                 }
-                dispatch(switchCartModal(!isCartModalOpen))
+                dispatch(switchCartModal(!isCartModalOpen));
               }}
             >
               <CartIcon />

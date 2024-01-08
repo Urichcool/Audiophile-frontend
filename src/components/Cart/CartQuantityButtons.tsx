@@ -1,7 +1,10 @@
 import { FC } from "react";
 import { AppDispatch } from "../../redux/store";
 import { useAppDispatch } from "../../redux/reduxHooks/reduxHooks";
-import { decreaseQuantity, increaseQuantity } from "../../redux/slices/cartSlice";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+} from "../../redux/slices/cart/cartSlice";
 
 interface ICartQuantityButtons {
   id: string;
@@ -18,9 +21,12 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
 
   return (
     <div className="cart-quantity-buttons-container">
-      <button className="cart-quantity-button" onClick={(): void => {
-        dispatch(decreaseQuantity({ id: id, quantity: 1, price: price }))
-      }}>
+      <button
+        className="cart-quantity-button"
+        onClick={(): void => {
+          dispatch(decreaseQuantity({ id: id, quantity: 1, price: price }));
+        }}
+      >
         <p>-</p>
       </button>
       <p className="cart-quantity-text">{quantity}</p>

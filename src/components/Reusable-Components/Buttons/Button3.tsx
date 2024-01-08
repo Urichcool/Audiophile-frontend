@@ -9,12 +9,12 @@ import {
 import {
   selectIsMenuOpen,
   switchMenu,
-} from "../../../redux/slices/mobileMenuSlice";
+} from "../../../redux/slices/mobile-menu/mobileMenuSlice";
 
 interface IButton3Props {
   to: "/headphones" | "/speakers" | "/earphones";
   isMobile: boolean | undefined;
-  testId: string
+  testId: string;
 }
 
 const Button3: FC<IButton3Props> = ({ to, isMobile, testId }) => {
@@ -26,7 +26,7 @@ const Button3: FC<IButton3Props> = ({ to, isMobile, testId }) => {
     <button
       className="button3"
       data-testid={testId}
-      onClick={():void => {
+      onClick={(): void => {
         navigate(to);
         if (isMobile) {
           dispatch(switchMenu(!isMenuOpen));

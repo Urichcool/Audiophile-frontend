@@ -1,10 +1,10 @@
 import { FC, useEffect } from "react";
-import { selectIsMenuOpen } from "../../redux/slices/mobileMenuSlice";
+import { selectIsMenuOpen } from "../../redux/slices/mobile-menu/mobileMenuSlice";
 import { useAppSelector } from "../../redux/reduxHooks/reduxHooks";
 import CategoriesList from "../Reusable-Components/CategoriesList";
 import { useAppDispatch } from "../../redux/reduxHooks/reduxHooks";
 import { AppDispatch } from "../../redux/store";
-import { switchMenu } from "../../redux/slices/mobileMenuSlice";
+import { switchMenu } from "../../redux/slices/mobile-menu/mobileMenuSlice";
 
 const MobileMenu: FC = () => {
   const isMenuOpen: boolean = useAppSelector(selectIsMenuOpen);

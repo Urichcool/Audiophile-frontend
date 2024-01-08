@@ -1,22 +1,21 @@
 import { Store, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { goodsApi } from "./services/goods";
-import { mobileMenuSliceReducer } from "./slices/mobileMenuSlice";
-import { cartSliceReducer } from "./slices/cartSlice";
+import { mobileMenuSliceReducer } from "./slices/mobile-menu/mobileMenuSlice";
+import { cartSliceReducer } from "./slices/cart/cartSlice";
 
-
-export const store:Store = configureStore({
+export const store: Store = configureStore({
   reducer: {
     [goodsApi.reducerPath]: goodsApi.reducer,
     mobileMenu: mobileMenuSliceReducer,
-    cart: cartSliceReducer
+    cart: cartSliceReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(goodsApi.middleware)
+    getDefaultMiddleware().concat(goodsApi.middleware),
 });
 
 setupListeners(store.dispatch);
 
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
 
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch;

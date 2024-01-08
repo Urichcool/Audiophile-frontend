@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type {
-  PayloadAction,
-  Reducer,
-  Slice,
-} from "@reduxjs/toolkit";
-import type { RootState } from "../store";
+import type { PayloadAction, Reducer, Slice } from "@reduxjs/toolkit";
+import type { RootState } from "../../store";
 
 interface IInitialMobileMenuState {
   isOpen: boolean;

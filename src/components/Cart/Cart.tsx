@@ -4,13 +4,15 @@ import {
   useAppSelector,
 } from "../../redux/reduxHooks/reduxHooks";
 import {
-  clearCart,
-  getTotal,
   selectCartProducts,
   selectIsCartModalOpen,
   selectTotal,
+} from "../../redux/slices/cart/selectors";
+import {
+  clearCart,
+  getTotal,
   switchCartModal,
-} from "../../redux/slices/cartSlice";
+} from "../../redux/slices/cart/cartSlice";
 import { BsFillCartXFill } from "react-icons/bs";
 import { IoIosClose } from "react-icons/io";
 import CartItem from "./CartItem";
@@ -25,11 +27,11 @@ const Cart: FC = () => {
         name: string;
         quantity: number;
         price: number;
-      picture: string;
-      totalPrice: number;
+        picture: string;
+        totalPrice: number;
       }[]
     | [] = useAppSelector(selectCartProducts);
-  const total:number = useAppSelector(selectTotal)
+  const total: number = useAppSelector(selectTotal);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -45,7 +47,7 @@ const Cart: FC = () => {
                   quantity: number;
                   price: number;
                   picture: string;
-                  totalPrice: number
+                  totalPrice: number;
                 }
               ) => (total += product.totalPrice),
               0
@@ -130,8 +132,8 @@ const Cart: FC = () => {
                 <div className="cart-total-container">
                   <h6 className="cart-total-title">total</h6>
                   <p className="cart-total">{priceWithCommas(total)}</p>
-                  </div>
-                  <CheckoutButton/>
+                </div>
+                <CheckoutButton />
               </>
             )}
           </div>
