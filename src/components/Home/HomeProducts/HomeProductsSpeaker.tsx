@@ -4,6 +4,7 @@ import Loader from "../../Reusable-Components/Loader";
 import { shortDescrFunc } from "../../../utils/shortDescrFunc";
 import Button4 from "../../Reusable-Components/Buttons/Button4";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import Picture from "../../Reusable-Components/Picture";
 
 interface IHomeProductsSpeakerProps {
   data: IGoods | undefined;
@@ -27,26 +28,24 @@ const HomeProductsSpeaker: FC<IHomeProductsSpeakerProps> = ({
             style={{ zIndex: "2", position: "relative" }}
             offset={0}
           >
-            <picture className="home-products-speakers-picture">
-              <source
-                srcSet={data?.previewImage.desktop}
-                media="(min-width: 1440px)"
-                width={"410"}
-                height={"493"}
-              />
-              <source
-                srcSet={data?.previewImage.desktop}
-                media="(min-width: 768px)"
-                width={"197"}
-                height={"237"}
-              />
-              <img
-                src={data?.previewImage.desktop}
-                alt={data?.name}
-                width={"172"}
-                height={"207"}
-              />
-            </picture>
+            <Picture
+              imageSrc={{
+                desktop: data?.previewImage.desktop,
+                tablet: data?.previewImage.tablet,
+                mobile: data?.previewImage.mobile,
+              }}
+              sizes={{
+                desktopWidth: "410",
+                desktopHeight: "493",
+                tabletWidth: "197",
+                tabletHeight: "237",
+                mobileWidth: "172",
+                mobileHeight: "207",
+              }}
+              name={data?.name}
+              className={"home-products-speakers-picture"}
+            />
+
           </AnimationOnScroll>
           <AnimationOnScroll
             animateIn="animate__fadeIn"

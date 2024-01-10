@@ -3,6 +3,7 @@ import { IGoods } from "../../../interfaces/goods/goods";
 import Button2 from "../../Reusable-Components/Buttons/Button2";
 import Loader from "../../Reusable-Components/Loader";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import Picture from "../../Reusable-Components/Picture";
 
 interface IHomeProductsHeadphoneProps {
   data: IGoods | undefined;
@@ -25,26 +26,23 @@ const HomeProductsHeadphone: FC<IHomeProductsHeadphoneProps> = ({
             animateOnce
             offset={0}
           >
-            <picture className="home-products-headphone-picture">
-              <source
-                srcSet={data?.previewImage.desktop}
-                media="(min-width: 1440px)"
-                width={"270"}
-                height={"300"}
-              />
-              <source
-                srcSet={data?.previewImage.desktop}
-                media="(min-width: 768px)"
-                width={"220"}
-                height={"250"}
-              />
-              <img
-                width={"200"}
-                height={"250"}
-                src={data?.previewImage.desktop}
-                alt={data?.name}
-              />
-            </picture>
+            <Picture
+              imageSrc={{
+                desktop: data?.previewImage.desktop,
+                tablet: data?.previewImage.tablet,
+                mobile: data?.previewImage.mobile,
+              }}
+              sizes={{
+                desktopWidth: "270",
+                desktopHeight: "300",
+                tabletWidth: "220",
+                tabletHeight: "250",
+                mobileWidth: "200",
+                mobileHeight: "250",
+              }}
+              name={data?.name}
+              className="home-products-headphone-picture"
+            />
           </AnimationOnScroll>
           <AnimationOnScroll
             animateIn="animate__fadeInDown"
@@ -56,7 +54,7 @@ const HomeProductsHeadphone: FC<IHomeProductsHeadphoneProps> = ({
               <h3 className="H4-manrope-bold home-products-headprone-title">
                 {data?.name}
               </h3>
-                <Button2 id={data?._id} />
+              <Button2 id={data?._id} />
             </div>
           </AnimationOnScroll>
         </>
