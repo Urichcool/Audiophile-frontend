@@ -13,7 +13,7 @@ import {
 
 interface IButton3Props {
   to: "/headphones" | "/speakers" | "/earphones";
-  isMobile: boolean | undefined;
+  isMobile?: boolean ;
   testId: string;
 }
 

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 
 interface IButton1Props{
-    id: string | undefined;
+    id?: string ;
     testId:string
 }
 

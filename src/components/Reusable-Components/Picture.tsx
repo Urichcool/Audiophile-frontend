@@ -2,19 +2,19 @@ import { FC } from "react";
 
 interface IPictureProps {
   imageSrc: {
-    desktop: string | undefined;
-    tablet: string | undefined;
-    mobile: string | undefined;
+    desktop?: string ;
+    tablet?: string;
+    mobile?: string;
   };
   sizes: {
-    desktopWidth: string | undefined;
-    desktopHeight: string | undefined;
-    tabletWidth: string | undefined;
-    tabletHeight: string | undefined;
-    mobileWidth: string | undefined;
-    mobileHeight: string | undefined;
+    desktopWidth?: string;
+    desktopHeight?: string;
+    tabletWidth?: string;
+    tabletHeight?: string;
+    mobileWidth?: string;
+    mobileHeight?: string;
   };
-    name: string | undefined;
+    name?: string;
   className?: string
   imgClassName?: string
 }
