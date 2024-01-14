@@ -7,8 +7,13 @@ interface IButton2Props {
 
 const Button2: FC<IButton2Props> = ({id}) => {
   const navigate: NavigateFunction = useNavigate();
+
+ const buttonClickHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
+   navigate(`/${id}`);
+ };
+
     return (
-      <button className='button2' onClick={() => {navigate(`/${id}`)}}>see product</button>
+      <button className='button2' onClick={buttonClickHandler}>see product</button>
     );
 }
 

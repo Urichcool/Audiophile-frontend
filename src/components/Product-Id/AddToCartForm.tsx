@@ -44,7 +44,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
         <Form className="add-to-cart-form">
           <button
             className="add-to-cart-input-minus-button"
-            onClick={() => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               if (props.values.quantity !== 1) {
                 props.setFieldValue("quantity", (props.values.quantity -= 1));
               }
@@ -64,7 +64,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
 
           <button
             className="add-to-cart-input-plus-button"
-            onClick={() => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               if (props.values.quantity !== 99) {
                 props.setFieldValue("quantity", (props.values.quantity += 1));
               }

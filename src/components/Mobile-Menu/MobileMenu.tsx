@@ -30,6 +30,12 @@ const MobileMenu: FC = () => {
     };
   }, [dispatch, isMenuOpen]);
 
+  const clickBackdropHandler = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): void => {
+    dispatch(switchMenu(!isMenuOpen));
+  };
+
   return (
     <>
       <div className={"mobile-menu" + menuClassName} data-testid="mobile-menu">
@@ -41,9 +47,7 @@ const MobileMenu: FC = () => {
       </div>
       <div
         className={"mobile-menu-backdrop" + backdropClassName}
-        onClick={(): void => {
-          dispatch(switchMenu(!isMenuOpen));
-        }}
+        onClick={clickBackdropHandler}
         data-testid="mobile-menu-backdrop"
       />
     </>

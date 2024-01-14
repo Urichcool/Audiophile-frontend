@@ -69,12 +69,28 @@ const Cart: FC = () => {
     };
   }, [dispatch, isCartModalOpen]);
 
+  const clickBackdropHandler = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): void => {
+    dispatch(switchCartModal(!isCartModalOpen));
+  };
+
+  const closeCartButtonHandler = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    dispatch(switchCartModal(!isCartModalOpen));
+  };
+
+  const removeAllButtonHandler = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    dispatch(clearCart([]));
+  };
+
   return (
     <>
       <div
-        onClick={(): void => {
-          dispatch(switchCartModal(!isCartModalOpen));
-        }}
+        onClick={clickBackdropHandler}
         className={`cart-backdrop cart-backdrop-${
           isCartModalOpen ? "open" : "close"
         }`}
@@ -88,9 +104,7 @@ const Cart: FC = () => {
           <div className="cart-content">
             <button
               className="cart-close-button"
-              onClick={(): void => {
-                dispatch(switchCartModal(!isCartModalOpen));
-              }}
+              onClick={closeCartButtonHandler}
             >
               <IoIosClose />
             </button>
@@ -107,9 +121,7 @@ const Cart: FC = () => {
                   </h6>
                   <button
                     className="cart-remove-all-button Body-manrope-medium"
-                    onClick={(): void => {
-                      dispatch(clearCart([]));
-                    }}
+                    onClick={removeAllButtonHandler}
                   >
                     Remove all
                   </button>

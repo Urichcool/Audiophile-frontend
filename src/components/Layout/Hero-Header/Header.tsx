@@ -26,6 +26,21 @@ const Header: FC = () => {
   const dispatch: AppDispatch = useAppDispatch();
   const { productId }: Readonly<Params<string>> = useParams();
 
+  const burgerButtonHandler = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ): void => {if (isCartModalOpen) {
+    dispatch(switchCartModal(!isCartModalOpen));
+  }
+    dispatch(switchMenu(!isMenuOpen));
+  };
+  
+  const cartButtonHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    if (isMenuOpen) {
+      dispatch(switchMenu(!isMenuOpen));
+    }
+    dispatch(switchCartModal(!isCartModalOpen));
+  };
+
   return (
     <>
       <header className="header">
@@ -38,12 +53,7 @@ const Header: FC = () => {
             <button
               className="burger-button"
               data-testid="mobile-menu-button"
-              onClick={(): void => {
-                if (isCartModalOpen) {
-                  dispatch(switchCartModal(!isCartModalOpen));
-                }
-                dispatch(switchMenu(!isMenuOpen));
-              }}
+              onClick={burgerButtonHandler}
             >
               <BurgerIcon />
             </button>
@@ -57,12 +67,7 @@ const Header: FC = () => {
             <HeaderNavigation />
             <button
               className="cart-button"
-              onClick={(): void => {
-                if (isMenuOpen) {
-                  dispatch(switchMenu(!isMenuOpen));
-                }
-                dispatch(switchCartModal(!isCartModalOpen));
-              }}
+              onClick={cartButtonHandler}
             >
               <CartIcon />
               {cartLength !== 0 && (

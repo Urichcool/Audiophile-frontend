@@ -19,23 +19,25 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
 }) => {
   const dispatch: AppDispatch = useAppDispatch();
 
+  const increaseButtonHandler = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    dispatch(increaseQuantity({ id: id, quantity: 1, price: price }));
+  };
+
+  const decreaseButtonHandler = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    dispatch(decreaseQuantity({ id: id, quantity: 1, price: price }));
+  };
+
   return (
     <div className="cart-quantity-buttons-container">
-      <button
-        className="cart-quantity-button"
-        onClick={(): void => {
-          dispatch(decreaseQuantity({ id: id, quantity: 1, price: price }));
-        }}
-      >
+      <button className="cart-quantity-button" onClick={decreaseButtonHandler}>
         <p>-</p>
       </button>
       <p className="cart-quantity-text">{quantity}</p>
-      <button
-        className="cart-quantity-button"
-        onClick={(): void => {
-          dispatch(increaseQuantity({ id: id, quantity: 1, price: price }));
-        }}
-      >
+      <button className="cart-quantity-button" onClick={increaseButtonHandler}>
         <p>+</p>
       </button>
     </div>
