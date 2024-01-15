@@ -5,18 +5,11 @@ import CategoriesList from "../Reusable-Components/CategoriesList";
 import { useAppDispatch } from "../../redux/reduxHooks/reduxHooks";
 import { AppDispatch } from "../../redux/store";
 import { switchMenu } from "../../redux/slices/mobile-menu/mobileMenuSlice";
+import Backdrop from "../Reusable-Components/Backdrop";
 
 const MobileMenu: FC = () => {
   const isMenuOpen: boolean = useAppSelector(selectIsMenuOpen);
   const dispatch: AppDispatch = useAppDispatch();
-  const menuClassName: " mobile-menu-open" | " mobile-menu-close" = isMenuOpen
-    ? " mobile-menu-open"
-    : " mobile-menu-close";
-  const backdropClassName:
-    | " mobile-menu-backdrop-open"
-    | " mobile-menu-backdrop-close" = isMenuOpen
-    ? " mobile-menu-backdrop-open"
-    : " mobile-menu-backdrop-close";
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent): void => {
@@ -38,17 +31,20 @@ const MobileMenu: FC = () => {
 
   return (
     <>
-      <div className={"mobile-menu" + menuClassName} data-testid="mobile-menu">
+      <div
+        className={`mobile-menu mobile-menu-${isMenuOpen ? "open" : "close"}`}
+        data-testid="mobile-menu"
+      >
         <div className="container">
           <div className="mobile-menu-categories-container">
             <CategoriesList isMobile={true} />
           </div>
         </div>
       </div>
-      <div
-        className={"mobile-menu-backdrop" + backdropClassName}
-        onClick={clickBackdropHandler}
-        data-testid="mobile-menu-backdrop"
+      <Backdrop
+        isModalOpen={isMenuOpen}
+        clickHandler={clickBackdropHandler}
+        testId={"mobile-menu-backdrop"}
       />
     </>
   );

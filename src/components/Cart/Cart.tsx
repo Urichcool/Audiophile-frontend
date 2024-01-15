@@ -18,6 +18,7 @@ import { IoIosClose } from "react-icons/io";
 import CartItem from "./CartItem";
 import { priceWithCommas } from "../../utils/priceWithCommas";
 import CheckoutButton from "../Reusable-Components/Buttons/CheckoutButton";
+import Backdrop from "../Reusable-Components/Backdrop";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
@@ -39,17 +40,7 @@ const Cart: FC = () => {
       getTotal(
         cartProducts.length !== 0
           ? [...cartProducts].reduce(
-              (
-                total: number,
-                product: {
-                  id: string;
-                  name: string;
-                  quantity: number;
-                  price: number;
-                  picture: string;
-                  totalPrice: number;
-                }
-              ) => (total += product.totalPrice),
+              (total, product) => (total += product.totalPrice),
               0
             )
           : 0
@@ -89,12 +80,7 @@ const Cart: FC = () => {
 
   return (
     <>
-      <div
-        onClick={clickBackdropHandler}
-        className={`cart-backdrop cart-backdrop-${
-          isCartModalOpen ? "open" : "close"
-        }`}
-      ></div>
+      <Backdrop isModalOpen={isCartModalOpen} clickHandler={clickBackdropHandler} />
       <div
         className={`cart-container cart-container-${
           isCartModalOpen ? "open" : "close"

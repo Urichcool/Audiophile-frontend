@@ -14,17 +14,6 @@
   }
 }
 
-.mobile-menu-backdrop {
-  transition: 500ms;
-  transition-property: opacity;
-  top: 0;
-  right: 0;
-  z-index: 9;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: $primaryBlack;
-}
 
 .mobile-menu-categories-container {
   padding-top: 85px;
@@ -45,14 +34,4 @@
   transform: translateY(-130%);
 }
 
-.mobile-menu-backdrop-open {
-  opacity: 0.4;
-  @include desktop {
-    display: none;
-  }
-}
 
-.mobile-menu-backdrop-close {
-  pointer-events: none;
-  opacity: 0;
-}

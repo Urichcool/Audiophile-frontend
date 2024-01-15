@@ -1,0 +1,22 @@
+.backdrop {
+  transition: 500ms;
+  transition-property: opacity;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 500ms;
+  transition-property: opacity;
+}
+
+.backdrop-open {
+  opacity: 1;
+}
+
+.backdrop-close {
+  pointer-events: none;
+  opacity: 0;
+}
