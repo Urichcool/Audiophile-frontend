@@ -18,6 +18,7 @@ import { IoIosClose } from "react-icons/io";
 import CartItem from "./CartItem";
 import { priceWithCommas } from "../../utils/priceWithCommas";
 import CheckoutButton from "../Reusable-Components/Buttons/CheckoutButton";
+import Backdrop from "../Reusable-Components/Backdrop";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
@@ -39,17 +40,7 @@ const Cart: FC = () => {
       getTotal(
         cartProducts.length !== 0
           ? [...cartProducts].reduce(
-              (
-                total: number,
-                product: {
-                  id: string;
-                  name: string;
-                  quantity: number;
-                  price: number;
-                  picture: string;
-                  totalPrice: number;
-                }
-              ) => (total += product.totalPrice),
+              (total, product) => (total += product.totalPrice),
               0
             )
           : 0
@@ -69,16 +60,27 @@ const Cart: FC = () => {
     };
   }, [dispatch, isCartModalOpen]);
 
+  const clickBackdropHandler = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): void => {
+    dispatch(switchCartModal(!isCartModalOpen));
+  };
+
+  const closeCartButtonHandler = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    dispatch(switchCartModal(!isCartModalOpen));
+  };
+
+  const removeAllButtonHandler = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    dispatch(clearCart([]));
+  };
+
   return (
     <>
-      <div
-        onClick={(): void => {
-          dispatch(switchCartModal(!isCartModalOpen));
-        }}
-        className={`cart-backdrop cart-backdrop-${
-          isCartModalOpen ? "open" : "close"
-        }`}
-      ></div>
+      <Backdrop isModalOpen={isCartModalOpen} clickHandler={clickBackdropHandler} />
       <div
         className={`cart-container cart-container-${
           isCartModalOpen ? "open" : "close"
@@ -88,9 +90,7 @@ const Cart: FC = () => {
           <div className="cart-content">
             <button
               className="cart-close-button"
-              onClick={(): void => {
-                dispatch(switchCartModal(!isCartModalOpen));
-              }}
+              onClick={closeCartButtonHandler}
             >
               <IoIosClose />
             </button>
@@ -107,9 +107,7 @@ const Cart: FC = () => {
                   </h6>
                   <button
                     className="cart-remove-all-button Body-manrope-medium"
-                    onClick={(): void => {
-                      dispatch(clearCart([]));
-                    }}
+                    onClick={removeAllButtonHandler}
                   >
                     Remove all
                   </button>

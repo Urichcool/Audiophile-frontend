@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Button1 from "./Buttons/Button1";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import Picture from "./Picture";
 
 interface ICategoriesProductsListItemProps {
   previewImage: { mobile: string; tablet: string; desktop: string };
@@ -29,26 +30,23 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
     >
       <div className="categories-products-list-item-picture-container">
         <AnimationOnScroll animateIn="animate__fadeIn" animateOnce offset={0}>
-          <picture>
-            <source
-              srcSet={previewImage.desktop}
-              media="(min-width: 1440px)"
-              width={"270"}
-              height={"300"}
-            />
-            <source
-              srcSet={previewImage.desktop}
-              media="(min-width: 768px)"
-              width={"220"}
-              height={"250"}
-            />
-            <img
-              src={previewImage.desktop}
-              alt={name}
-              width={"160"}
-              height={"180"}
-            />
-          </picture>
+          <Picture
+            imageSrc={{
+              desktop: previewImage.desktop,
+              tablet: previewImage.tablet,
+              mobile: previewImage.mobile,
+            }}
+            sizes={{
+              desktopWidth: "270",
+              desktopHeight: "300",
+              tabletWidth: "220",
+              tabletHeight: "250",
+              mobileWidth: "160",
+              mobileHeight: "180",
+            }}
+            name={name}
+            className=""
+          />
         </AnimationOnScroll>
       </div>
       <AnimationOnScroll

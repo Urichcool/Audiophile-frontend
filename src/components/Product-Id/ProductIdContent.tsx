@@ -6,45 +6,39 @@ import { priceWithCommas } from "../../utils/priceWithCommas";
 import AddToCartForm from "./AddToCartForm";
 import { Audio } from "react-loader-spinner";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import Picture from "../Reusable-Components/Picture";
 
 const ProductIdContent = () => {
   const { productId }: Readonly<Params<string>> = useParams();
   const { data, isFetching } = useGetGoodsByIdQuery(productId!);
   return (
     <>
-      <GoBackButton testId={"product-id-page-go-back-button" } />
+      <GoBackButton testId={"product-id-page-go-back-button"} />
       {isFetching ? (
         <div className="product-id-page-loader">
           <Audio width={"250"} height={"250"} color="#d87d4a" />
         </div>
       ) : (
-        <AnimationOnScroll
-          animateIn="animate__fadeIn"
-          animateOnce
-          offset={0}
-        >
+        <AnimationOnScroll animateIn="animate__fadeIn" animateOnce offset={0}>
           <div className="product-id-page-picture-and-description-container">
             <div className="product-id-page-picture-container">
-              <picture>
-                <source
-                  srcSet={data?.image.desktop}
-                  media="(min-width: 1440px)"
-                  width={"400"}
-                  height={"400"}
-                />
-                <source
-                  srcSet={data?.image.tablet}
-                  media="(min-width: 768px)"
-                  width={"281"}
-                  height={"450"}
-                />
-                <img
-                  src={data?.image.mobile}
-                  alt={data?.name}
-                  width={"300"}
-                  height={"300"}
-                />
-              </picture>
+              <Picture
+                imageSrc={{
+                  desktop: data?.image.desktop,
+                  tablet: data?.image.tablet,
+                  mobile: data?.image.mobile,
+                }}
+                sizes={{
+                  desktopWidth: "400",
+                  desktopHeight: "400",
+                  tabletWidth: "281",
+                  tabletHeight: "450",
+                  mobileWidth: "300",
+                  mobileHeight: "300",
+                }}
+                name={data?.name}
+                className=""
+              />
             </div>
             <div className="product-id-page-description-container">
               {data?.new && (
@@ -61,7 +55,12 @@ const ProductIdContent = () => {
               <p className="product-id-page-product-price">
                 {priceWithCommas(data?.price)}
               </p>
-                <AddToCartForm productId={data?._id} name={data?.name} price={data?.price} picture={data?.previewImage.mobile} />
+              <AddToCartForm
+                productId={data?._id}
+                name={data?.name}
+                price={data?.price}
+                picture={data?.previewImage.mobile}
+              />
             </div>
           </div>
           <div className="product-id-page-features-and-includes-container">
@@ -91,70 +90,58 @@ const ProductIdContent = () => {
           </div>
           <div className="product-id-page-gallery">
             <div>
-              <picture>
-                <source
-                  srcSet={data?.gallery.first.desktop}
-                  media="(min-width: 1440px)"
-                  width={"445"}
-                  height={"282"}
-                />
-                <source
-                  srcSet={data?.gallery.first.tablet}
-                  media="(min-width: 768px)"
-                  width={"277"}
-                  height={"174"}
-                />
-                <img
-                  className="product-id-page-gallery-picture-1"
-                  src={data?.gallery.first.mobile}
-                  alt={data?.name}
-                  width={"327"}
-                  height={"174"}
-                />
-              </picture>
-              <picture>
-                <source
-                  srcSet={data?.gallery.second.desktop}
-                  media="(min-width: 1440px)"
-                  width={"445"}
-                  height={"282"}
-                />
-                <source
-                  srcSet={data?.gallery.second.tablet}
-                  media="(min-width: 768px)"
-                  width={"277"}
-                  height={"174"}
-                />
-                <img
-                  className="product-id-page-gallery-picture-2"
-                  src={data?.gallery.second.mobile}
-                  alt={data?.name}
-                  width={"327"}
-                  height={"174"}
-                />
-              </picture>
+              <Picture
+                imageSrc={{
+                  desktop: data?.gallery.first.desktop,
+                  tablet: data?.gallery.first.tablet,
+                  mobile: data?.gallery.first.mobile,
+                }}
+                sizes={{
+                  desktopWidth: "445",
+                  desktopHeight: "282",
+                  tabletWidth: "277",
+                  tabletHeight: "174",
+                  mobileWidth: "327",
+                  mobileHeight: "174",
+                }}
+                name={data?.name}
+                imgClassName="product-id-page-gallery-picture-1"
+              />
+              <Picture
+                imageSrc={{
+                  desktop: data?.gallery.second.desktop,
+                  tablet: data?.gallery.second.tablet,
+                  mobile: data?.gallery.third.mobile,
+                }}
+                sizes={{
+                  desktopWidth: "445",
+                  desktopHeight: "282",
+                  tabletWidth: "277",
+                  tabletHeight: "174",
+                  mobileWidth: "327",
+                  mobileHeight: "174",
+                }}
+                name={data?.name}
+                imgClassName="product-id-page-gallery-picture-2"
+              />
             </div>
-            <picture>
-              <source
-                srcSet={data?.gallery.third.desktop}
-                media="(min-width: 1440px)"
-                width={"635"}
-                height={"586"}
-              />
-              <source
-                srcSet={data?.gallery.third.tablet}
-                media="(min-width: 768px)"
-                width={"395"}
-                height={"370"}
-              />
-              <img
-                className="product-id-page-gallery-picture-3"
-                src={data?.gallery.third.mobile}
-                alt={data?.name}
-                width={"327"}
-                height={"370"}
-              />
-            </picture>
+            <Picture
+              imageSrc={{
+                desktop: data?.gallery.third.desktop,
+                tablet: data?.gallery.third.tablet,
+                mobile: data?.gallery.third.mobile,
+              }}
+              sizes={{
+                desktopWidth: "635",
+                desktopHeight: "586",
+                tabletWidth: "395",
+                tabletHeight: "370",
+                mobileWidth: "327",
+                mobileHeight: "370",
+              }}
+              name={data?.name}
+              imgClassName="product-id-page-gallery-picture-3"
+            />
           </div>
         </AnimationOnScroll>
       )}

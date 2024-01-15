@@ -13,7 +13,7 @@ import {
 
 interface IButton3Props {
   to: "/headphones" | "/speakers" | "/earphones";
-  isMobile: boolean | undefined;
+  isMobile?: boolean;
   testId: string;
 }
 
@@ -22,16 +22,18 @@ const Button3: FC<IButton3Props> = ({ to, isMobile, testId }) => {
   const isMenuOpen: boolean = useAppSelector(selectIsMenuOpen);
   const navigate = useNavigate();
 
+  const buttonClickHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    navigate(to);
+    if (isMobile) {
+      dispatch(switchMenu(!isMenuOpen));
+    }
+  };
+
   return (
     <button
       className="button3"
       data-testid={testId}
-      onClick={(): void => {
-        navigate(to);
-        if (isMobile) {
-          dispatch(switchMenu(!isMenuOpen));
-        }
-      }}
+      onClick={buttonClickHandler}
     >
       <p>Shop</p>
       <ArrowRightIcon />

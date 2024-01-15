@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Link, NavLink, Params, useParams } from "react-router-dom";
+import { Link, Params, useParams } from "react-router-dom";
 import AudiophileIcon from "../../../images/icons/AudiophileIcon";
 import BurgerIcon from "../../../images/icons/BurgerIcon";
 import CartIcon from "../../../images/icons/CartIcon";
@@ -17,6 +17,7 @@ import {
 } from "../../../redux/slices/cart/selectors";
 import { switchCartModal } from "../../../redux/slices/cart/cartSlice";
 import Cart from "../../Cart/Cart";
+import HeaderNavigation from "./HeaderNavigation";
 
 const Header: FC = () => {
   const cartLength: number = useAppSelector(selectCartProducts).length;
@@ -24,6 +25,21 @@ const Header: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
   const dispatch: AppDispatch = useAppDispatch();
   const { productId }: Readonly<Params<string>> = useParams();
+
+  const burgerButtonHandler = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ): void => {if (isCartModalOpen) {
+    dispatch(switchCartModal(!isCartModalOpen));
+  }
+    dispatch(switchMenu(!isMenuOpen));
+  };
+  
+  const cartButtonHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    if (isMenuOpen) {
+      dispatch(switchMenu(!isMenuOpen));
+    }
+    dispatch(switchCartModal(!isCartModalOpen));
+  };
 
   return (
     <>
@@ -37,12 +53,7 @@ const Header: FC = () => {
             <button
               className="burger-button"
               data-testid="mobile-menu-button"
-              onClick={(): void => {
-                if (isCartModalOpen) {
-                  dispatch(switchCartModal(!isCartModalOpen));
-                }
-                dispatch(switchMenu(!isMenuOpen));
-              }}
+              onClick={burgerButtonHandler}
             >
               <BurgerIcon />
             </button>
@@ -53,44 +64,10 @@ const Header: FC = () => {
             >
               <AudiophileIcon />
             </Link>
-            <nav className="header-navigation">
-              <NavLink
-                data-testid="header-home-link"
-                className="header-navigation-link"
-                to={"/"}
-              >
-                Home
-              </NavLink>
-              <NavLink
-                data-testid="header-headphones-link"
-                className="header-navigation-link"
-                to={"headphones"}
-              >
-                headphones
-              </NavLink>
-              <NavLink
-                data-testid="header-speakers-link"
-                className="header-navigation-link"
-                to={"speakers"}
-              >
-                Speakers
-              </NavLink>
-              <NavLink
-                data-testid="header-earphones-link"
-                className="header-navigation-link"
-                to={"earphones"}
-              >
-                Earphones
-              </NavLink>
-            </nav>
+            <HeaderNavigation />
             <button
               className="cart-button"
-              onClick={(): void => {
-                if (isMenuOpen) {
-                  dispatch(switchMenu(!isMenuOpen));
-                }
-                dispatch(switchCartModal(!isCartModalOpen));
-              }}
+              onClick={cartButtonHandler}
             >
               <CartIcon />
               {cartLength !== 0 && (

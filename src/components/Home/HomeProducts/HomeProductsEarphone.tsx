@@ -3,9 +3,10 @@ import { IGoods } from "../../../interfaces/goods/goods";
 import Button2 from "../../Reusable-Components/Buttons/Button2";
 import Loader from "../../Reusable-Components/Loader";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import Picture from "../../Reusable-Components/Picture";
 
 interface IHomeProductsEarphoneProps {
-  data: IGoods | undefined;
+  data?: IGoods;
   isFetching: boolean;
 }
 
@@ -25,26 +26,23 @@ const HomeProductsEarphone: FC<IHomeProductsEarphoneProps> = ({
             animateOnce
             offset={0}
           >
-            <picture>
-              <source
-                srcSet={data?.previewImage.desktop}
-                media="(min-width: 1440px)"
-                width={"270"}
-                height={"300"}
-              />
-              <source
-                srcSet={data?.previewImage.desktop}
-                media="(min-width: 768px)"
-                width={"220"}
-                height={"250"}
-              />
-              <img
-                src={data?.previewImage.desktop}
-                alt={data?.name}
-                width={"160"}
-                height={"180"}
-              />
-            </picture>
+            <Picture
+              imageSrc={{
+                desktop: data?.previewImage.desktop,
+                tablet: data?.previewImage.tablet,
+                mobile: data?.previewImage.mobile,
+              }}
+              sizes={{
+                desktopWidth: "270",
+                desktopHeight: "300",
+                tabletWidth: "220",
+                tabletHeight: "250",
+                mobileWidth: "160",
+                mobileHeight: "180",
+                }}
+                name={data?.name}
+                className=""
+            />
           </AnimationOnScroll>
         )}
       </div>
@@ -62,7 +60,7 @@ const HomeProductsEarphone: FC<IHomeProductsEarphoneProps> = ({
               <h3 className="H4-manrope-bold  home-products-earphone-title">
                 {data?.name}
               </h3>
-                <Button2 id={data?._id} />
+              <Button2 id={data?._id} />
             </div>
           </AnimationOnScroll>
         )}

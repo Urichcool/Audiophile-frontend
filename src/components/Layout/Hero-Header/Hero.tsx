@@ -5,6 +5,7 @@ import Button1 from "../../Reusable-Components/Buttons/Button1";
 import HeroLoader from "./HeroLoader";
 import { Params, useLocation, useParams } from "react-router-dom";
 import MobileMenu from "../../Mobile-Menu/MobileMenu";
+import Picture from "../../Reusable-Components/Picture";
 
 const Hero: FC = () => {
   const { data, isFetching } = useGetNewGoodsQuery();
@@ -41,19 +42,25 @@ const Hero: FC = () => {
                     <p className="Body-manrope-medium hero-new-product-description">
                       {shortDescrFunc(data?.description)}
                     </p>
-                      <Button1 id={data?._id} testId={"id-page-nav-button"} />
+                    <Button1 id={data?._id} testId={"id-page-nav-button"} />
                   </div>
-                  <picture className="hero-new-product-picture">
-                    <source
-                      srcSet={data?.previewImage.desktop}
-                      media="(min-width: 1440px)"
-                    />
-                    <source
-                      srcSet={data?.previewImage.tablet}
-                      media="(min-width: 768px)"
-                    />
-                    <img src={data?.previewImage.mobile} alt={data?.name} />
-                  </picture>
+                  <Picture
+                    imageSrc={{
+                      desktop: data?.previewImage.desktop,
+                      tablet: data?.previewImage.tablet,
+                      mobile: data?.previewImage.mobile,
+                    }}
+                    sizes={{
+                      desktopWidth: "270",
+                      desktopHeight: "300",
+                      tabletWidth: "220",
+                      tabletHeight: "250",
+                      mobileWidth: "160",
+                      mobileHeight: "180",
+                    }}
+                    name={data?.name}
+                    className="hero-new-product-picture"
+                  />
                 </div>
               )}
             </div>

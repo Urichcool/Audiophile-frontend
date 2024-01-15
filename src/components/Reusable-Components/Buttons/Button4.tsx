@@ -2,13 +2,18 @@ import { FC } from 'react';
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 interface IButton4Props {
-  id: string | undefined;
+  id?: string ;
 }
 
 const Button4: FC<IButton4Props> = ({ id }) => {
-    const navigate: NavigateFunction = useNavigate();
+  const navigate: NavigateFunction = useNavigate();
+  
+  const buttonClickHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    navigate(`/${id}`);
+  };
+  
     return ( 
-     <button className='button4' onClick={():void => {navigate(`/${id}`)}}>See Product</button>
+     <button className='button4' onClick={buttonClickHandler}>See Product</button>
     );
 }
 
