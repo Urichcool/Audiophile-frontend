@@ -80,7 +80,7 @@ const Cart: FC = () => {
 
   return (
     <>
-      <Backdrop isModalOpen={isCartModalOpen} clickHandler={clickBackdropHandler} />
+      <Backdrop isModalOpen={isCartModalOpen} clickHandler={clickBackdropHandler} testId={'cart-modal-backdrop'} />
       <div
         className={`cart-container cart-container-${
           isCartModalOpen ? "open" : "close"
