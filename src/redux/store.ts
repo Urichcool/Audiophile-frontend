@@ -13,7 +13,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import persistReducer from "redux-persist/es/persistReducer";
+import persistReducer from "redux-persist/lib/persistReducer";
 
 const persistConfig = {
   key: 'cart',

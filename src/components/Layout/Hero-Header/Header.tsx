@@ -67,6 +67,7 @@ const Header: FC = () => {
             <HeaderNavigation />
             <button
               className="cart-button"
+              data-testid="cart-modal-button"
               onClick={cartButtonHandler}
             >
               <CartIcon />

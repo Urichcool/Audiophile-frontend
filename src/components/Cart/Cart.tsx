@@ -84,7 +84,8 @@ const Cart: FC = () => {
       <div
         className={`cart-container cart-container-${
           isCartModalOpen ? "open" : "close"
-        }`}
+          }`}
+        data-testid='cart-modal'
       >
         <div className="container">
           <div className="cart-content">
