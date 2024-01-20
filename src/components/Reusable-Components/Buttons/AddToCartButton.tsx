@@ -1,8 +1,12 @@
 import { FC } from "react";
 
-const AddToCartButton: FC = () => {
+interface IAddToCartButtonProps{
+  testId?:string
+}
+
+const AddToCartButton: FC<IAddToCartButtonProps> = ({testId}) => {
   return (
-    <button className="add-to-cart-button" type="submit">
+    <button className="add-to-cart-button" data-testid={testId} type="submit">
       Add to cart
     </button>
   );

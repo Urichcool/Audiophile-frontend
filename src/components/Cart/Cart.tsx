@@ -80,23 +80,31 @@ const Cart: FC = () => {
 
   return (
     <>
-      <Backdrop isModalOpen={isCartModalOpen} clickHandler={clickBackdropHandler} testId={'cart-modal-backdrop'} />
+      <Backdrop
+        isModalOpen={isCartModalOpen}
+        clickHandler={clickBackdropHandler}
+        testId={"cart-modal-backdrop"}
+      />
       <div
         className={`cart-container cart-container-${
           isCartModalOpen ? "open" : "close"
-          }`}
-        data-testid='cart-modal'
+        }`}
+        data-testid="cart-modal"
       >
         <div className="container">
           <div className="cart-content">
             <button
               className="cart-close-button"
+              data-testid="cart-close-modal-button"
               onClick={closeCartButtonHandler}
             >
               <IoIosClose />
             </button>
             {cartProducts.length === 0 ? (
-              <div className="empty-cart-container" data-testid="cart-modal-empty-container">
+              <div
+                className="empty-cart-container"
+                data-testid="cart-modal-empty-container"
+              >
                 <h6 className="cart-title">Your cart is empty</h6>
                 <BsFillCartXFill />
               </div>
@@ -108,6 +116,7 @@ const Cart: FC = () => {
                   </h6>
                   <button
                     className="cart-remove-all-button Body-manrope-medium"
+                    data-testId="cart-remove-all-button"
                     onClick={removeAllButtonHandler}
                   >
                     Remove all

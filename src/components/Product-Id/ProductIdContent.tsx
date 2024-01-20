@@ -15,7 +15,10 @@ const ProductIdContent = () => {
     <>
       <GoBackButton testId={"product-id-page-go-back-button"} />
       {isFetching ? (
-        <div className="product-id-page-loader">
+        <div
+          className="product-id-page-loader"
+          data-testid="product-id-page-loader"
+        >
           <Audio width={"250"} height={"250"} color="#d87d4a" />
         </div>
       ) : (

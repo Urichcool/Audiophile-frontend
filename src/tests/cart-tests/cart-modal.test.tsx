@@ -1,6 +1,7 @@
 import App from "../../App";
 import { screen, fireEvent } from "@testing-library/react";
 import { renderWithReduxAndRouter } from "../helpers/RenderWithReduxAndRouter";
+import { click } from "@testing-library/user-event/dist/click";
 
 describe("cart-tests", () => {
   test("click-on-cart-button-should-open-cart-modal", () => {
@@ -43,6 +44,18 @@ describe("cart-tests", () => {
       keyCode: 27,
       charCode: 27,
     });
+    expect(cartModal).toHaveClass("cart-container-close");
+  });
+  test("click-on-close-button-should-close-cart-modal", () => {
+    renderWithReduxAndRouter(<App />);
+    const cartModalButton: HTMLElement =
+      screen.getByTestId("cart-modal-button");
+    fireEvent.click(cartModalButton);
+    const cartModal: HTMLElement = screen.getByTestId("cart-modal");
+    const cartModalCloseButton: HTMLElement = screen.getByTestId(
+      "cart-close-modal-button"
+    );
+    fireEvent.click(cartModalCloseButton);
     expect(cartModal).toHaveClass("cart-container-close");
   });
   test("openning-of-cart-modal-should-close-mobile-menu", () => {
