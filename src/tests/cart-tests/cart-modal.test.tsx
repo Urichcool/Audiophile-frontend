@@ -31,4 +31,30 @@ describe("cart-tests", () => {
     fireEvent.click(cartModalBackdrop);
     expect(cartModal).toHaveClass("cart-container-close");
   });
+  test("click-on-esc-should-close-cart-modal", () => {
+    renderWithReduxAndRouter(<App />);
+    const cartModalButton: HTMLElement =
+      screen.getByTestId("cart-modal-button");
+    fireEvent.click(cartModalButton);
+    const cartModal: HTMLElement = screen.getByTestId("cart-modal");
+    fireEvent.keyDown(cartModal, {
+      key: "Escape",
+      code: "Escape",
+      keyCode: 27,
+      charCode: 27,
+    });
+    expect(cartModal).toHaveClass("cart-container-close");
+  });
+  test("openning-of-cart-modal-should-close-mobile-menu", () => {
+    renderWithReduxAndRouter(<App />);
+    const mobileMenuButton: HTMLElement =
+      screen.getByTestId("mobile-menu-button");
+    const cartModalButton: HTMLElement =
+      screen.getByTestId("cart-modal-button");
+    fireEvent.click(mobileMenuButton);
+    const mobileMenu: HTMLElement = screen.getByTestId("mobile-menu");
+    expect(mobileMenu).toHaveClass("mobile-menu-open");
+    fireEvent.click(cartModalButton);
+    expect(mobileMenu).toHaveClass("mobile-menu-close");
+  });
 });

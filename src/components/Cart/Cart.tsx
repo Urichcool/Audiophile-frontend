@@ -96,7 +96,7 @@ const Cart: FC = () => {
               <IoIosClose />
             </button>
             {cartProducts.length === 0 ? (
-              <div className="empty-cart-container">
+              <div className="empty-cart-container" data-testid="cart-modal-empty-container">
                 <h6 className="cart-title">Your cart is empty</h6>
                 <BsFillCartXFill />
               </div>
