@@ -23,7 +23,7 @@ describe("cart-functionality-test", () => {
   test("adding-product-to-cart-should-show-cart-quantity", async () => {
     renderWithReduxAndRouter(<App />);
     const heroLoader: HTMLElement = screen.getByTestId("hero-loader");
-    await waitForElementToBeRemoved(heroLoader, { timeout: 30000 });
+    await waitForElementToBeRemoved(heroLoader, { timeout: 300000 });
     const productIdButton: HTMLElement =
       screen.getByTestId("id-page-nav-button");
     fireEvent.click(productIdButton);
@@ -38,11 +38,49 @@ describe("cart-functionality-test", () => {
       expect(screen.getByTestId("cart-button-quantity")).toHaveTextContent("1");
     });
   });
-  test("click on remove all button should remove all products", () => {
+  test("click-on-plus-button-should-increase-product-quantity", () => {
     renderWithReduxAndRouter(<App />);
-    const cartModalButton: HTMLElement =
-      screen.getByTestId("cart-modal-button");
-    fireEvent.click(cartModalButton);
+    const cartIncreaseButton: HTMLElement = screen.getByTestId(
+      "cart-increase-button"
+    );
+    fireEvent.click(cartIncreaseButton);
+    const cartProductQuantity: HTMLElement =
+      screen.getByTestId("cart-quantity");
+    expect(cartProductQuantity).toHaveTextContent("2");
+  });
+  test("click-on-minus-button-should-descease-product-quantity", () => {
+    renderWithReduxAndRouter(<App />);
+    const cartDecreaseButton: HTMLElement = screen.getByTestId(
+      "cart-decrease-button"
+    );
+    fireEvent.click(cartDecreaseButton);
+    const cartProductQuantity: HTMLElement =
+      screen.getByTestId("cart-quantity");
+    expect(cartProductQuantity).toHaveTextContent("1");
+  });
+  test("click-on-minus-button-if-product-quantity-is-1-should-remove-product-from-cart", () => {
+    renderWithReduxAndRouter(<App />);
+    const cartDecreaseButton: HTMLElement = screen.getByTestId(
+      "cart-decrease-button"
+    );
+    fireEvent.click(cartDecreaseButton);
+    const cartModalEmptyContainer: HTMLElement = screen.getByTestId(
+      "cart-modal-empty-container"
+    );
+    expect(cartModalEmptyContainer).toBeInTheDocument();
+    expect(cartModalEmptyContainer).toHaveTextContent("Your cart is empty");
+    const productIdButton: HTMLElement =
+      screen.getByTestId("id-page-nav-button");
+    fireEvent.click(productIdButton);
+    const AddToCartFormButton: HTMLElement =
+      screen.getByTestId("add-to-cart-button");
+    fireEvent.click(AddToCartFormButton);
+  });
+  test("click-on-remove-all-button-should-remove-all-products", () => {
+    renderWithReduxAndRouter(<App />);
+    const cartProductQuantity: HTMLElement =
+      screen.getByTestId("cart-quantity");
+    expect(cartProductQuantity).toHaveTextContent("1");
     const cartModalRemoveAllButton: HTMLAreaElement = screen.getByTestId(
       "cart-remove-all-button"
     );

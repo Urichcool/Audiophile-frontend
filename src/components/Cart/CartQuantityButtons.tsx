@@ -33,11 +33,11 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
 
   return (
     <div className="cart-quantity-buttons-container">
-      <button className="cart-quantity-button" onClick={decreaseButtonHandler}>
+      <button className="cart-quantity-button" onClick={decreaseButtonHandler} data-testid="cart-decrease-button">
         <p>-</p>
       </button>
-      <p className="cart-quantity-text">{quantity}</p>
-      <button className="cart-quantity-button" onClick={increaseButtonHandler}>
+      <p className="cart-quantity-text" data-testid="cart-quantity">{quantity}</p>
+      <button className="cart-quantity-button" onClick={increaseButtonHandler} data-testid="cart-increase-button">
         <p>+</p>
       </button>
     </div>
