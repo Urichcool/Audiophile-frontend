@@ -67,11 +67,15 @@ const Header: FC = () => {
             <HeaderNavigation />
             <button
               className="cart-button"
+              data-testid="cart-modal-button"
               onClick={cartButtonHandler}
             >
               <CartIcon />
               {cartLength !== 0 && (
-                <p className="cart-button-quantity H6-manrope-bold">
+                <p
+                  className="cart-button-quantity H6-manrope-bold"
+                  data-testid="cart-button-quantity"
+                >
                   {cartLength}
                 </p>
               )}

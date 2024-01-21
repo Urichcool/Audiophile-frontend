@@ -73,7 +73,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
           >
             +
           </button>
-          <AddToCartButton />
+          <AddToCartButton testId={"add-to-cart-button"} />
         </Form>
       )}
     </Formik>
