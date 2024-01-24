@@ -44,6 +44,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
         <Form className="add-to-cart-form">
           <button
             className="add-to-cart-input-minus-button"
+            data-testid="add-to-cart-form-decrease-button"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               if (props.values.quantity !== 1) {
                 props.setFieldValue("quantity", (props.values.quantity -= 1));
@@ -60,10 +61,12 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
             className="add-to-cart-input"
             readOnly="readonly"
             value={props.values.quantity}
+            data-testid="add-to-cart-form-quantity"
           />
 
           <button
             className="add-to-cart-input-plus-button"
+            data-testid="add-to-cart-form-increase-button"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               if (props.values.quantity !== 99) {
                 props.setFieldValue("quantity", (props.values.quantity += 1));
