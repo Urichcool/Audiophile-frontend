@@ -43,6 +43,7 @@ const MobileMenu: FC = () => {
       </div>
       <Backdrop
         isModalOpen={isMenuOpen}
+        isMobileMenu={true}
         clickHandler={clickBackdropHandler}
         testId={"mobile-menu-backdrop"}
       />

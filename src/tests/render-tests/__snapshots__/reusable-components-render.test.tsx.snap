@@ -1,0 +1,420 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reusable-components-render-tests categories-list-should-renders-correctly 1`] = `
+<ul
+  class="categories-list"
+  data-testid="categories-list"
+>
+  <li
+    class="categories-list-item"
+  >
+    <div
+      class="categories-list-hadphones-image"
+    />
+    <div
+      class="categories-list-icon"
+    >
+      <svg
+        fill="none"
+        height="102"
+        viewBox="0 0 183 102"
+        width="183"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          filter="url(#filter0_f_0_4858)"
+        >
+          <ellipse
+            cx="91.5001"
+            cy="51"
+            fill="black"
+            rx="47.4444"
+            ry="7"
+          />
+        </g>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            filterUnits="userSpaceOnUse"
+            height="100.985"
+            id="filter0_f_0_4858"
+            width="181.874"
+            x="0.563156"
+            y="0.507492"
+          >
+            <feflood
+              flood-opacity="0"
+              result="BackgroundImageFix"
+            />
+            <feblend
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              mode="normal"
+              result="shape"
+            />
+            <fegaussianblur
+              result="effect1_foregroundBlur_0_4858"
+              stdDeviation="21.7463"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+    <h6
+      class="H6-manrope-bold categories-list-item-title"
+    >
+      headphones
+    </h6>
+    <button
+      class="button3"
+      data-testid="navigation-button-headphones"
+    >
+      <p>
+        Shop
+      </p>
+      <svg
+        fill="none"
+        height="12"
+        viewBox="0 0 7 12"
+        width="7"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.3219 1L6.3219 6L1.3219 11"
+          stroke="#D87D4A"
+          stroke-width="2"
+        />
+      </svg>
+    </button>
+  </li>
+  <li
+    class="categories-list-item"
+  >
+    <div
+      class="categories-list-speakers-image"
+    />
+    <div
+      class="categories-list-icon"
+    >
+      <svg
+        fill="none"
+        height="102"
+        viewBox="0 0 183 102"
+        width="183"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          filter="url(#filter0_f_0_4858)"
+        >
+          <ellipse
+            cx="91.5001"
+            cy="51"
+            fill="black"
+            rx="47.4444"
+            ry="7"
+          />
+        </g>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            filterUnits="userSpaceOnUse"
+            height="100.985"
+            id="filter0_f_0_4858"
+            width="181.874"
+            x="0.563156"
+            y="0.507492"
+          >
+            <feflood
+              flood-opacity="0"
+              result="BackgroundImageFix"
+            />
+            <feblend
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              mode="normal"
+              result="shape"
+            />
+            <fegaussianblur
+              result="effect1_foregroundBlur_0_4858"
+              stdDeviation="21.7463"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+    <h6
+      class="H6-manrope-bold categories-list-item-title"
+    >
+      speakers
+    </h6>
+    <button
+      class="button3"
+      data-testid="navigation-button-speakers"
+    >
+      <p>
+        Shop
+      </p>
+      <svg
+        fill="none"
+        height="12"
+        viewBox="0 0 7 12"
+        width="7"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.3219 1L6.3219 6L1.3219 11"
+          stroke="#D87D4A"
+          stroke-width="2"
+        />
+      </svg>
+    </button>
+  </li>
+  <li
+    class="categories-list-item"
+  >
+    <div
+      class="categories-list-earphones-image"
+    />
+    <div
+      class="categories-list-icon"
+    >
+      <svg
+        fill="none"
+        height="102"
+        viewBox="0 0 183 102"
+        width="183"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          filter="url(#filter0_f_0_4858)"
+        >
+          <ellipse
+            cx="91.5001"
+            cy="51"
+            fill="black"
+            rx="47.4444"
+            ry="7"
+          />
+        </g>
+        <defs>
+          <filter
+            color-interpolation-filters="sRGB"
+            filterUnits="userSpaceOnUse"
+            height="100.985"
+            id="filter0_f_0_4858"
+            width="181.874"
+            x="0.563156"
+            y="0.507492"
+          >
+            <feflood
+              flood-opacity="0"
+              result="BackgroundImageFix"
+            />
+            <feblend
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              mode="normal"
+              result="shape"
+            />
+            <fegaussianblur
+              result="effect1_foregroundBlur_0_4858"
+              stdDeviation="21.7463"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+    <h6
+      class="H6-manrope-bold categories-list-item-title"
+    >
+      earphones
+    </h6>
+    <button
+      class="button3"
+      data-testid="navigation-button-earphones"
+    >
+      <p>
+        Shop
+      </p>
+      <svg
+        fill="none"
+        height="12"
+        viewBox="0 0 7 12"
+        width="7"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.3219 1L6.3219 6L1.3219 11"
+          stroke="#D87D4A"
+          stroke-width="2"
+        />
+      </svg>
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`reusable-components-render-tests categories-product-lis-should-renders-correctly 1`] = `
+<div
+  class="web-site-description-container"
+  data-testid="web-site-description"
+>
+  <div
+    class="web-site-description-picture"
+  />
+  <div
+    class="web-site-description-text-container"
+  >
+    <h4
+      class="H4-manrope-bold web-site-description-title"
+    >
+      Bringing you the
+       
+      <span
+        class="web-site-description-title-best"
+      >
+        best
+      </span>
+       audio gear
+    </h4>
+    <p
+      class="Body-manrope-medium web-site-description-text"
+    >
+      Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`reusable-components-render-tests categories-product-list-item-should-renders-correctly 1`] = `
+<li
+  class="categories-products-list-item"
+  data-testid="categories-products-list-item"
+>
+  <div
+    class="categories-products-list-item-picture-container"
+  >
+    <div
+      class="animate__animated"
+      style="animation-duration: 1s; opacity: 0;"
+    >
+      <picture
+        class=""
+      >
+        <source
+          height="300"
+          media="(min-width: 1440px)"
+          srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443139/audiophile/goods/product-xx99-mark-two-headphones/desktop/image-product-removebg-desktop-removebg-preview_myfyr1.png"
+          width="270"
+        />
+        <source
+          height="250"
+          media="(min-width: 768px)"
+          srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443187/audiophile/goods/product-xx99-mark-two-headphones/tablet/image-product-removebg-tablet-removebg-preview_wbyhs5.png"
+          width="220"
+        />
+        <img
+          alt="XX99 Mark II Headphones"
+          height="180"
+          src="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443154/audiophile/goods/product-xx99-mark-two-headphones/mobile/image-product-removebg-mobile-removebg-preview_e3ysuj.png"
+          width="160"
+        />
+      </picture>
+    </div>
+  </div>
+  <div
+    class="animate__animated"
+    style="animation-duration: 1s; opacity: 0;"
+  >
+    <div
+      class="categories-products-list-item-content-container"
+    >
+      <p
+        class="Overline-manrope-regular categories-products-list-item-new-product-text"
+      >
+        NEW PRODUCT
+      </p>
+      <h2
+        class="H2-manrope-bold categories-products-list-item-title"
+      >
+        XX99 Mark II Headphones
+      </h2>
+      <p
+        class="Body-manrope-medium categories-products-list-item-description"
+      >
+        The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.
+      </p>
+      <button
+        class="button1"
+        data-testid="id-page-nav-button"
+      >
+        See product
+      </button>
+    </div>
+  </div>
+</li>
+`;
+
+exports[`reusable-components-render-tests web-site-description-should-renders-correctly 1`] = `
+<div
+  class="web-site-description-container"
+  data-testid="web-site-description"
+>
+  <div
+    class="web-site-description-picture"
+  />
+  <div
+    class="web-site-description-text-container"
+  >
+    <h4
+      class="H4-manrope-bold web-site-description-title"
+    >
+      Bringing you the
+       
+      <span
+        class="web-site-description-title-best"
+      >
+        best
+      </span>
+       audio gear
+    </h4>
+    <p
+      class="Body-manrope-medium web-site-description-text"
+    >
+      Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`reusable-components-render-tests web-site-description-should-renders-correctly 2`] = `
+<div
+  class="web-site-description-container"
+  data-testid="web-site-description"
+>
+  <div
+    class="web-site-description-picture"
+  />
+  <div
+    class="web-site-description-text-container"
+  >
+    <h4
+      class="H4-manrope-bold web-site-description-title"
+    >
+      Bringing you the
+       
+      <span
+        class="web-site-description-title-best"
+      >
+        best
+      </span>
+       audio gear
+    </h4>
+    <p
+      class="Body-manrope-medium web-site-description-text"
+    >
+      Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
+    </p>
+  </div>
+</div>
+`;

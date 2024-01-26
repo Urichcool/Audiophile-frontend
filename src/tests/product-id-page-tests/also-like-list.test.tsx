@@ -38,6 +38,7 @@ describe("also-like-list-tests", () => {
     let newProduct: string | null =
       screen.getByTestId("product-name").textContent;
     if (prevProduct === newProduct) {
+       store.dispatch(goodsApi.util.resetApiState());
       fireEvent.click(alsoLikeListButtons[1]);
       const productIdPageLoaderAlsoLike: HTMLDivElement = screen.getByTestId(
         "product-id-page-loader"

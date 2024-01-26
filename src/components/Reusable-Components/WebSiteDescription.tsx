@@ -3,7 +3,7 @@ import { FC } from "react";
 
 const WebSiteDescription:FC = () => {
   return (
-    <div className="web-site-description-container">
+    <div className="web-site-description-container" data-testid="web-site-description">
       <div className="web-site-description-picture" />
       <div className="web-site-description-text-container">
         <h4 className="H4-manrope-bold web-site-description-title">
