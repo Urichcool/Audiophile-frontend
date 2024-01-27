@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reusable-components-render-tests categories-list-should-renders-correctly 1`] = `
+exports[`reusable-components-render-tests categories-list-component-should-renders-correctly 1`] = `
 <ul
   class="categories-list"
   data-testid="categories-list"
@@ -254,39 +254,7 @@ exports[`reusable-components-render-tests categories-list-should-renders-correct
 </ul>
 `;
 
-exports[`reusable-components-render-tests categories-product-lis-should-renders-correctly 1`] = `
-<div
-  class="web-site-description-container"
-  data-testid="web-site-description"
->
-  <div
-    class="web-site-description-picture"
-  />
-  <div
-    class="web-site-description-text-container"
-  >
-    <h4
-      class="H4-manrope-bold web-site-description-title"
-    >
-      Bringing you the
-       
-      <span
-        class="web-site-description-title-best"
-      >
-        best
-      </span>
-       audio gear
-    </h4>
-    <p
-      class="Body-manrope-medium web-site-description-text"
-    >
-      Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
-    </p>
-  </div>
-</div>
-`;
-
-exports[`reusable-components-render-tests categories-product-list-item-should-renders-correctly 1`] = `
+exports[`reusable-components-render-tests categories-product-list-item-component-should-renders-correctly 1`] = `
 <li
   class="categories-products-list-item"
   data-testid="categories-products-list-item"
@@ -300,6 +268,7 @@ exports[`reusable-components-render-tests categories-product-list-item-should-re
     >
       <picture
         class=""
+        data-testid="picture-component"
       >
         <source
           height="300"
@@ -355,39 +324,33 @@ exports[`reusable-components-render-tests categories-product-list-item-should-re
 </li>
 `;
 
-exports[`reusable-components-render-tests web-site-description-should-renders-correctly 1`] = `
-<div
-  class="web-site-description-container"
-  data-testid="web-site-description"
+exports[`reusable-components-render-tests picture-component-should-renders-correctly 1`] = `
+<picture
+  class="hero-new-product-picture"
+  data-testid="picture-component"
 >
-  <div
-    class="web-site-description-picture"
+  <source
+    height="300"
+    media="(min-width: 1440px)"
+    srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443139/audiophile/goods/product-xx99-mark-two-headphones/desktop/image-product-removebg-desktop-removebg-preview_myfyr1.png"
+    width="270"
   />
-  <div
-    class="web-site-description-text-container"
-  >
-    <h4
-      class="H4-manrope-bold web-site-description-title"
-    >
-      Bringing you the
-       
-      <span
-        class="web-site-description-title-best"
-      >
-        best
-      </span>
-       audio gear
-    </h4>
-    <p
-      class="Body-manrope-medium web-site-description-text"
-    >
-      Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
-    </p>
-  </div>
-</div>
+  <source
+    height="250"
+    media="(min-width: 768px)"
+    srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443187/audiophile/goods/product-xx99-mark-two-headphones/tablet/image-product-removebg-tablet-removebg-preview_wbyhs5.png"
+    width="220"
+  />
+  <img
+    alt="XX99 Mark II Headphones"
+    height="180"
+    src="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443154/audiophile/goods/product-xx99-mark-two-headphones/mobile/image-product-removebg-mobile-removebg-preview_e3ysuj.png"
+    width="160"
+  />
+</picture>
 `;
 
-exports[`reusable-components-render-tests web-site-description-should-renders-correctly 2`] = `
+exports[`reusable-components-render-tests web-site-description-component-should-renders-correctly 1`] = `
 <div
   class="web-site-description-container"
   data-testid="web-site-description"

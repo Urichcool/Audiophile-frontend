@@ -21,7 +21,7 @@ interface IPictureProps {
 
 const Picture: FC<IPictureProps> = ({ imageSrc, sizes, name, className, imgClassName }) => {
   return (
-    <picture className={className}>
+    <picture className={className} data-testid="picture-component">
       <source
         srcSet={imageSrc.desktop}
         media="(min-width: 1440px)"
