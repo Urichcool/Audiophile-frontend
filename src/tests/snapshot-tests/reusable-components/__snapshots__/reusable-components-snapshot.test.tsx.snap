@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reusable-components-render-tests backdrop-component-should-renders-correctly 1`] = `
+exports[`reusable-components-snapshot-tests backdrop-component-should-match-snapshot 1`] = `
 <div
   class="backdrop backdrop-open undefined"
   data-testid="test-backdrop"
 />
 `;
 
-exports[`reusable-components-render-tests categories-list-component-should-renders-correctly 1`] = `
+exports[`reusable-components-snapshot-tests categories-list-component-should-match-snapshot 1`] = `
 <ul
   class="categories-list"
   data-testid="categories-list"
@@ -261,7 +261,7 @@ exports[`reusable-components-render-tests categories-list-component-should-rende
 </ul>
 `;
 
-exports[`reusable-components-render-tests categories-product-list-item-component-should-renders-correctly 1`] = `
+exports[`reusable-components-snapshot-tests categories-product-list-item-component-should-match-snapshot 1`] = `
 <li
   class="categories-products-list-item"
   data-testid="categories-products-list-item"
@@ -331,7 +331,7 @@ exports[`reusable-components-render-tests categories-product-list-item-component
 </li>
 `;
 
-exports[`reusable-components-render-tests loader-component-should-renders-correctly 1`] = `
+exports[`reusable-components-snapshot-tests loader-component-should-match-snapshot 1`] = `
 <div
   class="loader"
   data-testid="loader"
@@ -388,7 +388,7 @@ exports[`reusable-components-render-tests loader-component-should-renders-correc
 </div>
 `;
 
-exports[`reusable-components-render-tests picture-component-should-renders-correctly 1`] = `
+exports[`reusable-components-snapshot-tests picture-component-should-match-snapshot 1`] = `
 <picture
   class="hero-new-product-picture"
   data-testid="picture-component"
@@ -414,7 +414,7 @@ exports[`reusable-components-render-tests picture-component-should-renders-corre
 </picture>
 `;
 
-exports[`reusable-components-render-tests web-site-description-component-should-renders-correctly 1`] = `
+exports[`reusable-components-snapshot-tests web-site-description-component-should-match-snapshot 1`] = `
 <div
   class="web-site-description-container"
   data-testid="web-site-description"

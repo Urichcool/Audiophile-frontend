@@ -3,9 +3,10 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 
 interface IButton2Props {
   id?: string;
+  testId?:string
 }
 
-const Button2: FC<IButton2Props> = ({id}) => {
+const Button2: FC<IButton2Props> = ({id, testId}) => {
   const navigate: NavigateFunction = useNavigate();
 
  const buttonClickHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
@@ -13,7 +14,7 @@ const Button2: FC<IButton2Props> = ({id}) => {
  };
 
     return (
-      <button className='button2' onClick={buttonClickHandler}>see product</button>
+      <button className='button2' data-testid={testId} onClick={buttonClickHandler}>see product</button>
     );
 }
 

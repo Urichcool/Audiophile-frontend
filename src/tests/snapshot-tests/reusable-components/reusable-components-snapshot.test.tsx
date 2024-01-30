@@ -11,21 +11,21 @@ import {
 import Loader from "../../../components/Reusable-Components/Loader";
 import Backdrop from "../../../components/Reusable-Components/Backdrop";
 
-describe("reusable-components-render-tests", () => {
-  test("categories-list-component-should-renders-correctly", () => {
+describe("reusable-components-snapshot-tests", () => {
+  test("categories-list-component-should-match-snapshot", () => {
     renderWithReduxAndRouter(<CategoriesList isMobile={false} />);
     const categoriesList: HTMLUListElement =
       screen.getByTestId("categories-list");
     expect(categoriesList).toMatchSnapshot();
   });
-  test("web-site-description-component-should-renders-correctly", () => {
+  test("web-site-description-component-should-match-snapshot", () => {
     renderWithReduxAndRouter(<WebSiteDescription />);
     const webSiteDescription: HTMLDivElement = screen.getByTestId(
       "web-site-description"
     );
     expect(webSiteDescription).toMatchSnapshot();
   });
-  test("categories-product-list-item-component-should-renders-correctly", () => {
+  test("categories-product-list-item-component-should-match-snapshot", () => {
     const {
       previewImage,
       isNew,
@@ -56,7 +56,7 @@ describe("reusable-components-render-tests", () => {
     );
     expect(categoriesListItem).toMatchSnapshot();
   });
-  test("picture-component-should-renders-correctly", () => {
+  test("picture-component-should-match-snapshot", () => {
     const { imageSrc, sizes, name, className } = pictureComponentTestProps;
     renderWithReduxAndRouter(
       <Picture
@@ -69,12 +69,12 @@ describe("reusable-components-render-tests", () => {
     const pictureComponent = screen.getByTestId("picture-component");
     expect(pictureComponent).toMatchSnapshot();
   });
-  test("loader-component-should-renders-correctly", () => {
+  test("loader-component-should-match-snapshot", () => {
     renderWithReduxAndRouter(<Loader />);
     const loaderComponent: HTMLDivElement = screen.getByTestId("loader");
     expect(loaderComponent).toMatchSnapshot();
   });
-  test("backdrop-component-should-renders-correctly", () => {
+  test("backdrop-component-should-match-snapshot", () => {
     renderWithReduxAndRouter(
       <Backdrop
         isModalOpen={true}
