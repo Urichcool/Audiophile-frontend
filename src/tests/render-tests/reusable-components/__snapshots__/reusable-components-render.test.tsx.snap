@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`reusable-components-render-tests backdrop-component-should-renders-correctly 1`] = `
+<div
+  class="backdrop backdrop-open undefined"
+  data-testid="test-backdrop"
+/>
+`;
+
 exports[`reusable-components-render-tests categories-list-component-should-renders-correctly 1`] = `
 <ul
   class="categories-list"
@@ -322,6 +329,63 @@ exports[`reusable-components-render-tests categories-product-list-item-component
     </div>
   </div>
 </li>
+`;
+
+exports[`reusable-components-render-tests loader-component-should-renders-correctly 1`] = `
+<div
+  class="loader"
+  data-testid="loader"
+>
+  <div
+    aria-busy="true"
+    aria-label="oval-loading"
+    class=""
+    data-testid="oval-loading"
+    role="status"
+    style="display: flex;"
+  >
+    <svg
+      data-testid="oval-svg"
+      height="100"
+      stroke="#fff"
+      viewBox="-20 -20 42 42"
+      width="100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+      >
+        <g
+          data-testid="oval-secondary-group"
+          stroke-width="2"
+          transform="translate(1 1)"
+        >
+          <circle
+            cx="0"
+            cy="0"
+            r="20"
+            stroke="#fff"
+            stroke-opacity=".5"
+            stroke-width="2"
+          />
+          <path
+            d="M20 0c0-9.94-8.06-20-20-20"
+          >
+            <animatetransform
+              attributeName="transform"
+              dur="1s"
+              from="0 0 0"
+              repeatCount="indefinite"
+              to="360 0 0"
+              type="rotate"
+            />
+          </path>
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
 `;
 
 exports[`reusable-components-render-tests picture-component-should-renders-correctly 1`] = `

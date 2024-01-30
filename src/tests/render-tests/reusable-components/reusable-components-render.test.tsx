@@ -1,13 +1,15 @@
-import { renderWithReduxAndRouter } from "../helpers/RenderWithReduxAndRouter";
-import CategoriesList from "../../components/Reusable-Components/CategoriesList";
+import { renderWithReduxAndRouter } from "../../helpers/RenderWithReduxAndRouter";
+import CategoriesList from "../../../components/Reusable-Components/CategoriesList";
 import { screen } from "@testing-library/react";
-import WebSiteDescription from "../../components/Reusable-Components/WebSiteDescription";
-import CategoriesProductsListItem from "../../components/Reusable-Components/CategoriesProductsListItem";
-import Picture from "../../components/Reusable-Components/Picture";
+import WebSiteDescription from "../../../components/Reusable-Components/WebSiteDescription";
+import CategoriesProductsListItem from "../../../components/Reusable-Components/CategoriesProductsListItem";
+import Picture from "../../../components/Reusable-Components/Picture";
 import {
   categoriesProductListItemTestProps,
   pictureComponentTestProps,
 } from "./components-props";
+import Loader from "../../../components/Reusable-Components/Loader";
+import Backdrop from "../../../components/Reusable-Components/Backdrop";
 
 describe("reusable-components-render-tests", () => {
   test("categories-list-component-should-renders-correctly", () => {
@@ -66,5 +68,22 @@ describe("reusable-components-render-tests", () => {
     );
     const pictureComponent = screen.getByTestId("picture-component");
     expect(pictureComponent).toMatchSnapshot();
+  });
+  test("loader-component-should-renders-correctly", () => {
+    renderWithReduxAndRouter(<Loader />);
+    const loaderComponent: HTMLDivElement = screen.getByTestId("loader");
+    expect(loaderComponent).toMatchSnapshot();
+  });
+  test("backdrop-component-should-renders-correctly", () => {
+    renderWithReduxAndRouter(
+      <Backdrop
+        isModalOpen={true}
+        clickHandler={() => {}}
+        testId={"test-backdrop"}
+      />
+    );
+    const backdropComponent: HTMLDivElement =
+      screen.getByTestId("test-backdrop");
+    expect(backdropComponent).toMatchSnapshot();
   });
 });
