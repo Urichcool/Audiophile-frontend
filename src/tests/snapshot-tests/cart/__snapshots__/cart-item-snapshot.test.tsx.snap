@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cart-item-snapshot-tests cart-item-should-match-snapshot 1`] = `
+<li
+  class="cart-list-item"
+  data-testid="cart-item"
+>
+  <div
+    class="cart-list-item-picture-container"
+  >
+    <img
+      alt="YX1 Wireless Earphones"
+      class="cart-item-picture"
+      src="https://res.cloudinary.com/dir4brsjf/image/upload/v1697496515/audiophile/goods/product-yx1-earphones/desktop/wv1xzajrcrygkt1zarto.jpg"
+    />
+  </div>
+  <div
+    class="cart-list-item-text-container"
+  >
+    <h6
+      class="cart-item-name"
+    >
+      YX1 Wireless Earphones
+    </h6>
+    <p
+      class="cart-item-price"
+    >
+      $ 1,198
+    </p>
+  </div>
+  <div
+    class="cart-quantity-buttons-container"
+  >
+    <button
+      class="cart-quantity-button"
+      data-testid="cart-decrease-button"
+    >
+      <p>
+        -
+      </p>
+    </button>
+    <p
+      class="cart-quantity-text"
+      data-testid="cart-quantity"
+    >
+      3
+    </p>
+    <button
+      class="cart-quantity-button"
+      data-testid="cart-increase-button"
+    >
+      <p>
+        +
+      </p>
+    </button>
+  </div>
+</li>
+`;

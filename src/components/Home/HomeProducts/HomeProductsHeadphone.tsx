@@ -15,7 +15,10 @@ const HomeProductsHeadphone: FC<IHomeProductsHeadphoneProps> = ({
   isFetching,
 }) => {
   return (
-    <div className="home-products-headprone-container">
+    <div
+      className="home-products-headprone-container"
+      data-testid="home-products-headphone-section"
+    >
       {isFetching ? (
         <Loader />
       ) : (

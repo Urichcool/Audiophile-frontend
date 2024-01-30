@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 interface ICheckoutButton{
-    testId:string
+    testId?:string
 }
 
 const CheckoutButton:FC<ICheckoutButton> = ({testId}) => {
