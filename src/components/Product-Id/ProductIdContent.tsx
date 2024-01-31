@@ -49,7 +49,10 @@ const ProductIdContent = () => {
                   NEW PRODUCT
                 </p>
               )}
-              <h2 className="H2-manrope-bold product-id-page-product-title" data-testid="product-name">
+              <h2
+                className="H2-manrope-bold product-id-page-product-title"
+                data-testid="product-name"
+              >
                 {data?.name}
               </h2>
               <p className="Body-manrope-medium product-id-page-product-description">

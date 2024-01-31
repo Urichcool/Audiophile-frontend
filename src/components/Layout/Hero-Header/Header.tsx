@@ -43,7 +43,7 @@ const Header: FC = () => {
 
   return (
     <>
-      <header className="header">
+      <header className="header" data-testid="header">
         <div className="container">
           <div
             className={
