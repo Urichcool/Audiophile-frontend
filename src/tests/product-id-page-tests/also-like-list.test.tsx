@@ -9,7 +9,7 @@ import { store } from "../../redux/store";
 import { goodsApi } from "../../redux/services/goods";
 
 describe("also-like-list-tests", () => {
-  beforeEach(() => {
+  afterEach(() => {
     store.dispatch(goodsApi.util.resetApiState());
   });
   test("click-on-also-like-product-should-change-product", async () => {
@@ -31,12 +31,17 @@ describe("also-like-list-tests", () => {
     const prevProduct: string | null =
       screen.getByTestId("product-name").textContent;
     fireEvent.click(alsoLikeListButtons[0]);
-    const productIdPageLoaderAlsoLike: HTMLDivElement = screen.getByTestId(
+    const isProductIdPageLoader: string | null = screen.getByTestId(
       "product-id-page-loader"
-    );
-    await waitForElementToBeRemoved(productIdPageLoaderAlsoLike, {
-      timeout: 300000,
-    });
+    ).className;
+    if (isProductIdPageLoader) {
+      const productIdPageLoaderAlsoLike: HTMLDivElement = screen.getByTestId(
+        "product-id-page-loader"
+      );
+      await waitForElementToBeRemoved(productIdPageLoaderAlsoLike, {
+        timeout: 300000,
+      });
+    }
     let newProduct: string | null =
       screen.getByTestId("product-name").textContent;
     if (prevProduct === newProduct) {

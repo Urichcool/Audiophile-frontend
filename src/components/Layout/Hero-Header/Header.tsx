@@ -43,8 +43,8 @@ const Header: FC = () => {
 
   return (
     <>
-      <header className="header" data-testid="header">
-        <div className="container">
+      <header className="header">
+        <div className="container" data-testid="header">
           <div
             className={
               productId ? "header-container-productId" : "header-container"

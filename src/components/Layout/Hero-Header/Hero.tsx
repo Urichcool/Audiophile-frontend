@@ -1,11 +1,9 @@
 import { FC, useEffect } from "react";
 import { useGetNewGoodsQuery } from "../../../redux/services/goods";
-import { shortDescrFunc } from "../../../utils/shortDescrFunc";
-import Button1 from "../../Reusable-Components/Buttons/Button1";
 import HeroLoader from "./HeroLoader";
 import { Params, useLocation, useParams } from "react-router-dom";
 import MobileMenu from "../../Mobile-Menu/MobileMenu";
-import Picture from "../../Reusable-Components/Picture";
+import HeroNewProductContainer from "./HeroNewProductContainer";
 
 const Hero: FC = () => {
   const { data, isFetching } = useGetNewGoodsQuery();
@@ -31,37 +29,12 @@ const Hero: FC = () => {
               {isFetching ? (
                 <HeroLoader />
               ) : (
-                <div className="container">
-                  <div className="hero-container">
-                    <p className="Overline-manrope-regular hero-new-product-text">
-                      new product
-                    </p>
-                    <h1 className="H1-manrope-bold hero-new-product-title">
-                      {data?.name}
-                    </h1>
-                    <p className="Body-manrope-medium hero-new-product-description">
-                      {shortDescrFunc(data?.description)}
-                    </p>
-                    <Button1 id={data?._id} testId={"id-page-nav-button"} />
-                  </div>
-                  <Picture
-                    imageSrc={{
-                      desktop: data?.previewImage.desktop,
-                      tablet: data?.previewImage.tablet,
-                      mobile: data?.previewImage.mobile,
-                    }}
-                    sizes={{
-                      desktopWidth: "270",
-                      desktopHeight: "300",
-                      tabletWidth: "220",
-                      tabletHeight: "250",
-                      mobileWidth: "160",
-                      mobileHeight: "180",
-                    }}
-                    name={data?.name}
-                    className="hero-new-product-picture"
-                  />
-                </div>
+                <HeroNewProductContainer
+                  name={data?.name}
+                  description={data?.description}
+                  productId={data?._id}
+                  previewImage={data?.previewImage}
+                />
               )}
             </div>
           ) : (
