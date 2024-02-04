@@ -2,8 +2,8 @@ import { FC } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 interface IButton1Props {
-  id?: string;
-  testId: string;
+  id?: string ;
+  testId?: string;
 }
 
 const Button1: FC<IButton1Props> = ({ id, testId }) => {

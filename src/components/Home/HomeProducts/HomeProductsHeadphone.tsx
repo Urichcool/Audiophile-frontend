@@ -6,7 +6,7 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import Picture from "../../Reusable-Components/Picture";
 
 interface IHomeProductsHeadphoneProps {
-  data?: IGoods;
+  data: IGoods | undefined;
   isFetching: boolean;
 }
 
@@ -15,7 +15,10 @@ const HomeProductsHeadphone: FC<IHomeProductsHeadphoneProps> = ({
   isFetching,
 }) => {
   return (
-    <div className="home-products-headprone-container">
+    <div
+      className="home-products-headprone-container"
+      data-testid="home-products-headphone-section"
+    >
       {isFetching ? (
         <Loader />
       ) : (

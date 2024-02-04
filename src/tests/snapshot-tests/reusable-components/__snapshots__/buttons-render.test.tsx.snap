@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`buttons-render-tests add-to-cart-button-should-renders-correctly 1`] = `
+<button
+  class="add-to-cart-button"
+  data-testid="add-to-cart-test-button"
+  type="submit"
+>
+  Add to cart
+</button>
+`;

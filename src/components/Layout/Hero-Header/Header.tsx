@@ -20,7 +20,14 @@ import Cart from "../../Cart/Cart";
 import HeaderNavigation from "./HeaderNavigation";
 
 const Header: FC = () => {
-  const cartLength: number = useAppSelector(selectCartProducts).length;
+  const cartProducts: {
+    id: string;
+    name: string;
+    quantity: number;
+    price: number;
+    totalPrice: number;
+    picture: string;
+  }[] = useAppSelector(selectCartProducts);
   const isMenuOpen: boolean = useAppSelector(selectIsMenuOpen);
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
   const dispatch: AppDispatch = useAppDispatch();
@@ -28,12 +35,13 @@ const Header: FC = () => {
 
   const burgerButtonHandler = (
     e: React.MouseEvent<HTMLButtonElement>
-  ): void => {if (isCartModalOpen) {
-    dispatch(switchCartModal(!isCartModalOpen));
-  }
+  ): void => {
+    if (isCartModalOpen) {
+      dispatch(switchCartModal(!isCartModalOpen));
+    }
     dispatch(switchMenu(!isMenuOpen));
   };
-  
+
   const cartButtonHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
     if (isMenuOpen) {
       dispatch(switchMenu(!isMenuOpen));
@@ -44,7 +52,7 @@ const Header: FC = () => {
   return (
     <>
       <header className="header">
-        <div className="container">
+        <div className="container" data-testid="header">
           <div
             className={
               productId ? "header-container-productId" : "header-container"
@@ -71,12 +79,15 @@ const Header: FC = () => {
               onClick={cartButtonHandler}
             >
               <CartIcon />
-              {cartLength !== 0 && (
+              {cartProducts.length !== 0 && (
                 <p
                   className="cart-button-quantity H6-manrope-bold"
                   data-testid="cart-button-quantity"
                 >
-                  {cartLength}
+                  {[...cartProducts].reduce(
+                    (total, product) => (total += product.quantity),
+                    0
+                  )}
                 </p>
               )}
             </button>

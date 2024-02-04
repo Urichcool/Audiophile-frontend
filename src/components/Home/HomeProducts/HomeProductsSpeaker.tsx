@@ -7,7 +7,7 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import Picture from "../../Reusable-Components/Picture";
 
 interface IHomeProductsSpeakerProps {
-  data?: IGoods;
+  data: IGoods | undefined;
   isFetching: boolean;
 }
 
@@ -16,7 +16,10 @@ const HomeProductsSpeaker: FC<IHomeProductsSpeakerProps> = ({
   isFetching,
 }) => {
   return (
-    <div className="home-products-speakers-container">
+    <div
+      className="home-products-speakers-container"
+      data-testid={"home-products-speaker-section"}
+    >
       {isFetching ? (
         <Loader />
       ) : (
@@ -45,7 +48,6 @@ const HomeProductsSpeaker: FC<IHomeProductsSpeakerProps> = ({
               name={data?.name}
               className={"home-products-speakers-picture"}
             />
-
           </AnimationOnScroll>
           <AnimationOnScroll
             animateIn="animate__fadeIn"

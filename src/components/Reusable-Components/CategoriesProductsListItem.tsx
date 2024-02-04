@@ -27,6 +27,7 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
           ? "categories-products-list-item-even"
           : "categories-products-list-item"
       }
+      data-testid="categories-products-list-item"
     >
       <div className="categories-products-list-item-picture-container">
         <AnimationOnScroll animateIn="animate__fadeIn" animateOnce offset={0}>

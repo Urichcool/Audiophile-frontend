@@ -20,7 +20,7 @@ const CartItem: FC<ICartItemProps> = ({
   totalPrice
 }) => {
   return (
-    <li className="cart-list-item">
+    <li className="cart-list-item" data-testid="cart-item">
       <div className="cart-list-item-picture-container">
         <img src={picture} alt={name} className="cart-item-picture" />
       </div>

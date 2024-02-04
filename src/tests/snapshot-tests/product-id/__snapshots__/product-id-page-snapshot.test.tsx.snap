@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`product-id-page-snapshot-tests product-id-page-description-should-match-snapshot 1`] = `
+<div
+  class="product-id-page-picture-and-description-container"
+  data-testid="product-id-page-picture-and-description-container"
+>
+  <div
+    class="product-id-page-picture-container"
+  >
+    <picture
+      class=""
+      data-testid="picture-component"
+    >
+      <source
+        height="400"
+        media="(min-width: 1440px)"
+        srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443139/audiophile/goods/product-xx99-mark-two-headphones/desktop/image-product-removebg-desktop-removebg-preview_myfyr1.png"
+        width="400"
+      />
+      <source
+        height="450"
+        media="(min-width: 768px)"
+        srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443187/audiophile/goods/product-xx99-mark-two-headphones/tablet/image-product-removebg-tablet-removebg-preview_wbyhs5.png"
+        width="281"
+      />
+      <img
+        alt="XX99 Mark II Headphones"
+        height="300"
+        src="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443154/audiophile/goods/product-xx99-mark-two-headphones/mobile/image-product-removebg-mobile-removebg-preview_e3ysuj.png"
+        width="300"
+      />
+    </picture>
+  </div>
+  <div
+    class="product-id-page-description-container"
+  >
+    <h2
+      class="H2-manrope-bold product-id-page-product-title"
+      data-testid="product-name"
+    >
+      XX99 Mark II Headphones
+    </h2>
+    <p
+      class="Body-manrope-medium product-id-page-product-description"
+    >
+      XX99 Mark II Headphones
+    </p>
+    <p
+      class="product-id-page-product-price"
+    >
+      $ 499
+    </p>
+    <form
+      action="#"
+      class="add-to-cart-form"
+    >
+      <button
+        class="add-to-cart-input-minus-button"
+        data-testid="add-to-cart-form-decrease-button"
+        type="button"
+      >
+        -
+      </button>
+      <input
+        class="add-to-cart-input"
+        data-testid="add-to-cart-form-quantity"
+        id="quantity"
+        name="quantity"
+        readonly=""
+        type="number"
+        value="1"
+      />
+      <button
+        class="add-to-cart-input-plus-button"
+        data-testid="add-to-cart-form-increase-button"
+        type="button"
+      >
+        +
+      </button>
+      <button
+        class="add-to-cart-button"
+        data-testid="add-to-cart-button"
+        type="submit"
+      >
+        Add to cart
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`product-id-page-snapshot-tests product-id-page-features-should-match-snapshot 1`] = `
+<div
+  class="product-id-page-features-and-includes-container"
+  data-testid="product-id-page-features-and-includes"
+>
+  <div
+    class="product-id-page-features-container"
+  >
+    <h3
+      class="H3-manrope-bold product-id-page-features-title"
+    >
+      Features
+    </h3>
+    <p
+      class="product-id-page-features-text Body-manrope-medium"
+    >
+      Experience unrivalled stereo sound thanks to innovative acoustic techn…
+    </p>
+  </div>
+  <div
+    class="product-id-page-includes-container"
+  >
+    <h3
+      class="H3-manrope-bold product-id-page-includes-title"
+    >
+      in the box
+    </h3>
+    <ul
+      class="product-id-page-includes-list"
+    >
+      <li
+        class="product-id-page-includes-list-item"
+      >
+        <p
+          class="product-id-page-includes-list-item-quantity-text"
+        >
+          2x
+        </p>
+        <p
+          class="product-id-page-includes-list-item-text Body-manrope-medium"
+        >
+          Earphone unit
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`product-id-page-snapshot-tests product-id-page-gallery-should-match-snapshot 1`] = `
+<div
+  class="product-id-page-gallery"
+  data-testid="product-id-page-gallery"
+>
+  <div>
+    <picture
+      data-testid="picture-component"
+    >
+      <source
+        height="282"
+        media="(min-width: 1440px)"
+        srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1697496515/audiophile/goods/product-yx1-earphones/desktop/oycf1je8ndux38npvk6a.jpg"
+        width="445"
+      />
+      <source
+        height="174"
+        media="(min-width: 768px)"
+        srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1697496516/audiophile/goods/product-yx1-earphones/tablet/cm2w05667a5uuvfs8aji.jpg"
+        width="277"
+      />
+      <img
+        alt="XX59 Headphones"
+        class="product-id-page-gallery-picture-1"
+        height="174"
+        src="https://res.cloudinary.com/dir4brsjf/image/upload/v1697496515/audiophile/goods/product-yx1-earphones/mobile/vzmpaa7dkwji3u3nk7co.jpg"
+        width="327"
+      />
+    </picture>
+    <picture
+      data-testid="picture-component"
+    >
+      <source
+        height="282"
+        media="(min-width: 1440px)"
+        srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1697496515/audiophile/goods/product-yx1-earphones/desktop/dcifyu9zydbtrklw8gcr.jpg"
+        width="445"
+      />
+      <source
+        height="174"
+        media="(min-width: 768px)"
+        srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1697496516/audiophile/goods/product-yx1-earphones/tablet/pwcuqvrhxa779epydciq.jpg"
+        width="277"
+      />
+      <img
+        alt="XX59 Headphones"
+        class="product-id-page-gallery-picture-2"
+        height="174"
+        src="https://res.cloudinary.com/dir4brsjf/image/upload/v1697496515/audiophile/goods/product-yx1-earphones/mobile/rz9xwt6jbogh27ezrpt6.jpg"
+        width="327"
+      />
+    </picture>
+  </div>
+  <picture
+    data-testid="picture-component"
+  >
+    <source
+      height="586"
+      media="(min-width: 1440px)"
+      srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1697496515/audiophile/goods/product-yx1-earphones/desktop/ndaegpi3cjyf8wfzpvj5.jpg"
+      width="635"
+    />
+    <source
+      height="370"
+      media="(min-width: 768px)"
+      srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1697496516/audiophile/goods/product-yx1-earphones/tablet/x3sscr6aajfe3zg5d2zd.jpg"
+      width="395"
+    />
+    <img
+      alt="XX59 Headphones"
+      class="product-id-page-gallery-picture-3"
+      height="370"
+      src="https://res.cloudinary.com/dir4brsjf/image/upload/v1697496515/audiophile/goods/product-yx1-earphones/mobile/rz9xwt6jbogh27ezrpt6.jpg"
+      width="327"
+    />
+  </picture>
+</div>
+`;

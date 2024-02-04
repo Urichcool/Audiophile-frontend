@@ -20,3 +20,10 @@
   pointer-events: none;
   opacity: 0;
 }
+
+.backdrop-mobile-menu{
+  @include desktop{
+    opacity: 0;
+    pointer-events: none;
+  }
+}

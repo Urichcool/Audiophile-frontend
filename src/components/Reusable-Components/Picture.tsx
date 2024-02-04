@@ -2,26 +2,26 @@ import { FC } from "react";
 
 interface IPictureProps {
   imageSrc: {
-    desktop?: string ;
-    tablet?: string;
-    mobile?: string;
+    desktop: string | undefined;
+    tablet: string | undefined;
+    mobile: string | undefined;
   };
   sizes: {
-    desktopWidth?: string;
-    desktopHeight?: string;
-    tabletWidth?: string;
-    tabletHeight?: string;
-    mobileWidth?: string;
-    mobileHeight?: string;
+    desktopWidth: string | undefined;
+    desktopHeight: string | undefined;
+    tabletWidth: string | undefined;
+    tabletHeight: string | undefined;
+    mobileWidth: string | undefined;
+    mobileHeight: string | undefined;
   };
-    name?: string;
-  className?: string
-  imgClassName?: string
+  name: string | undefined;
+  className?: string;
+  imgClassName?: string;
 }
 
 const Picture: FC<IPictureProps> = ({ imageSrc, sizes, name, className, imgClassName }) => {
   return (
-    <picture className={className}>
+    <picture className={className} data-testid="picture-component">
       <source
         srcSet={imageSrc.desktop}
         media="(min-width: 1440px)"

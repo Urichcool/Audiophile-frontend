@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`home-page-snapshot-tests home-products-earphone-section-should-match-snapshot 1`] = `
+<div
+  class="home-products-earphone-container"
+  data-testid="home-products-earphone-section"
+>
+  <div
+    class="home-products-earphone-picture-container"
+  >
+    <div
+      class="animate__animated"
+      style="animation-duration: 1s; opacity: 0;"
+    >
+      <picture
+        class=""
+        data-testid="picture-component"
+      >
+        <source
+          height="300"
+          media="(min-width: 1440px)"
+          srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443229/audiophile/goods/product-yx1-earphones/desktop/image-product-removebg-desktop-removebg-preview_kvis0b.png"
+          width="270"
+        />
+        <source
+          height="250"
+          media="(min-width: 768px)"
+          srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443285/audiophile/goods/product-yx1-earphones/tablet/image-product-removebg-tablet-removebg-preview_baskgx.png"
+          width="220"
+        />
+        <img
+          alt="YX1 Wireless Earphones"
+          height="180"
+          src="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443263/audiophile/goods/product-yx1-earphones/mobile/image-product-removebg-mobile-removebg-preview_rrnkle.png"
+          width="160"
+        />
+      </picture>
+    </div>
+  </div>
+  <div
+    class="home-products-earphone-content-container"
+  >
+    <div
+      class="animate__animated"
+      style="animation-duration: 1s; opacity: 0;"
+    >
+      <div
+        class="home-products-earphone-content"
+      >
+        <h3
+          class="H4-manrope-bold  home-products-earphone-title"
+        >
+          YX1 Wireless Earphones
+        </h3>
+        <button
+          class="button2"
+        >
+          see product
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`home-page-snapshot-tests home-products-headphone-section-should-match-snapshot 1`] = `
+<div
+  class="home-products-headprone-container"
+  data-testid="home-products-headphone-section"
+>
+  <div
+    class="animate__animated"
+    style="animation-duration: 1s; opacity: 0;"
+  >
+    <picture
+      class="home-products-headphone-picture"
+      data-testid="picture-component"
+    >
+      <source
+        height="300"
+        media="(min-width: 1440px)"
+        srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443229/audiophile/goods/product-yx1-earphones/desktop/image-product-removebg-desktop-removebg-preview_kvis0b.png"
+        width="270"
+      />
+      <source
+        height="250"
+        media="(min-width: 768px)"
+        srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443285/audiophile/goods/product-yx1-earphones/tablet/image-product-removebg-tablet-removebg-preview_baskgx.png"
+        width="220"
+      />
+      <img
+        alt="YX1 Wireless Earphones"
+        height="250"
+        src="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443263/audiophile/goods/product-yx1-earphones/mobile/image-product-removebg-mobile-removebg-preview_rrnkle.png"
+        width="200"
+      />
+    </picture>
+  </div>
+  <div
+    class="animate__animated"
+    style="animation-duration: 1s; opacity: 0;"
+  >
+    <div
+      class="home-products-headprone-content"
+    >
+      <h3
+        class="H4-manrope-bold home-products-headprone-title"
+      >
+        YX1 Wireless Earphones
+      </h3>
+      <button
+        class="button2"
+      >
+        see product
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`home-page-snapshot-tests home-products-speaker-section-should-match-snapshot 1`] = `
+<div
+  class="home-products-speakers-container"
+  data-testid="home-products-speaker-section"
+>
+  <div
+    class="animate__animated"
+    style="animation-duration: 1s; opacity: 0; z-index: 2; position: relative;"
+  >
+    <picture
+      class="home-products-speakers-picture"
+      data-testid="picture-component"
+    >
+      <source
+        height="493"
+        media="(min-width: 1440px)"
+        srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443229/audiophile/goods/product-yx1-earphones/desktop/image-product-removebg-desktop-removebg-preview_kvis0b.png"
+        width="410"
+      />
+      <source
+        height="237"
+        media="(min-width: 768px)"
+        srcset="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443285/audiophile/goods/product-yx1-earphones/tablet/image-product-removebg-tablet-removebg-preview_baskgx.png"
+        width="197"
+      />
+      <img
+        alt="YX1 Wireless Earphones"
+        height="207"
+        src="https://res.cloudinary.com/dir4brsjf/image/upload/v1699443263/audiophile/goods/product-yx1-earphones/mobile/image-product-removebg-mobile-removebg-preview_rrnkle.png"
+        width="172"
+      />
+    </picture>
+  </div>
+  <div
+    class="animate__animated"
+    style="animation-duration: 1s; opacity: 0;"
+  >
+    <div
+      class="home-products-speakers-circle1"
+    />
+  </div>
+  <div
+    class="animate__animated"
+    style="animation-duration: 1s; opacity: 0;"
+  >
+    <div
+      class="home-products-speakers-circle2"
+    />
+  </div>
+  <div
+    class="animate__animated"
+    style="animation-duration: 1s; opacity: 0;"
+  >
+    <div
+      class="home-products-speakers-circle3"
+    />
+  </div>
+  <div
+    class="animate__animated"
+    style="animation-duration: 1s; opacity: 0;"
+  >
+    <div
+      class="home-products-speakers-content"
+    >
+      <h2
+        class="H1-manrope-bold home-products-speakers-title"
+      >
+        YX1 Wireless Earphones
+      </h2>
+      <p
+        class="Body-manrope-medium home-products-speakers-description"
+      >
+        Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enj...
+      </p>
+      <button
+        class="button4"
+      >
+        See Product
+      </button>
+    </div>
+  </div>
+</div>
+`;

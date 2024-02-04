@@ -9,7 +9,7 @@ interface ICategoriesProps {
 const CategoriesList: FC<ICategoriesProps> = ({ isMobile }) => {
   return (
     <>
-      <ul className="categories-list">
+      <ul className="categories-list" data-testid="categories-list">
         <li className="categories-list-item">
           <div className="categories-list-hadphones-image" />
           <div className="categories-list-icon">

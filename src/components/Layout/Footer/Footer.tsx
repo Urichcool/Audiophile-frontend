@@ -9,7 +9,7 @@ import FooterSocialsListItem from "./FooterSocialsListItem";
 
 const Footer: FC = () => {
   return (
-    <footer className="footer">
+    <footer className="footer" data-testid="footer">
       <div className="container">
         <div className="footer-line"></div>
         <Link

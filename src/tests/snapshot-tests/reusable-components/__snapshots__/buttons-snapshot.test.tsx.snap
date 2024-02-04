@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`buttons-render-tests add-to-cart-button-should-renders-correctly 1`] = `
+<button
+  class="add-to-cart-button"
+  data-testid="add-to-cart-test-button"
+  type="submit"
+>
+  Add to cart
+</button>
+`;
+
+exports[`buttons-render-tests button-1-should-match-snapshot 1`] = `
+<button
+  class="button1"
+  data-testid="test-button-1"
+>
+  See product
+</button>
+`;
+
+exports[`buttons-render-tests button-2-should-match-snapshot 1`] = `
+<button
+  class="button2"
+  data-testid="test-button-2"
+>
+  see product
+</button>
+`;
+
+exports[`buttons-render-tests button-4-should-match-snapshot 1`] = `
+<button
+  class="button4"
+  data-testid="test-button-4"
+>
+  See Product
+</button>
+`;
+
+exports[`buttons-render-tests checkout-button-should-match-snapshot 1`] = `
+<button
+  class="checkout-button"
+  data-testid="checkout-test-button"
+>
+  Checkout
+</button>
+`;
+
+exports[`buttons-render-tests go-back-button-should-match-snapshot 1`] = `
+<button
+  class="Body-manrope-medium go-back-button"
+  data-testid="go-back-test-button"
+>
+  Go back
+</button>
+`;
