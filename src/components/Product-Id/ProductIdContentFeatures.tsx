@@ -10,7 +10,10 @@ interface IProductIdContentFeaturesProps {
   includes,
 }) => {
   return (
-    <div className="product-id-page-features-and-includes-container">
+    <div
+      className="product-id-page-features-and-includes-container"
+      data-testid="product-id-page-features-and-includes"
+    >
       <div className="product-id-page-features-container">
         <h3 className="H3-manrope-bold product-id-page-features-title">
           Features

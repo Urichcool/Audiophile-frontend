@@ -23,7 +23,10 @@ const ProductIdContentDescription: FC<IProductIdContentDescriptionProps> = ({
   previewImage,
 }) => {
   return (
-    <div className="product-id-page-picture-and-description-container">
+    <div
+      className="product-id-page-picture-and-description-container"
+      data-testid="product-id-page-picture-and-description-container"
+    >
       <div className="product-id-page-picture-container">
         <Picture
           imageSrc={{

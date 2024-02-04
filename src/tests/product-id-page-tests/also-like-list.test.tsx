@@ -31,21 +31,22 @@ describe("also-like-list-tests", () => {
     const prevProduct: string | null =
       screen.getByTestId("product-name").textContent;
     fireEvent.click(alsoLikeListButtons[0]);
-    const isProductIdPageLoader: string | null = screen.getByTestId(
+    const productIdPageLoaderAlsoLike: HTMLDivElement = screen.getByTestId(
       "product-id-page-loader"
-    ).className;
-    if (isProductIdPageLoader) {
+    );
+    await waitForElementToBeRemoved(productIdPageLoaderAlsoLike, {
+      timeout: 300000,
+    });
+    let newProduct: string | null =
+      screen.getByTestId("product-name").textContent;
+    if (prevProduct === newProduct) {
+      fireEvent.click(alsoLikeListButtons[1]);
       const productIdPageLoaderAlsoLike: HTMLDivElement = screen.getByTestId(
         "product-id-page-loader"
       );
       await waitForElementToBeRemoved(productIdPageLoaderAlsoLike, {
         timeout: 300000,
       });
-    }
-    let newProduct: string | null =
-      screen.getByTestId("product-name").textContent;
-    if (prevProduct === newProduct) {
-      fireEvent.click(alsoLikeListButtons[1]);
       newProduct = screen.getByTestId("product-name").textContent;
     }
     expect(newProduct).not.toBe(prevProduct);

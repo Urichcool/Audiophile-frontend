@@ -15,7 +15,10 @@ const ProductIdContentGallery: FC<IProductIdContentGalleryProps> = ({
   name,
 }) => {
   return (
-    <div className="product-id-page-gallery">
+    <div
+      className="product-id-page-gallery"
+      data-testid="product-id-page-gallery"
+    >
       <div>
         <Picture
           imageSrc={{
