@@ -2,7 +2,7 @@ import { FC } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 interface IGoBackButtonProps {
-  testId: string;
+  testId?: string;
 }
 
 const GoBackButton: FC<IGoBackButtonProps> = ({ testId }) => {

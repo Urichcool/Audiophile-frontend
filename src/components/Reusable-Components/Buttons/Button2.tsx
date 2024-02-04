@@ -3,7 +3,7 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 
 interface IButton2Props {
   id?: string;
-  testId?:string
+  testId?: string;
 }
 
 const Button2: FC<IButton2Props> = ({id, testId}) => {

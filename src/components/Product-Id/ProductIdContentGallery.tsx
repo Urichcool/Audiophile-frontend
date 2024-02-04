@@ -2,12 +2,14 @@ import { FC } from "react";
 import Picture from "../Reusable-Components/Picture";
 
 interface IProductIdContentGalleryProps {
-  gallery?: {
-    first: { mobile: string; tablet: string; desktop: string };
-    second: { mobile: string; tablet: string; desktop: string };
-    third: { mobile: string; tablet: string; desktop: string };
-  };
-  name?: string;
+  gallery:
+    | {
+        first: { mobile: string; tablet: string; desktop: string };
+        second: { mobile: string; tablet: string; desktop: string };
+        third: { mobile: string; tablet: string; desktop: string };
+      }
+    | undefined;
+  name: string | undefined;
 }
 
 const ProductIdContentGallery: FC<IProductIdContentGalleryProps> = ({

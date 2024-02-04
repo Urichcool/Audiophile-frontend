@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 interface IProductIdContentFeaturesProps {
-  features?: string;
-  includes?: { quantity: number; item: string; _id: string }[];
+  features: string | undefined;
+  includes: { quantity: number; item: string; _id: string }[] | undefined;
 }
 
  const ProductIdContentFeatures: FC<IProductIdContentFeaturesProps> = ({

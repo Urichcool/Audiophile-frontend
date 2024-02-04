@@ -4,13 +4,13 @@ import { priceWithCommas } from "../../utils/priceWithCommas";
 import AddToCartForm from "./AddToCartForm";
 
 interface IProductIdContentDescriptionProps {
-  pictureSrc?: { desktop: string; tablet: string; mobile: string };
-  name?: string;
-  isNew?: boolean;
-  description?: string;
-  price?: number;
-  productId?: string;
-  previewImage?: string;
+  pictureSrc: { desktop: string; tablet: string; mobile: string } | undefined;
+  name: string | undefined;
+  isNew: boolean | undefined;
+  description: string | undefined;
+  price: number | undefined;
+  productId: string | undefined;
+  previewImage: string | undefined;
 }
 
 const ProductIdContentDescription: FC<IProductIdContentDescriptionProps> = ({

@@ -116,7 +116,7 @@ const Cart: FC = () => {
                   </h6>
                   <button
                     className="cart-remove-all-button Body-manrope-medium"
-                    data-testId="cart-remove-all-button"
+                    data-testid="cart-remove-all-button"
                     onClick={removeAllButtonHandler}
                   >
                     Remove all

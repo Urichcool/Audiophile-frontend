@@ -4,7 +4,7 @@ import CategoriesProductsListItem from "./CategoriesProductsListItem";
 import { Audio } from "react-loader-spinner";
 
 interface ICategoriesProductsListSectionProps {
-  data?: IGoods[] ;
+  data: IGoods[] | undefined;
   isFetching: boolean;
 }
 

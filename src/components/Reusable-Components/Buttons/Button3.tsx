@@ -14,7 +14,7 @@ import {
 interface IButton3Props {
   to: "/headphones" | "/speakers" | "/earphones";
   isMobile?: boolean;
-  testId: string;
+  testId?: string;
 }
 
 const Button3: FC<IButton3Props> = ({ to, isMobile, testId }) => {

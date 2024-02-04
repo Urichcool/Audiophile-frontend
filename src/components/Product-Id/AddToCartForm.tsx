@@ -10,10 +10,10 @@ interface IAddToCartFormValues {
 }
 
 interface IAddToCartFormProps {
-  productId?: string ;
-  name?: string ;
-  price?: number ;
-  picture?: string ;
+  productId: string | undefined;
+  name: string | undefined;
+  price: number | undefined;
+  picture: string | undefined;
 }
 
 const AddToCartForm: FC<IAddToCartFormProps> = ({

@@ -6,7 +6,7 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import Picture from "../../Reusable-Components/Picture";
 
 interface IHomeProductsEarphoneProps {
-  data?: IGoods;
+  data: IGoods | undefined;
   isFetching: boolean;
 }
 
