@@ -1,7 +1,6 @@
 import App from "../../App";
 import { screen, fireEvent } from "@testing-library/react";
 import { renderWithReduxAndRouter } from "../helpers/RenderWithReduxAndRouter";
-import { click } from "@testing-library/user-event/dist/click";
 
 describe("cart-tests", () => {
   test("click-on-cart-button-should-open-cart-modal", () => {
