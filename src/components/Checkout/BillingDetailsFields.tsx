@@ -13,7 +13,7 @@ const BillingDetailsFields: FC<IBillingDetailsFieldsProps> = ({values}) => {
         <h6 className="Sub-title-manrope-bold checkout-page-fields-title">
           Billing details
         </h6>
-            <CheckOutField name={"name"} id={"checkout-name"} value={values.name} />
+            <CheckOutField name={"name"} id={"checkout-name"} value={values.name} label="Name" />
       </>
     );
 };
