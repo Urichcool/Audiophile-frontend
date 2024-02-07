@@ -17,7 +17,7 @@ export const CheckOutField: FC<ICheckOutFieldProps> = ({
   testId,
 }) => {
   return (
-    <>
+    <div>
       <label className="checkout-field-label">{label}</label>
       <Field
         className="checkout-field"
@@ -27,7 +27,7 @@ export const CheckOutField: FC<ICheckOutFieldProps> = ({
         value={value}
         data-testid={testId}
       />
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,24 @@
+.checkout-field {
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  margin-top: 9px;
+  width: 280px;
+  height: 56px;
+  color: $primaryBlack;
+  font-family: $fontFamily;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: -0.25px;
+  padding: 24px 18px;
+  outline: none;
+  transition: 500ms;
+  transition-property: border-color;
+  @include tablet {
+    width: 309px;
+  }
+  &:hover,
+  &:focus {
+    border-color: $primaryOrange;
+  }
+}

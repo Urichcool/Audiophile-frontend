@@ -72,27 +72,17 @@
   letter-spacing: -0.21px;
 }
 
-.checkout-field {
-  border: 1px solid #cfcfcf;
-  border-radius: 8px;
-  margin-top: 9px;
-  width: 280px;
-  height: 56px;
-  color: $primaryBlack;
-  font-family: $fontFamily;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 19px;
-  letter-spacing: -0.25px;
-  padding: 24px 18px;
-  outline: none;
-  transition: 500ms;
-  transition-property: border-color;
+.billing-details-fields-container {
+  display: grid;
+  row-gap: 24px;
+  margin-bottom: 32px;
   @include tablet {
-    width: 309px;
-  }
-  &:hover,
-  &:focus {
-    border-color: $primaryOrange;
+    margin-bottom: 53px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+    :nth-child(3) {
+      grid-row: 2 / 2;
+    }
   }
 }
