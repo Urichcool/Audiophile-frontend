@@ -76,13 +76,40 @@
   display: grid;
   row-gap: 24px;
   margin-bottom: 32px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   @include tablet {
     margin-bottom: 53px;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
     column-gap: 16px;
     :nth-child(3) {
       grid-row: 2 / 2;
+    }
+  }
+}
+
+.shipping-info-fields-container {
+  display: grid;
+  row-gap: 24px;
+  @include tablet {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+    :nth-child(1) {
+      grid-row-start: 1;
+      grid-row-end: 1;
+    }
+    :nth-child(2) {
+      grid-row-start: 2;
+      grid-row-end: 2;
+    }
+    :nth-child(3) {
+      grid-row-start: 2;
+      grid-row-end: 2;
+    }
+    :nth-child(4) {
+      grid-row-start: 3;
+      grid-row-end: 3;
     }
   }
 }
