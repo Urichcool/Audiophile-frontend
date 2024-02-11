@@ -76,11 +76,12 @@
   display: grid;
   row-gap: 24px;
   margin-bottom: 32px;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 280px;
+  grid-template-rows: 81px;
   @include tablet {
     margin-bottom: 53px;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 309px 309px;
+    grid-template-rows: 81px 81px;
     column-gap: 16px;
     :nth-child(3) {
       grid-row: 2 / 2;
@@ -91,13 +92,16 @@
 .shipping-info-fields-container {
   display: grid;
   row-gap: 24px;
+  grid-template-columns: 280px;
+  grid-template-rows: 81px;
+  margin-bottom: 32px;
   @include tablet {
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    margin-bottom: 61px;
+    grid-template-columns: 309px 309px;
+    grid-template-rows: 81px 81px 81px;
     column-gap: 16px;
     :nth-child(1) {
-      grid-row-start: 1;
-      grid-row-end: 1;
+      grid-column: 1/3;
     }
     :nth-child(2) {
       grid-row-start: 2;

@@ -1,10 +1,16 @@
 .checkout-field {
+  width: 100%;
+  height: 100%;
+ 
+}
+
+.checkout-field-input{
+   width: 100%;
+  height: 56px;
   border: 1px solid #cfcfcf;
   border-radius: 8px;
   margin-top: 9px;
-  width: 280px;
-  height: 56px;
-  color: $primaryBlack;
+   color: $primaryBlack;
   font-family: $fontFamily;
   font-size: 14px;
   font-weight: 700;
@@ -14,9 +20,6 @@
   outline: none;
   transition: 500ms;
   transition-property: border-color;
-  @include tablet {
-    width: 309px;
-  }
   &:hover,
   &:focus {
     border-color: $primaryOrange;

@@ -9,9 +9,9 @@ interface IBillingDetailsFieldsProps {
 const ShippingInfoFields: FC<IBillingDetailsFieldsProps> = ({values}) => {
   return (
     <>
-      <h6 className="Sub-title-manrope-bold checkout-page-fields-title">
+      <h4 className="Sub-title-manrope-bold checkout-page-fields-title">
         shipping info
-      </h6>
+      </h4>
       <div className="shipping-info-fields-container">
         <CheckOutField
           name={"adress"}
@@ -20,9 +20,9 @@ const ShippingInfoFields: FC<IBillingDetailsFieldsProps> = ({values}) => {
           label="Adress"
         />
         <CheckOutField
-          name={"zip-code"}
-          id={"checkout-zip-code"}
-          value={values.zipCode}
+          name={"zip"}
+          id={"checkout-zip"}
+          value={values.zip}
           label="ZIP Code"
         />
         <CheckOutField

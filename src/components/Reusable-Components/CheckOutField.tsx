@@ -17,11 +17,11 @@ export const CheckOutField: FC<ICheckOutFieldProps> = ({
   testId,
 }) => {
   return (
-    <div>
+    <div className="checkout-field">
       <label className="checkout-field-label">{label}</label>
       <Field
-        className="checkout-field"
         id={id}
+        className="checkout-field-input"
         name={name}
         type="text"
         value={value}

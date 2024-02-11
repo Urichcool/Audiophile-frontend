@@ -2,13 +2,14 @@ import { Formik, Form } from "formik";
 import { FC } from "react";
 import BillingDetailsFields from "./BillingDetailsFields";
 import ShippingInfoFields from "./ShippingInfoFields";
+import PaymentDetailsFields from "./PaymentDetailsFields";
 
 export interface ICheckOutFormValues {
   name: string;
   email: string;
   phone: string;
   adress: string;
-  zipCode: string;
+  zip: string;
   city: string;
   country: string;
 }
@@ -19,7 +20,7 @@ const CheckOutForm: FC = () => {
     email: "",
     phone: "",
     adress: "",
-    zipCode: "",
+    zip: "",
     city: "",
     country: "",
   };
@@ -36,6 +37,7 @@ const CheckOutForm: FC = () => {
           <Form>
             <BillingDetailsFields values={props.values} />
             <ShippingInfoFields values={props.values} />
+            <PaymentDetailsFields/>
           </Form>
         )}
       </Formik>
