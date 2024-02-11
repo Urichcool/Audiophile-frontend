@@ -12,6 +12,7 @@ export interface ICheckOutFormValues {
   zip: string;
   city: string;
   country: string;
+  radioValue: string
 }
 
 const CheckOutForm: FC = () => {
@@ -23,7 +24,10 @@ const CheckOutForm: FC = () => {
     zip: "",
     city: "",
     country: "",
+    radioValue: "eMoney"
   };
+
+
   return (
     <div className="checkout-container">
       <h5 className="checkout-container-title">Checkout</h5>
@@ -37,7 +41,7 @@ const CheckOutForm: FC = () => {
           <Form>
             <BillingDetailsFields values={props.values} />
             <ShippingInfoFields values={props.values} />
-            <PaymentDetailsFields/>
+            <PaymentDetailsFields values={props.values} onChangeRadioValue={props.setFieldValue} />
           </Form>
         )}
       </Formik>

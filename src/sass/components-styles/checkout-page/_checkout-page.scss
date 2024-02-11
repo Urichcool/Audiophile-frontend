@@ -117,3 +117,23 @@
     }
   }
 }
+
+.payment-method-container{
+  @include tablet{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+.payment-details-fields-label{
+  color: $primaryBlack;
+  font-family: $fontFamily;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: -0.21px;
+  @include tablet{
+    margin-bottom: 0px;
+  }
+}
