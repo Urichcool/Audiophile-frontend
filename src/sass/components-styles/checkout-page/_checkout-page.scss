@@ -18,7 +18,6 @@
   border-radius: 8px;
   background-color: $primaryWhite;
   width: 100%;
-  margin-top: 24px;
   margin-bottom: 32px;
   padding-top: 24px;
   padding-bottom: 31px;
@@ -31,9 +30,9 @@
     padding-right: 28px;
   }
   @include desktop {
+    margin-bottom: 0;
     padding-top: 54px;
     padding-bottom: 48px;
-    margin-top: 38px;
     padding-left: 48px;
     padding-right: 48px;
     width: 730px;
@@ -156,11 +155,11 @@
   justify-content: center;
   flex-direction: column;
   margin-top: 30px;
-  svg{
+  svg {
     width: 48px;
     height: 48px;
   }
-  @include tablet{
+  @include tablet {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -176,9 +175,42 @@
   letter-spacing: 0px;
   text-align: left;
   opacity: 0.5;
-  @include tablet{
+  @include tablet {
     width: 554px;
     height: 75px;
     margin-top: 0;
   }
+}
+
+.checkout-form {
+  margin-top: 24px;
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 38px;
+  }
+}
+
+.summary-container {
+  background-color: $primaryWhite;
+  border-radius: 8px;
+  padding: 32px 24px;
+  @include tablet {
+    padding: 32px 33px;
+  }
+  @include desktop {
+    width: 350px;
+  }
+}
+
+.summary-title {
+  color: $primaryBlack;
+  font-family: $fontFamily;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 1.29px;
+  text-transform: uppercase;
+  margin-bottom: 31px;
 }

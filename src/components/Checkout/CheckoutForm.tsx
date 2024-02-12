@@ -6,6 +6,7 @@ import PaymentDetailsFields from "./PaymentDetailsFields";
 import EMoneyFields from "./EMoneyFields";
 import CashInfo from "./CashInfo";
 import { PersistFormikValues } from "formik-persist-values";
+import Summary from "./Summary";
 
 export interface ICheckOutFormValues {
   name: string;
@@ -35,16 +36,16 @@ const CheckOutForm: FC = () => {
   };
 
   return (
-    <div className="checkout-container">
-      <h5 className="checkout-container-title">Checkout</h5>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={() => {
-          console.log(initialValues);
-        }}
-      >
-        {(props) => (
-          <Form>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={() => {
+        console.log(initialValues);
+      }}
+    >
+      {(props) => (
+        <Form className="checkout-form">
+          <div className="checkout-container">
+            <h5 className="checkout-container-title">Checkout</h5>
             <BillingDetailsFields values={props.values} />
             <ShippingInfoFields values={props.values} />
             <PaymentDetailsFields
@@ -56,11 +57,12 @@ const CheckOutForm: FC = () => {
             ) : (
               <CashInfo />
             )}
-            <PersistFormikValues name="checkout-form" />
-          </Form>
-        )}
-      </Formik>
-    </div>
+          </div>
+          <Summary />
+          <PersistFormikValues name="checkout-form" />
+        </Form>
+      )}
+    </Formik>
   );
 };
 
