@@ -5,6 +5,7 @@ import ShippingInfoFields from "./ShippingInfoFields";
 import PaymentDetailsFields from "./PaymentDetailsFields";
 import EMoneyFields from "./EMoneyFields";
 import CashInfo from "./CashInfo";
+import { PersistFormikValues } from "formik-persist-values";
 
 export interface ICheckOutFormValues {
   name: string;
@@ -52,7 +53,10 @@ const CheckOutForm: FC = () => {
             />
             {props.values.radioValue === "eMoney" ? (
               <EMoneyFields values={props.values} />
-            ) : <CashInfo/>}
+            ) : (
+              <CashInfo />
+            )}
+            <PersistFormikValues name="checkout-form" />
           </Form>
         )}
       </Formik>
