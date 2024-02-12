@@ -3,6 +3,8 @@ import { FC } from "react";
 import BillingDetailsFields from "./BillingDetailsFields";
 import ShippingInfoFields from "./ShippingInfoFields";
 import PaymentDetailsFields from "./PaymentDetailsFields";
+import EMoneyFields from "./EMoneyFields";
+import CashInfo from "./CashInfo";
 
 export interface ICheckOutFormValues {
   name: string;
@@ -12,7 +14,9 @@ export interface ICheckOutFormValues {
   zip: string;
   city: string;
   country: string;
-  radioValue: string
+  radioValue: string;
+  eMoneyNumber: string;
+  eMoneyPin: string;
 }
 
 const CheckOutForm: FC = () => {
@@ -24,9 +28,10 @@ const CheckOutForm: FC = () => {
     zip: "",
     city: "",
     country: "",
-    radioValue: "eMoney"
+    radioValue: "eMoney",
+    eMoneyNumber: "",
+    eMoneyPin: "",
   };
-
 
   return (
     <div className="checkout-container">
@@ -41,7 +46,13 @@ const CheckOutForm: FC = () => {
           <Form>
             <BillingDetailsFields values={props.values} />
             <ShippingInfoFields values={props.values} />
-            <PaymentDetailsFields values={props.values} onChangeRadioValue={props.setFieldValue} />
+            <PaymentDetailsFields
+              values={props.values}
+              onChangeRadioValue={props.setFieldValue}
+            />
+            {props.values.radioValue === "eMoney" ? (
+              <EMoneyFields values={props.values} />
+            ) : <CashInfo/>}
           </Form>
         )}
       </Formik>
