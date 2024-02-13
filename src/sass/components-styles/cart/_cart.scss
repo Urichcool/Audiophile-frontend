@@ -113,6 +113,7 @@
 .cart-list-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 24px;
   &:last-of-type {
     margin-bottom: 0;
@@ -136,7 +137,7 @@
 }
 
 .cart-item-name {
-  font-family: Manrope;
+  font-family: $fontFamily;
   color: $primaryBlack;
   font-size: 15px;
   font-style: normal;
