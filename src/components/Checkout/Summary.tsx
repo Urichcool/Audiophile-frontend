@@ -1,6 +1,9 @@
 import { FC, useEffect } from "react";
 import { useAppSelector } from "../../redux/reduxHooks/reduxHooks";
-import { selectCartProducts } from "../../redux/slices/cart/selectors";
+import {
+  selectCartProducts,
+  selectTotal,
+} from "../../redux/slices/cart/selectors";
 import { priceWithCommas } from "../../utils/priceWithCommas";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
@@ -15,6 +18,9 @@ const Summary: FC = () => {
         totalPrice: number;
       }[]
     | [] = useAppSelector(selectCartProducts);
+  const total: number = useAppSelector(selectTotal);
+  const vat: number = Math.round((total / 100) * 20);
+  const grandTotal: number = total + 50;
 
   const navigate: NavigateFunction = useNavigate();
 
@@ -46,6 +52,24 @@ const Summary: FC = () => {
             <p className="summary-list-item-quantity">{`${quantity}x`}</p>
           </li>
         ))}
+      </ul>
+      <ul className="summary-total-list">
+        <li className="summary-total-list-item">
+          <p>total</p>
+          <p>{priceWithCommas(total)}</p>
+        </li>
+        <li className="summary-total-list-item">
+          <p>shipping</p>
+          <p>{priceWithCommas(50)}</p>
+        </li>
+        <li className="summary-total-list-item">
+          <p>{"vat (included)"}</p>
+          <p>{priceWithCommas(vat)}</p>
+        </li>
+        <li className="summary-total-list-item">
+          <p>grand total</p>
+          <p>{priceWithCommas(grandTotal)}</p>
+        </li>
       </ul>
     </div>
   );
