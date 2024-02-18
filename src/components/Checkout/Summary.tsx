@@ -6,6 +6,8 @@ import {
 } from "../../redux/slices/cart/selectors";
 import { priceWithCommas } from "../../utils/priceWithCommas";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import ContinueAndPayButton from "./ContinueAndPayButton";
+import SummaryListItem from "./SummaryListItem";
 
 const Summary: FC = () => {
   const cartProducts:
@@ -34,43 +36,37 @@ const Summary: FC = () => {
     <div className="summary-container">
       <h6 className="summary-title">Summary</h6>
       <ul className="summary-list">
-        {cartProducts.map(({ picture, name, totalPrice, quantity }) => (
-          <li className="summary-list-item">
-            <div className="summary-list-item-picture-container">
-              <img
-                src={picture}
-                alt={name}
-                className="summary-list-item-picture"
-              />
-            </div>
-            <div className="summary-list-item-text-container">
-              <h6 className="summary-list-item-name">{name}</h6>
-              <p className="summary-list-item-price">
-                {priceWithCommas(totalPrice)}
-              </p>
-            </div>
-            <p className="summary-list-item-quantity">{`${quantity}x`}</p>
-          </li>
+        {cartProducts.map(({ picture, name, totalPrice, quantity, id }) => (
+          <SummaryListItem key={id} picture={picture} name={name} totalPrice={totalPrice} quantity={quantity} />
         ))}
       </ul>
       <ul className="summary-total-list">
         <li className="summary-total-list-item">
-          <p>total</p>
-          <p>{priceWithCommas(total)}</p>
+          <p className="summary-total-list-item-text">total</p>
+          <p className="summary-total-list-item-amount-text">
+            {priceWithCommas(total)}
+          </p>
         </li>
         <li className="summary-total-list-item">
-          <p>shipping</p>
-          <p>{priceWithCommas(50)}</p>
+          <p className="summary-total-list-item-text">shipping</p>
+          <p className="summary-total-list-item-amount-text">
+            {priceWithCommas(50)}
+          </p>
         </li>
         <li className="summary-total-list-item">
-          <p>{"vat (included)"}</p>
-          <p>{priceWithCommas(vat)}</p>
+          <p className="summary-total-list-item-text">{"vat (included)"}</p>
+          <p className="summary-total-list-item-amount-text">
+            {priceWithCommas(vat)}
+          </p>
         </li>
         <li className="summary-total-list-item">
-          <p>grand total</p>
-          <p>{priceWithCommas(grandTotal)}</p>
+          <p className="summary-total-list-item-text">grand total</p>
+          <p className="summary-total-list-item-amount-text--grand-total">
+            {priceWithCommas(grandTotal)}
+          </p>
         </li>
       </ul>
+      <ContinueAndPayButton/>
     </div>
   );
 };

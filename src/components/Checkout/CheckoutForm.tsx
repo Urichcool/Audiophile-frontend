@@ -38,8 +38,8 @@ const CheckOutForm: FC = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={() => {
-        console.log(initialValues);
+      onSubmit={(values:ICheckOutFormValues) => {
+        console.log(values);
       }}
     >
       {(props) => (
