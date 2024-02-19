@@ -7,6 +7,7 @@ import EMoneyFields from "./EMoneyFields";
 import CashInfo from "./CashInfo";
 import { PersistFormikValues } from "formik-persist-values";
 import Summary from "./Summary";
+import * as Yup from "yup";
 
 export interface ICheckOutFormValues {
   name: string;
@@ -35,12 +36,53 @@ const CheckOutForm: FC = () => {
     eMoneyPin: "",
   };
 
+  const CheckOutValidationSchema: Yup.ObjectSchema<
+    {
+      name: string | undefined;
+      email: string | undefined;
+      phone: string | undefined;
+      adress: string | undefined;
+      zip: string | undefined;
+      city: string | undefined;
+      country: string | undefined;
+      radioValue: string | undefined;
+      eMoneyNumber: string | undefined;
+      eMoneyPin: string | undefined;
+    },
+    Yup.AnyObject,
+    {
+      name: string | undefined;
+      email: string | undefined;
+      phone: string | undefined;
+      adress: string | undefined;
+      zip: string | undefined;
+      city: string | undefined;
+      country: string | undefined;
+      radioValue: string | undefined;
+      eMoneyNumber: string | undefined;
+      eMoneyPin: string | undefined;
+    },
+    ""
+  > = Yup.object().shape({
+    name: Yup.string().required("Required"),
+    email: Yup.string().email("Invalid email").required("Required"),
+    phone: Yup.string().required("Required"),
+    adress: Yup.string().required("Required"),
+    zip: Yup.string().required("Required"),
+    city: Yup.string().required("Required"),
+    country: Yup.string().required("Required"),
+    radioValue: Yup.string().required("Required"),
+    eMoneyNumber: Yup.string().required("Required"),
+    eMoneyPin: Yup.string().required("Required"),
+  });
+
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values:ICheckOutFormValues) => {
+      onSubmit={(values: ICheckOutFormValues) => {
         console.log(values);
       }}
+validationSchema={CheckOutValidationSchema}
     >
       {(props) => (
         <Form className="checkout-form">

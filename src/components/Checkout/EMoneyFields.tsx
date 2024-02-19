@@ -10,13 +10,13 @@ const EMoneyFields: FC<IEMoneyFieldsProps> = ({ values }) => {
   return (
     <div className="e-money-fields-container">
       <CheckOutField
-        name={"e-Money Number"}
-        id={"checkout-e-Money Number"}
+        name={"eMoneyNumber"}
+        id={"checkout-e-Money-Number"}
         value={values.eMoneyNumber}
         label="e-Money Number"
       />
       <CheckOutField
-        name={"e-Money-PIN"}
+        name={"eMoneyPin"}
         id={"checkout-e-Money-PIN"}
         value={values.eMoneyPin}
         label="e-Money PIN"

@@ -1,11 +1,10 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { useAppSelector } from "../../redux/reduxHooks/reduxHooks";
 import {
   selectCartProducts,
   selectTotal,
 } from "../../redux/slices/cart/selectors";
 import { priceWithCommas } from "../../utils/priceWithCommas";
-import { NavigateFunction, useNavigate } from "react-router-dom";
 import ContinueAndPayButton from "./ContinueAndPayButton";
 import SummaryListItem from "./SummaryListItem";
 
@@ -24,20 +23,18 @@ const Summary: FC = () => {
   const vat: number = Math.round((total / 100) * 20);
   const grandTotal: number = total + 50;
 
-  const navigate: NavigateFunction = useNavigate();
-
-  useEffect(() => {
-    if (cartProducts.length === 0) {
-      navigate(-1);
-    }
-  }, [cartProducts.length, navigate]);
-
   return (
     <div className="summary-container">
       <h6 className="summary-title">Summary</h6>
       <ul className="summary-list">
         {cartProducts.map(({ picture, name, totalPrice, quantity, id }) => (
-          <SummaryListItem key={id} picture={picture} name={name} totalPrice={totalPrice} quantity={quantity} />
+          <SummaryListItem
+            key={id}
+            picture={picture}
+            name={name}
+            totalPrice={totalPrice}
+            quantity={quantity}
+          />
         ))}
       </ul>
       <ul className="summary-total-list">
@@ -66,7 +63,7 @@ const Summary: FC = () => {
           </p>
         </li>
       </ul>
-      <ContinueAndPayButton/>
+      <ContinueAndPayButton />
     </div>
   );
 };
