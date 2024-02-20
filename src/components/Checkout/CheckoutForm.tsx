@@ -75,8 +75,8 @@ const CheckOutForm: FC = () => {
       .required("This field is required")
       .matches(/^[A-Za-z0-9\s\-.,'()/]+$/),
     zip: Yup.string()
-      .required("This field is required")
-      .matches(/^d{5}(?:[-s]d{4})?$/),
+      .required("This field is required"),
+      // .matches(/^d{5}(?:[-s]d{4})?$/),
     city: Yup.string()
       .required("This field is required")
       .matches(/^[A-Za-z\s-']+$/),
@@ -101,15 +101,14 @@ const CheckOutForm: FC = () => {
         <Form className="checkout-form">
           <div className="checkout-container">
             <h5 className="checkout-container-title">Checkout</h5>
-            {props.errors.phone ? <p>{props.errors.country}</p> : null}
-            <BillingDetailsFields values={props.values} />
-            <ShippingInfoFields values={props.values} />
+            <BillingDetailsFields values={props.values} errors={props.errors} />
+            <ShippingInfoFields values={props.values} errors={props.errors} />
             <PaymentDetailsFields
               values={props.values}
               onChangeRadioValue={props.setFieldValue}
             />
             {props.values.radioValue === "eMoney" ? (
-              <EMoneyFields values={props.values} />
+              <EMoneyFields values={props.values} errors={props.errors} />
             ) : (
               <CashInfo />
             )}

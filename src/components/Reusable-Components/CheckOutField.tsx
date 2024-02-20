@@ -5,8 +5,9 @@ interface ICheckOutFieldProps {
   value: string;
   id: string;
   name: string;
-  label:string
+  label: string;
   testId?: string;
+  error: string | undefined;
 }
 
 export const CheckOutField: FC<ICheckOutFieldProps> = ({
@@ -15,13 +16,23 @@ export const CheckOutField: FC<ICheckOutFieldProps> = ({
   name,
   label,
   testId,
+  error,
 }) => {
   return (
     <div className="checkout-field">
-      <label className="checkout-field-label">{label}</label>
+      {error ? <p className="checkout-field-error-message">{error}</p> : null}
+      <label
+        className={`${
+          error ? "checkout-field-label--error" : "checkout-field-label"
+        }`}
+      >
+        {label}
+      </label>
       <Field
         id={id}
-        className="checkout-field-input"
+        className={`${
+          error ? "checkout-field-input--error" : "checkout-field-input"
+        }`}
         name={name}
         type="text"
         value={value}
