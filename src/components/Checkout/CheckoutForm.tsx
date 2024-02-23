@@ -92,12 +92,25 @@ const CheckOutForm: FC = () => {
       .min(5, "Phone number is too short")
       .max(15, "Phone number is too long"),
     adress: yup.string().required("This field is required"),
-    zip: yup.string().required("This field is required"),
-    city: yup.string().required("This field is required"),
-    country: yup
+    zip: yup
       .string()
-      .required("This field is required")
-      .matches(/^[A-Za-z\s-']+$/),
+      .test({
+        name: "zip-should-have-correct-format",
+        skipAbsent: true,
+        test(value, ctx) {
+          if (!value?.match(/^[0-9 -]+$/)) {
+            return ctx.createError({
+              message: "Incorrect ZIP-Code format",
+            });
+          }
+          return true;
+        },
+      })
+      .min(2, "ZIP-Code-is-too-short")
+      .max(9, "ZIP-Code-is-too-long")
+      .required("This field is required"),
+    city: yup.string().required("This field is required"),
+    country: yup.string().required("This field is required"),
     radioValue: yup.string(),
     eMoneyNumber: yup
       .string()
@@ -123,11 +136,30 @@ const CheckOutForm: FC = () => {
         then: (schema) => schema.required("This field is required"),
         otherwise: (schema) => schema.optional(),
       }),
-    eMoneyPin: yup.string().when("radioValue", {
-      is: "eMoney",
-      then: (schema) => schema.required("This field is required"),
-      otherwise: (schema) => schema.optional(),
-    }),
+    eMoneyPin: yup
+      .string()
+      .when("radioValue", {
+        is: "eMoney",
+        then: (schema) => schema.required("This field is required"),
+        otherwise: (schema) => schema.optional(),
+      })
+      .test({
+        name: "E-money number must contai only digits",
+        skipAbsent: true,
+        test(value, ctx) {
+          if (!Number(value)) {
+            return ctx.createError({
+              message: "E-money pin must contain only digits",
+            });
+          }
+          if (value?.length !== 4) {
+            return ctx.createError({
+              message: "E-money pin must contain 4 digits",
+            });
+          }
+          return true;
+        },
+      }),
   });
 
   return (
@@ -137,6 +169,8 @@ const CheckOutForm: FC = () => {
         console.log(values);
       }}
       validationSchema={CheckOutValidationSchema}
+      validateOnChange={false}
+      validateOnBlur={false}
     >
       {(props) => (
         <Form className="checkout-form">
