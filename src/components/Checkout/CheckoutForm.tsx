@@ -73,19 +73,19 @@ const CheckOutForm: FC = () => {
       .string()
       .required("This field is required")
       .test({
-        name: "phone-has-country-code",
+        name: "phone-has-correct-format",
         skipAbsent: true,
         test(value, ctx) {
+          if (!Number(value)) {
+            return ctx.createError({
+              message: "Phone number must contain only digits",
+            });
+          }
           if (!value.match(/^\+\d+/)) {
             return ctx.createError({
               message: "Country code is required",
             });
           }
-           if (!Number(value)) {
-             return ctx.createError({
-               message: "Phone number must contain only digits",
-             });
-           }
           return true;
         },
       })
@@ -99,11 +99,30 @@ const CheckOutForm: FC = () => {
       .required("This field is required")
       .matches(/^[A-Za-z\s-']+$/),
     radioValue: yup.string(),
-    eMoneyNumber: yup.string().when("radioValue", {
-      is: "eMoney",
-      then: (schema) => schema.required("This field is required"),
-      otherwise: (schema) => schema.optional(),
-    }),
+    eMoneyNumber: yup
+      .string()
+      .test({
+        name: "E-money number must contai only digits",
+        skipAbsent: true,
+        test(value, ctx) {
+          if (!Number(value)) {
+            return ctx.createError({
+              message: "E-money number must contain only digits",
+            });
+          }
+          if (value?.length !== 9) {
+            return ctx.createError({
+              message: "E-money number must contain 9 digits",
+            });
+          }
+          return true;
+        },
+      })
+      .when("radioValue", {
+        is: "eMoney",
+        then: (schema) => schema.required("This field is required"),
+        otherwise: (schema) => schema.optional(),
+      }),
     eMoneyPin: yup.string().when("radioValue", {
       is: "eMoney",
       then: (schema) => schema.required("This field is required"),
@@ -118,7 +137,6 @@ const CheckOutForm: FC = () => {
         console.log(values);
       }}
       validationSchema={CheckOutValidationSchema}
-      validateOnChange
     >
       {(props) => (
         <Form className="checkout-form">
