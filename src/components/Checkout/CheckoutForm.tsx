@@ -7,7 +7,7 @@ import EMoneyFields from "./EMoneyFields";
 import CashInfo from "./CashInfo";
 import { PersistFormikValues } from "formik-persist-values";
 import Summary from "./Summary";
-import * as Yup from "yup";
+import * as yup from "yup";
 
 export interface ICheckOutFormValues {
   name: string;
@@ -36,7 +36,7 @@ const CheckOutForm: FC = () => {
     eMoneyPin: "",
   };
 
-  const CheckOutValidationSchema: Yup.ObjectSchema<
+  const CheckOutValidationSchema: yup.ObjectSchema<
     {
       name: string | undefined;
       email: string | undefined;
@@ -49,7 +49,7 @@ const CheckOutForm: FC = () => {
       eMoneyNumber: string | undefined;
       eMoneyPin: string | undefined;
     },
-    Yup.AnyObject,
+    yup.AnyObject,
     {
       name: string | undefined;
       email: string | undefined;
@@ -63,29 +63,52 @@ const CheckOutForm: FC = () => {
       eMoneyPin: string | undefined;
     },
     ""
-  > = Yup.object().shape({
-    name: Yup.string().required("This field is required"),
-    email: Yup.string()
+  > = yup.object().shape({
+    name: yup.string().required("This field is required"),
+    email: yup
+      .string()
       .email("Incorrect email format")
       .required("This field is required"),
-    phone: Yup.string()
+    phone: yup
+      .string()
       .required("This field is required")
-      .matches(/^\+\d{1,4}\d{1,14}$/),
-    adress: Yup.string()
-      .required("This field is required")
-      .matches(/^[A-Za-z0-9\s\-.,'()/]+$/),
-    zip: Yup.string()
-      .required("This field is required"),
-      // .matches(/^d{5}(?:[-s]d{4})?$/),
-    city: Yup.string()
+      .test({
+        name: "phone-has-country-code",
+        skipAbsent: true,
+        test(value, ctx) {
+          if (!value.match(/^\+\d+/)) {
+            return ctx.createError({
+              message: "Country code is required",
+            });
+          }
+           if (!Number(value)) {
+             return ctx.createError({
+               message: "Phone number must contain only digits",
+             });
+           }
+          return true;
+        },
+      })
+      .min(5, "Phone number is too short")
+      .max(15, "Phone number is too long"),
+    adress: yup.string().required("This field is required"),
+    zip: yup.string().required("This field is required"),
+    city: yup.string().required("This field is required"),
+    country: yup
+      .string()
       .required("This field is required")
       .matches(/^[A-Za-z\s-']+$/),
-    country: Yup.string()
-      .required("This field is required")
-      .matches(/^[A-Za-z\s-']+$/),
-    radioValue: Yup.string().required("This field is required"),
-    eMoneyNumber: Yup.string().required("This field is required"),
-    eMoneyPin: Yup.string().required("This field is required"),
+    radioValue: yup.string(),
+    eMoneyNumber: yup.string().when("radioValue", {
+      is: "eMoney",
+      then: (schema) => schema.required("This field is required"),
+      otherwise: (schema) => schema.optional(),
+    }),
+    eMoneyPin: yup.string().when("radioValue", {
+      is: "eMoney",
+      then: (schema) => schema.required("This field is required"),
+      otherwise: (schema) => schema.optional(),
+    }),
   });
 
   return (

@@ -20,7 +20,6 @@ export const CheckOutField: FC<ICheckOutFieldProps> = ({
 }) => {
   return (
     <div className="checkout-field">
-      {error ? <p className="checkout-field-error-message">{error}</p> : null}
       <label
         className={`${
           error ? "checkout-field-label--error" : "checkout-field-label"
@@ -38,6 +37,7 @@ export const CheckOutField: FC<ICheckOutFieldProps> = ({
         value={value}
         data-testid={testId}
       />
+      {error ? <p className="checkout-field-error-message">{error}</p> : null}
     </div>
   );
 };
