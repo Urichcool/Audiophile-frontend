@@ -16,12 +16,12 @@ const Hero: FC = () => {
 
   return (
     <>
-      {productId && (
+      {(productId || pathname === "/checkout") && (
         <div className="hero-productId">
           <MobileMenu />
         </div>
       )}
-      {!productId && pathname !== "/cart" && (
+      {!productId && pathname !== "/cart" && pathname !== "/checkout" && (
         <>
           {pathname === "/" ? (
             <div className="hero">
