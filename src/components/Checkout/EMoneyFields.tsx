@@ -15,14 +15,14 @@ const EMoneyFields: FC<IEMoneyFieldsProps> = ({ values, errors }) => {
         name={"eMoneyNumber"}
         id={"checkout-e-Money-Number"}
         value={values.eMoneyNumber}
-        label="e-Money Number"
+        label="e-Money Number *"
         error={errors.eMoneyNumber}
       />
       <CheckOutField
         name={"eMoneyPin"}
         id={"checkout-e-Money-PIN"}
         value={values.eMoneyPin}
-        label="e-Money PIN"
+        label="e-Money PIN *"
         error={errors.eMoneyPin}
       />
     </div>

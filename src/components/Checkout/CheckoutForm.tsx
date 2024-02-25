@@ -13,7 +13,7 @@ export interface ICheckOutFormValues {
   name: string;
   email: string;
   phone: string;
-  adress: string;
+  address: string;
   zip: string;
   city: string;
   country: string;
@@ -27,7 +27,7 @@ const CheckOutForm: FC = () => {
     name: "",
     email: "",
     phone: "",
-    adress: "",
+    address: "",
     zip: "",
     city: "",
     country: "",
@@ -41,7 +41,7 @@ const CheckOutForm: FC = () => {
       name: string | undefined;
       email: string | undefined;
       phone: string | undefined;
-      adress: string | undefined;
+      address: string | undefined;
       zip: string | undefined;
       city: string | undefined;
       country: string | undefined;
@@ -54,7 +54,7 @@ const CheckOutForm: FC = () => {
       name: string | undefined;
       email: string | undefined;
       phone: string | undefined;
-      adress: string | undefined;
+      address: string | undefined;
       zip: string | undefined;
       city: string | undefined;
       country: string | undefined;
@@ -67,7 +67,22 @@ const CheckOutForm: FC = () => {
     name: yup.string().required("This field is required"),
     email: yup
       .string()
-      .email("Incorrect email format")
+      .test({
+        name: "email-has-correct-format",
+        skipAbsent: true,
+        test(value, ctx) {
+          if (
+            !value?.match(
+              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )
+          ) {
+            return ctx.createError({
+              message: "Incorrect email format",
+            });
+          }
+          return true;
+        },
+      })
       .required("This field is required"),
     phone: yup
       .string()
@@ -91,7 +106,7 @@ const CheckOutForm: FC = () => {
       })
       .min(5, "Phone number is too short")
       .max(15, "Phone number is too long"),
-    adress: yup.string().required("This field is required"),
+    address: yup.string().required("This field is required"),
     zip: yup
       .string()
       .test({
@@ -169,8 +184,9 @@ const CheckOutForm: FC = () => {
         console.log(values);
       }}
       validationSchema={CheckOutValidationSchema}
-      validateOnChange={false}
       validateOnBlur={false}
+      validateOnChange={false}
+
     >
       {(props) => (
         <Form className="checkout-form">
