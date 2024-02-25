@@ -1,12 +1,11 @@
 import {FC} from 'react';
 import CheckoutRadioButton from '../Reusable-Components/CheckoutRadioButton';
-import { ICheckOutFormValues } from './CheckoutForm';
+import { ICheckOutFormValues } from './CheckoutFormData';
 import { FormikErrors } from 'formik';
 
 interface IPaymentDetailsFields {
   values: ICheckOutFormValues;
   onChangeRadioValue: (field: string, value: any, shouldValidate?: boolean | undefined) => Promise<void | FormikErrors<ICheckOutFormValues>>;
-  
 }
 
 const PaymentDetailsFields:FC<IPaymentDetailsFields> = ({values, onChangeRadioValue}) => {

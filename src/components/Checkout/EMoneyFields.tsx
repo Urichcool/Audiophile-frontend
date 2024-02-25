@@ -1,6 +1,6 @@
 import { FC } from "react";
 import CheckOutField from "../Reusable-Components/CheckOutField";
-import { ICheckOutFormValues } from "./CheckoutForm";
+import { ICheckOutFormValues } from "./CheckoutFormData";
 import { FormikErrors } from "formik";
 
 interface IEMoneyFieldsProps {

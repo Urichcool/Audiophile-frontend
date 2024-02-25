@@ -1,6 +1,6 @@
 import { Field, FormikErrors } from "formik";
 import { FC } from "react";
-import { ICheckOutFormValues } from "../Checkout/CheckoutForm";
+import { ICheckOutFormValues } from "../Checkout/CheckoutFormData";
 
 interface ICheckoutRadioButton {
   radioId: string;

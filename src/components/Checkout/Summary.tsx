@@ -7,8 +7,12 @@ import {
 import { priceWithCommas } from "../../utils/priceWithCommas";
 import ContinueAndPayButton from "./ContinueAndPayButton";
 import SummaryListItem from "./SummaryListItem";
+import { FormikErrors } from "formik";
+import { ICheckOutFormValues } from "./CheckoutFormData";
 
-const Summary: FC = () => {
+const Summary: FC<{ errors: FormikErrors<ICheckOutFormValues> }> = ({
+  errors,
+}) => {
   const cartProducts:
     | {
         id: string;
@@ -64,6 +68,11 @@ const Summary: FC = () => {
         </li>
       </ul>
       <ContinueAndPayButton />
+      {Object.values(errors).some((error: string) => error !== "") && (
+        <p className="summary-submit-error-message">
+          Some of the fields have invalid values
+        </p>
+      )}
     </div>
   );
 };

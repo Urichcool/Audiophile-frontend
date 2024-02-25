@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ICheckOutFormValues } from "./CheckoutForm";
+import { ICheckOutFormValues } from "./CheckoutFormData";
 import CheckOutField from "../Reusable-Components/CheckOutField";
 import { FormikErrors } from "formik";
 
