@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { Dispatch, FC, useEffect } from "react";
 import {
   useAppDispatch,
   useAppSelector,
@@ -19,6 +19,7 @@ import CartItem from "./CartItem";
 import { priceWithCommas } from "../../utils/priceWithCommas";
 import CheckoutButton from "../Reusable-Components/Buttons/CheckoutButton";
 import Backdrop from "../Reusable-Components/Backdrop";
+import { AnyAction } from "@reduxjs/toolkit";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
@@ -33,7 +34,7 @@ const Cart: FC = () => {
       }[]
     | [] = useAppSelector(selectCartProducts);
   const total: number = useAppSelector(selectTotal);
-  const dispatch = useAppDispatch();
+  const dispatch: Dispatch<AnyAction> = useAppDispatch();
 
   useEffect(() => {
     dispatch(

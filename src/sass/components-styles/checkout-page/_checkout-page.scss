@@ -60,7 +60,6 @@
   color: $primaryOrange;
 }
 
-
 .billing-details-fields-container {
   display: grid;
   row-gap: 24px;
@@ -342,8 +341,8 @@
   }
 }
 
-.summary-submit-error-message{
-   color: #cd2c2c;
+.summary-submit-error-message {
+  color: #cd2c2c;
   font-family: $fontFamily;
   font-size: 15px;
   font-weight: 400;
@@ -351,4 +350,32 @@
   letter-spacing: -0.21px;
   text-align: left;
   margin-top: 5px;
+}
+
+.checkout-modal-container-open {
+  opacity: 1;
+  width: 327px;
+  height: 600px;
+  background-color: $primaryWhite;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 13;
+  top: 118px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 500ms;
+  transition-property: opacity;
+  @include tablet {
+    width: 540px;
+    height: 581px;
+    top: 84px;
+  }
+  @include desktop {
+    top: 45px;
+  }
+}
+
+.checkout-modal-container-close {
+  pointer-events: none;
+  opacity: 0;
 }

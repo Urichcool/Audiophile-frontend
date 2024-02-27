@@ -14,6 +14,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/lib/persistReducer";
+import { checkOutModalSliceReducer } from "./slices/checkout-modal/checkOutModalSlice";
 
 const persistConfig = {
   key: 'cart',
@@ -26,6 +27,7 @@ export const store: Store = configureStore({
     [goodsApi.reducerPath]: goodsApi.reducer,
     mobileMenu: mobileMenuSliceReducer,
     cart: persistReducer(persistConfig, cartSliceReducer),
+    checkOutModal: checkOutModalSliceReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
