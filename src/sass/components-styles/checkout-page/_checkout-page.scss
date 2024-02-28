@@ -393,8 +393,7 @@
 }
 
 .checkout-modal-container-title{
- 
-  color: $primaryBlack;
+color: $primaryBlack;
 font-family: $fontFamily;
 font-size: 24px;
 font-weight: 700;
@@ -410,4 +409,22 @@ letter-spacing: 1.14px;
 margin-bottom: 24px;
 }
 
+}
+
+
+.checkout-modal-container-email-text{
+  color: $primaryBlack;
+font-family: $fontFamily;
+font-size: 15px;
+font-weight: 400;
+line-height: 25px;
+letter-spacing: 0px;
+text-align: left;
+width: 263px;
+opacity: 0.5;
+margin-bottom: 24px;
+@include tablet{
+  width: 444px;
+  margin-bottom: 33px;
+}
 }

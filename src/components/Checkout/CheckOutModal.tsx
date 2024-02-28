@@ -38,8 +38,12 @@ const CheckOutModal:FC = () => {
           </div>
           <h2 className="checkout-modal-container-title">
             THANK YOU
-            <br />FOR YOUR ORDER
+            <br />
+            FOR YOUR ORDER
           </h2>
+          <p className="checkout-modal-container-email-text">
+            You will receive an email confirmation shortly.
+          </p>
         </div>
       </>
     );
