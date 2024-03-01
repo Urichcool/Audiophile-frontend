@@ -441,7 +441,38 @@
   flex-direction: column;
 }
 
+.checkout-modal-order-list {
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
 .checkout-modal-order-list-container {
   padding: 24px;
   background-color: $primaryGray;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.checkout-modal-order-button {
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  width: 108px;
+  color: $primaryBlack;
+  font-family: $fontFamily;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: -0.21px;
+  opacity: 0.5;
+  transition: 500ms;
+  transition-property: color;
+  &:hover,
+  &:focus{
+    color: $primaryOrange;
+  }
 }

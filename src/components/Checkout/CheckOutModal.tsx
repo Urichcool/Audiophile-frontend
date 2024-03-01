@@ -1,4 +1,4 @@
-import { Dispatch, FC } from "react";
+import { Dispatch, FC, useState } from "react";
 import Backdrop from "../Reusable-Components/Backdrop";
 import {
   selectIsCheckOutModalOpen,
@@ -14,13 +14,17 @@ import SummaryListItem from "./SummaryListItem";
 import { selectCartProducts } from "../../redux/slices/cart/selectors";
 
 const CheckOutModal: FC = () => {
+  const [isOtherItemsOpen, setIsOtherItemsOpen] = useState<boolean>(false);
+
   const isCheckOutModalOpen: boolean = useAppSelector(
     selectIsCheckOutModalOpen
   );
   const dispatch: Dispatch<AnyAction> = useAppDispatch();
+
   const onBackdropClickHandler = (): void => {
     dispatch(switchCheckOutModal(!isCheckOutModalOpen));
   };
+
   const cartProducts:
     | {
         id: string;
@@ -31,6 +35,13 @@ const CheckOutModal: FC = () => {
         totalPrice: number;
       }[]
     | [] = useAppSelector(selectCartProducts);
+
+  const handleOtherItemsButton = (
+    event: React.MouseEvent<HTMLElement>
+  ): void => {
+    setIsOtherItemsOpen(!isOtherItemsOpen);
+  };
+
   return (
     <>
       <Backdrop
@@ -68,7 +79,33 @@ const CheckOutModal: FC = () => {
                   quantity={cartProducts[0].quantity}
                   isModal
                 />
+                {isOtherItemsOpen && (
+                  <>
+                    {[...cartProducts]
+                      .slice(1, cartProducts.length)
+                      .map(({ id, picture, name, totalPrice, quantity }) => (
+                        <SummaryListItem
+                          key={id}
+                          picture={picture}
+                          name={name}
+                          totalPrice={totalPrice}
+                          quantity={quantity}
+                          isModal
+                        />
+                      ))}
+                  </>
+                )}
               </ul>
+              {cartProducts.length > 1 && (
+                <button
+                  onClick={handleOtherItemsButton}
+                  className="checkout-modal-order-button"
+                >
+                  {isOtherItemsOpen
+                    ? "View less"
+                    : `and ${cartProducts.length - 1} other item(s)`}
+                </button>
+              )}
             </div>
             <div></div>
           </div>
