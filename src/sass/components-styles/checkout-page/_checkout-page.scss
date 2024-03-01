@@ -441,10 +441,20 @@
   flex-direction: column;
 }
 
-.checkout-modal-order-list {
-  padding-bottom: 12px;
+.checkout-modal-order-list{
   margin-bottom: 12px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+
+.checkout-modal-order-other-list-open {
+  position: relative;
+  transition: 500ms;
+}
+
+.checkout-modal-order-other-list-close {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(-50%);
 }
 
 .checkout-modal-order-list-container {
@@ -454,6 +464,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.checkout-modal-order-line{
+  margin-top: 12px;
+  margin-bottom: 12px;
+  height: 1px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .checkout-modal-order-button {
@@ -472,7 +490,7 @@
   transition: 500ms;
   transition-property: color;
   &:hover,
-  &:focus{
+  &:focus {
     color: $primaryOrange;
   }
 }

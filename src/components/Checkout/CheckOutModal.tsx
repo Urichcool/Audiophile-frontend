@@ -79,32 +79,40 @@ const CheckOutModal: FC = () => {
                   quantity={cartProducts[0].quantity}
                   isModal
                 />
-                {isOtherItemsOpen && (
-                  <>
-                    {[...cartProducts]
-                      .slice(1, cartProducts.length)
-                      .map(({ id, picture, name, totalPrice, quantity }) => (
-                        <SummaryListItem
-                          key={id}
-                          picture={picture}
-                          name={name}
-                          totalPrice={totalPrice}
-                          quantity={quantity}
-                          isModal
-                        />
-                      ))}
-                  </>
-                )}
               </ul>
+              <ul
+                className={`${
+                  isOtherItemsOpen
+                    ? "checkout-modal-order-other-list-open"
+                    : "checkout-modal-order-other-list-close"
+                }`}
+              >
+                {[...cartProducts]
+                  .slice(1, cartProducts.length)
+                  .map(({ id, picture, name, totalPrice, quantity }) => (
+                    <SummaryListItem
+                      key={id}
+                      picture={picture}
+                      name={name}
+                      totalPrice={totalPrice}
+                      quantity={quantity}
+                      isModal
+                    />
+                  ))}
+              </ul>
+
               {cartProducts.length > 1 && (
-                <button
-                  onClick={handleOtherItemsButton}
-                  className="checkout-modal-order-button"
-                >
-                  {isOtherItemsOpen
-                    ? "View less"
-                    : `and ${cartProducts.length - 1} other item(s)`}
-                </button>
+                <>
+                  <div className="checkout-modal-order-line" />
+                  <button
+                    onClick={handleOtherItemsButton}
+                    className="checkout-modal-order-button"
+                  >
+                    {isOtherItemsOpen
+                      ? "View less"
+                      : `and ${cartProducts.length - 1} other item(s)`}
+                  </button>
+                </>
               )}
             </div>
             <div></div>
