@@ -7,11 +7,13 @@ import {
 import {
   useAppDispatch,
   useAppSelector,
-} from "../../redux/reduxHooks/reduxHooks";  
+} from "../../redux/reduxHooks/reduxHooks";
 import { AnyAction } from "@reduxjs/toolkit";
 import CheckOutOkIcon from "../../images/icons/CheckOutOkIcon";
+import SummaryListItem from "./SummaryListItem";
+import { selectCartProducts } from "../../redux/slices/cart/selectors";
 
-const CheckOutModal:FC = () => {
+const CheckOutModal: FC = () => {
   const isCheckOutModalOpen: boolean = useAppSelector(
     selectIsCheckOutModalOpen
   );
@@ -19,13 +21,24 @@ const CheckOutModal:FC = () => {
   const onBackdropClickHandler = (): void => {
     dispatch(switchCheckOutModal(!isCheckOutModalOpen));
   };
-    return (
-      <>
-        <Backdrop
-          isModalOpen={isCheckOutModalOpen}
-          clickHandler={onBackdropClickHandler}
-          isCheckOutModal={true}
-        />
+  const cartProducts:
+    | {
+        id: string;
+        name: string;
+        quantity: number;
+        price: number;
+        picture: string;
+        totalPrice: number;
+      }[]
+    | [] = useAppSelector(selectCartProducts);
+  return (
+    <>
+      <Backdrop
+        isModalOpen={isCheckOutModalOpen}
+        clickHandler={onBackdropClickHandler}
+        isCheckOutModal={true}
+      />
+      {cartProducts.length !== 0 && (
         <div
           className={
             isCheckOutModalOpen
@@ -44,9 +57,25 @@ const CheckOutModal:FC = () => {
           <p className="checkout-modal-container-email-text">
             You will receive an email confirmation shortly.
           </p>
+          <div className="checkout-modal-order-container">
+            <div className="checkout-modal-order-list-container">
+              <ul className="checkout-modal-order-list">
+                <SummaryListItem
+                  key={cartProducts[0].id}
+                  picture={cartProducts[0].picture}
+                  name={cartProducts[0].name}
+                  totalPrice={cartProducts[0].totalPrice}
+                  quantity={cartProducts[0].quantity}
+                  isModal
+                />
+              </ul>
+            </div>
+            <div></div>
+          </div>
         </div>
-      </>
-    );
+      )}
+    </>
+  );
 };
 
 export default CheckOutModal;

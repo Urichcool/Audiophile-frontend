@@ -228,14 +228,23 @@
   justify-content: center;
 }
 
-.summary-list-item-picture {
-  width: 65px;
-  height: 65px;
+.summary-list-item-picture-container-modal {
+  width: 50px;
+  height: 50px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .summary-list-item-picture {
   width: 65px;
   height: 65px;
+}
+
+.summary-list-item-picture-modal {
+  width: 32px;
+  height: 32px;
 }
 
 .summary-list-item-name {
@@ -378,8 +387,8 @@
   display: none;
 }
 
-.checkout-modal-container-ok-circle{
-  width:64px;
+.checkout-modal-container-ok-circle {
+  width: 64px;
   height: 64px;
   background-color: $primaryOrange;
   border-radius: 50px;
@@ -387,44 +396,52 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 23px;
-  @include tablet{
+  @include tablet {
     margin-bottom: 33px;
   }
 }
 
-.checkout-modal-container-title{
-color: $primaryBlack;
-font-family: $fontFamily;
-font-size: 24px;
-font-weight: 700;
-line-height: 28px;
-letter-spacing: 0.86px;
-text-align: left;
-text-transform: uppercase;
-margin-bottom: 16px;
-@include tablet{
-  font-size: 32px;
-line-height: 36px;
-letter-spacing: 1.14px;
-margin-bottom: 24px;
-}
-
-}
-
-
-.checkout-modal-container-email-text{
+.checkout-modal-container-title {
   color: $primaryBlack;
-font-family: $fontFamily;
-font-size: 15px;
-font-weight: 400;
-line-height: 25px;
-letter-spacing: 0px;
-text-align: left;
-width: 263px;
-opacity: 0.5;
-margin-bottom: 24px;
-@include tablet{
-  width: 444px;
-  margin-bottom: 33px;
+  font-family: $fontFamily;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.86px;
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  @include tablet {
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 1.14px;
+    margin-bottom: 24px;
+  }
 }
+
+.checkout-modal-container-email-text {
+  color: $primaryBlack;
+  font-family: $fontFamily;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0px;
+  text-align: left;
+  width: 263px;
+  opacity: 0.5;
+  margin-bottom: 24px;
+  @include tablet {
+    width: 444px;
+    margin-bottom: 33px;
+  }
+}
+
+.checkout-modal-order-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-modal-order-list-container {
+  padding: 24px;
+  background-color: $primaryGray;
 }
