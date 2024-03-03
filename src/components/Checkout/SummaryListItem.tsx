@@ -6,7 +6,6 @@ interface ISummaryListItemProps {
   name: string;
   totalPrice: number;
   quantity: number;
-  isModal?: boolean;
 }
 
 const SummaryListItem: FC<ISummaryListItemProps> = ({
@@ -14,26 +13,11 @@ const SummaryListItem: FC<ISummaryListItemProps> = ({
   name,
   totalPrice,
   quantity,
-  isModal,
 }) => {
   return (
     <li className="summary-list-item">
-      <div
-        className={
-          isModal
-            ? "summary-list-item-picture-container-modal"
-            : "summary-list-item-picture-container"
-        }
-      >
-        <img
-          src={picture}
-          alt={name}
-          className={
-            isModal
-              ? "summary-list-item-picture-modal"
-              : "summary-list-item-picture"
-          }
-        />
+      <div className={"summary-list-item-picture-container"}>
+        <img src={picture} alt={name} className={"summary-list-item-picture"} />
       </div>
       <div className="summary-list-item-text-container">
         <h6 className="summary-list-item-name">{name}</h6>

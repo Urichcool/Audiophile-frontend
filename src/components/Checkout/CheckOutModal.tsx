@@ -10,8 +10,9 @@ import {
 } from "../../redux/reduxHooks/reduxHooks";
 import { AnyAction } from "@reduxjs/toolkit";
 import CheckOutOkIcon from "../../images/icons/CheckOutOkIcon";
-import SummaryListItem from "./SummaryListItem";
-import { selectCartProducts } from "../../redux/slices/cart/selectors";
+import { selectCartProducts, selectTotal } from "../../redux/slices/cart/selectors";
+import CheckoutModalListItem from "./CheckoutModalListItem";
+import { priceWithCommas } from "../../utils/priceWithCommas";
 
 const CheckOutModal: FC = () => {
   const [isOtherItemsOpen, setIsOtherItemsOpen] = useState<boolean>(false);
@@ -42,6 +43,10 @@ const CheckOutModal: FC = () => {
     setIsOtherItemsOpen(!isOtherItemsOpen);
   };
 
+   const total: number = useAppSelector(selectTotal);
+   const shipping: number = 50;
+   const grandTotal: number = total + shipping;
+
   return (
     <>
       <Backdrop
@@ -71,13 +76,12 @@ const CheckOutModal: FC = () => {
           <div className="checkout-modal-order-container">
             <div className="checkout-modal-order-list-container">
               <ul className="checkout-modal-order-list">
-                <SummaryListItem
+                <CheckoutModalListItem
                   key={cartProducts[0].id}
                   picture={cartProducts[0].picture}
                   name={cartProducts[0].name}
                   totalPrice={cartProducts[0].totalPrice}
                   quantity={cartProducts[0].quantity}
-                  isModal
                 />
               </ul>
               <ul
@@ -90,13 +94,12 @@ const CheckOutModal: FC = () => {
                 {[...cartProducts]
                   .slice(1, cartProducts.length)
                   .map(({ id, picture, name, totalPrice, quantity }) => (
-                    <SummaryListItem
+                    <CheckoutModalListItem
                       key={id}
                       picture={picture}
                       name={name}
                       totalPrice={totalPrice}
                       quantity={quantity}
-                      isModal
                     />
                   ))}
               </ul>
@@ -115,7 +118,16 @@ const CheckOutModal: FC = () => {
                 </>
               )}
             </div>
-            <div></div>
+            <div className="checkout-modal-total-container">
+              <div className="checkout-modal-total-text-container">
+                <p className="checkout-modal-total-container-text">
+                  GRAND TOTAL
+                </p>
+                <p className="checkout-modal-total-container-grand-total-text">
+                  {priceWithCommas(grandTotal)}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       )}
