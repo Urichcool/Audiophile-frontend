@@ -1,4 +1,4 @@
-import { Dispatch, FC, useState } from "react";
+import { Dispatch, FC, useEffect, useState } from "react";
 import Backdrop from "../Reusable-Components/Backdrop";
 import {
   selectIsCheckOutModalOpen,
@@ -10,12 +10,19 @@ import {
 } from "../../redux/reduxHooks/reduxHooks";
 import { AnyAction } from "@reduxjs/toolkit";
 import CheckOutOkIcon from "../../images/icons/CheckOutOkIcon";
-import { selectCartProducts, selectTotal } from "../../redux/slices/cart/selectors";
+import {
+  selectCartProducts,
+  selectTotal,
+} from "../../redux/slices/cart/selectors";
 import CheckoutModalListItem from "./CheckoutModalListItem";
 import { priceWithCommas } from "../../utils/priceWithCommas";
+import BackToHomeButton from "./BackToHomeButton";
+import { clearCart } from "../../redux/slices/cart/cartSlice";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const CheckOutModal: FC = () => {
   const [isOtherItemsOpen, setIsOtherItemsOpen] = useState<boolean>(false);
+  const navigate: NavigateFunction = useNavigate();
 
   const isCheckOutModalOpen: boolean = useAppSelector(
     selectIsCheckOutModalOpen
@@ -23,8 +30,30 @@ const CheckOutModal: FC = () => {
   const dispatch: Dispatch<AnyAction> = useAppDispatch();
 
   const onBackdropClickHandler = (): void => {
-    dispatch(switchCheckOutModal(!isCheckOutModalOpen));
+     dispatch(clearCart([]));
+     dispatch(switchCheckOutModal(!isCheckOutModalOpen));
+     navigate("/");
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent): void => {
+      if (e.code === "Escape") {
+        dispatch(clearCart([]));
+        dispatch(switchCheckOutModal(false));
+        navigate("/");
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    if (isCheckOutModalOpen) {
+       window.onunload = () => {
+         dispatch(clearCart([]));
+       };
+    }
+   
+    return (): void => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [dispatch, navigate, isCheckOutModalOpen]);
 
   const cartProducts:
     | {
@@ -43,9 +72,17 @@ const CheckOutModal: FC = () => {
     setIsOtherItemsOpen(!isOtherItemsOpen);
   };
 
-   const total: number = useAppSelector(selectTotal);
-   const shipping: number = 50;
-   const grandTotal: number = total + shipping;
+  const handleBackToHomeButtonClick = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    dispatch(clearCart([]));
+    dispatch(switchCheckOutModal(!isCheckOutModalOpen));
+    navigate('/')
+  };
+
+  const total: number = useAppSelector(selectTotal);
+  const shipping: number = 50;
+  const grandTotal: number = total + shipping;
 
   return (
     <>
@@ -129,6 +166,7 @@ const CheckOutModal: FC = () => {
               </div>
             </div>
           </div>
+          <BackToHomeButton onClickFunction={handleBackToHomeButtonClick} />
         </div>
       )}
     </>

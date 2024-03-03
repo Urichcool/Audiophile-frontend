@@ -12,20 +12,28 @@ import {
   ICheckOutFormValues,
   initialValues,
 } from "./CheckoutFormData";
-import { useAppDispatch, useAppSelector } from "../../redux/reduxHooks/reduxHooks";
-import { selectIsCheckOutModalOpen, switchCheckOutModal } from "../../redux/slices/checkout-modal/checkOutModalSlice";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../redux/reduxHooks/reduxHooks";
+import {
+  selectIsCheckOutModalOpen,
+  switchCheckOutModal,
+} from "../../redux/slices/checkout-modal/checkOutModalSlice";
 import { AnyAction } from "@reduxjs/toolkit";
 
 const CheckOutForm: FC = () => {
   const dispatch: Dispatch<AnyAction> = useAppDispatch();
-  const isCheckOutModalOpen:boolean = useAppSelector(selectIsCheckOutModalOpen)
+  const isCheckOutModalOpen: boolean = useAppSelector(
+    selectIsCheckOutModalOpen
+  );
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={(values: ICheckOutFormValues) => {
         console.log(values);
-        dispatch(switchCheckOutModal(!isCheckOutModalOpen))
-        
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        dispatch(switchCheckOutModal(!isCheckOutModalOpen));
       }}
       validationSchema={CheckOutValidationSchema}
       validateOnBlur={false}
