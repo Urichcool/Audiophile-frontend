@@ -4,6 +4,7 @@ import CheckOutForm from "../components/Checkout/CheckoutForm";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { selectCartProducts } from "../redux/slices/cart/selectors";
 import { useAppSelector } from "../redux/reduxHooks/reduxHooks";
+import CheckOutModal from "../components/Checkout/CheckOutModal";
 
 const CheckoutPage: FC = () => {
    const cartProducts:
@@ -27,7 +28,8 @@ const CheckoutPage: FC = () => {
     <section className="checkout-page">
       <div className="container">
         <GoBackButton />
-        <CheckOutForm/>
+        <CheckOutForm />
+        <CheckOutModal/>
       </div>
     </section>
   );

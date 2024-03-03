@@ -4,19 +4,23 @@ interface IBackdropProps {
   isModalOpen: boolean;
   clickHandler: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   testId?: string;
-  isMobileMenu?:boolean
+  isMobileMenu?: boolean;
+  isCheckOutModal?:boolean;
 }
 
 const Backdrop: FC<IBackdropProps> = ({
   isModalOpen,
   clickHandler,
   testId,
-  isMobileMenu
+  isMobileMenu,
+  isCheckOutModal
 }) => {
   return (
     <div
       onClick={clickHandler}
-      className={`backdrop backdrop-${isModalOpen ? "open" : "close"} ${isMobileMenu && "backdrop-mobile-menu"}`}
+      className={`backdrop backdrop-${isModalOpen ? "open" : "close"} ${
+        isMobileMenu && "backdrop-mobile-menu"
+      } ${isCheckOutModal && "backdrop-checkout-modal"}`}
       data-testid={testId}
     ></div>
   );

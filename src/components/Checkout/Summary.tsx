@@ -25,7 +25,8 @@ const Summary: FC<{ errors: FormikErrors<ICheckOutFormValues> }> = ({
     | [] = useAppSelector(selectCartProducts);
   const total: number = useAppSelector(selectTotal);
   const vat: number = Math.round((total / 100) * 20);
-  const grandTotal: number = total + 50;
+  const shipping:number = 50
+  const grandTotal: number = total + shipping;
 
   return (
     <div className="summary-container">
