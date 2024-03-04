@@ -39,6 +39,7 @@ const Summary: FC<{ errors: FormikErrors<ICheckOutFormValues> }> = ({
             name={name}
             totalPrice={totalPrice}
             quantity={quantity}
+            id={id}
           />
         ))}
       </ul>

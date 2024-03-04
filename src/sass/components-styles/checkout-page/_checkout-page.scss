@@ -269,6 +269,34 @@
   margin-bottom: 32px;
 }
 
+.summary-list-item-nav-button{
+   display: flex;
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  .summary-list-item-price {
+    position: relative;
+  }
+  .summary-list-item-price:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $primaryOrange;
+    content: "";
+    transition: width 0.5s ease-out;
+  }
+}
+
+.summary-list-item-nav-button:hover,
+.summary-list-item-nav-button:focus {
+  .summary-list-item-price:after {
+    width: 100%;
+  }
+}
+
 .summary-total-list-item {
   display: flex;
   justify-content: space-between;

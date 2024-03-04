@@ -126,17 +126,25 @@
   background-color: transparent;
   cursor: pointer;
   border: none;
-  transition: 500ms;
-  &:hover,
-  &:focus {
-    p {
-      outline: 1px;
-      outline-color: $primaryOrange;
-    }
-    h6 {
-      outline: 1px;
-      outline-color: $primaryOrange;
-    }
+  .cart-item-price {
+    position: relative;
+  }
+  .cart-item-price:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $primaryOrange;
+    content: "";
+    transition: width 0.5s ease-out;
+  }
+}
+
+.cart-list-item-nav-button:hover,
+.cart-list-item-nav-button:focus {
+  .cart-item-price:after {
+    width: 100%;
   }
 }
 
