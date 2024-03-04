@@ -4,6 +4,7 @@ import HeroLoader from "./HeroLoader";
 import { Params, useLocation, useParams } from "react-router-dom";
 import MobileMenu from "../../Mobile-Menu/MobileMenu";
 import HeroNewProductContainer from "./HeroNewProductContainer";
+import { scrollUpFunc } from "../../../utils/scrollUpFunc";
 
 const Hero: FC = () => {
   const { data, isFetching } = useGetNewGoodsQuery();
@@ -11,7 +12,7 @@ const Hero: FC = () => {
   const { productId }: Readonly<Params<string>> = useParams();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    scrollUpFunc();
   }, [pathname, data]);
 
   return (

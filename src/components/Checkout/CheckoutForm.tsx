@@ -21,6 +21,7 @@ import {
   switchCheckOutModal,
 } from "../../redux/slices/checkout-modal/checkOutModalSlice";
 import { AnyAction } from "@reduxjs/toolkit";
+import { scrollUpFunc } from "../../utils/scrollUpFunc";
 
 const CheckOutForm: FC = () => {
   const dispatch: Dispatch<AnyAction> = useAppDispatch();
@@ -32,7 +33,7 @@ const CheckOutForm: FC = () => {
       initialValues={initialValues}
       onSubmit={(values: ICheckOutFormValues) => {
         console.log(values);
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        scrollUpFunc();
         dispatch(switchCheckOutModal(!isCheckOutModalOpen));
       }}
       validationSchema={CheckOutValidationSchema}
