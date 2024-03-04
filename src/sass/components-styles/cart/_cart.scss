@@ -120,6 +120,26 @@
   }
 }
 
+.cart-list-item-nav-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  transition: 500ms;
+  &:hover,
+  &:focus {
+    p {
+      outline: 1px;
+      outline-color: $primaryOrange;
+    }
+    h6 {
+      outline: 1px;
+      outline-color: $primaryOrange;
+    }
+  }
+}
+
 .cart-list-item-picture-container {
   width: 84px;
   height: 84px;
