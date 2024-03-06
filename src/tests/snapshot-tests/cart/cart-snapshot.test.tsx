@@ -13,6 +13,7 @@ describe("cart-item-snapshot-tests", () => {
       price,
       picture,
       totalPrice,
+      category,
     }: {
       id: string;
       name: string;
@@ -20,6 +21,7 @@ describe("cart-item-snapshot-tests", () => {
       price: number;
       picture: string;
       totalPrice: number;
+      category: string;
     } = cartItemTestProps;
     renderWithReduxAndRouter(
       <CartItem
@@ -29,16 +31,17 @@ describe("cart-item-snapshot-tests", () => {
         price={price}
         picture={picture}
         totalPrice={totalPrice}
+        category={category}
       />
-      );
-      const cartItem: HTMLLIElement = screen.getByTestId("cart-item");
-      expect(cartItem).toMatchSnapshot();
+    );
+    const cartItem: HTMLLIElement = screen.getByTestId("cart-item");
+    expect(cartItem).toMatchSnapshot();
   });
-  test("cart-empty-container-should-match-snapshot", () => { 
+  test("cart-empty-container-should-match-snapshot", () => {
     renderWithReduxAndRouter(<Cart />);
     const cartEmptyContainer: HTMLDivElement = screen.getByTestId(
       "cart-modal-empty-container"
     );
     expect(cartEmptyContainer).toMatchSnapshot();
-  })
+  });
 });

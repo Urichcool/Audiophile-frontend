@@ -4,13 +4,14 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 interface IButton1Props {
   id?: string ;
   testId?: string;
+  category?: string
 }
 
-const Button1: FC<IButton1Props> = ({ id, testId }) => {
+const Button1: FC<IButton1Props> = ({ id, testId, category }) => {
   const navigate: NavigateFunction = useNavigate();
 
   const buttonClickHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    navigate(`/${id}`);
+    navigate(`${category}/${id}`);
   };
 
   return (

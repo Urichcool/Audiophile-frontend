@@ -17,6 +17,7 @@ interface ICartItemProps {
   price: number;
   picture: string;
   totalPrice: number;
+  category:string
 }
 
 const CartItem: FC<ICartItemProps> = ({
@@ -26,13 +27,14 @@ const CartItem: FC<ICartItemProps> = ({
   price,
   picture,
   totalPrice,
+  category
 }) => {
   const navigate: NavigateFunction = useNavigate();
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
   const dispatch: Dispatch<AnyAction> = useAppDispatch();
   const handleOnNavButtonClick = (id: string): void => {
     dispatch(switchCartModal(!isCartModalOpen))
-    navigate(`/${id}`);
+    navigate(`${category}/${id}`);
   };
   return (
     <li className="cart-list-item" data-testid="cart-item">

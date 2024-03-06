@@ -6,6 +6,7 @@ export const productIdContentDescriptionTestProps: {
   price: number;
   productId: string;
   previewImage: string;
+  category: string;
 } = {
   pictureSrc: {
     mobile:
@@ -22,6 +23,7 @@ export const productIdContentDescriptionTestProps: {
   productId: "652bdfecc2dd2dacebf6e267",
   previewImage:
     "https://res.cloudinary.com/dir4brsjf/image/upload/v1699443154/audiophile/goods/product-xx99-mark-two-headphones/mobile/image-product-removebg-mobile-removebg-preview_e3ysuj.png",
+  category:"headphones"
 };
 
 export const productIdContentFeaturesTestProps: {

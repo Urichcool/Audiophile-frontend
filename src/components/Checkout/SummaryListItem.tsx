@@ -7,7 +7,8 @@ interface ISummaryListItemProps {
   name: string;
   totalPrice: number;
   quantity: number;
-  id:string
+  id: string;
+  category: string;
 }
 
 const SummaryListItem: FC<ISummaryListItemProps> = ({
@@ -15,16 +16,15 @@ const SummaryListItem: FC<ISummaryListItemProps> = ({
   name,
   totalPrice,
   quantity,
-  id
+  id,
+  category,
 }) => {
   const navigate: NavigateFunction = useNavigate();
   return (
     <li className="summary-list-item">
       <button
         className="summary-list-item-nav-button"
-        onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-          navigate(`/${id}`)
-        }
+        onClick={(event: React.MouseEvent<HTMLButtonElement>) => navigate(`${category}/${id}`)}
       >
         <div className={"summary-list-item-picture-container"}>
           <img

@@ -31,6 +31,7 @@ const Cart: FC = () => {
         price: number;
         picture: string;
         totalPrice: number;
+        category: string;
       }[]
     | [] = useAppSelector(selectCartProducts);
   const total: number = useAppSelector(selectTotal);
@@ -125,7 +126,7 @@ const Cart: FC = () => {
                 </div>
                 <ul className="cart-list">
                   {cartProducts.map(
-                    ({ id, name, quantity, price, picture, totalPrice }) => (
+                    ({ id, name, quantity, price, picture, totalPrice, category }) => (
                       <CartItem
                         key={id}
                         id={id}
@@ -134,6 +135,7 @@ const Cart: FC = () => {
                         price={price}
                         picture={picture}
                         totalPrice={totalPrice}
+                        category={category}
                       />
                     )
                   )}

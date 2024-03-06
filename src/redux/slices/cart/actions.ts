@@ -17,6 +17,7 @@ export const addProductAction = (
     price: number;
     totalPrice: number;
     picture: string;
+    category: string;
   }>
 ): void => {
   const product:
@@ -26,6 +27,7 @@ export const addProductAction = (
         quantity: number;
         price: number;
         totalPrice: number;
+        category: string;
       }
     | undefined = state.products.find(({ id }) => id === action.payload.id);
   const stateProductIndex: number = state.products.findIndex(

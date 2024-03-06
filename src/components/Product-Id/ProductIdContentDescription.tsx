@@ -11,6 +11,7 @@ interface IProductIdContentDescriptionProps {
   price: number | undefined;
   productId: string | undefined;
   previewImage: string | undefined;
+  category: string | undefined;
 }
 
 const ProductIdContentDescription: FC<IProductIdContentDescriptionProps> = ({
@@ -21,6 +22,7 @@ const ProductIdContentDescription: FC<IProductIdContentDescriptionProps> = ({
   price,
   productId,
   previewImage,
+  category
 }) => {
   return (
     <div
@@ -69,6 +71,7 @@ const ProductIdContentDescription: FC<IProductIdContentDescriptionProps> = ({
           name={name}
           price={price}
           picture={previewImage}
+          category={category}
         />
       </div>
     </div>

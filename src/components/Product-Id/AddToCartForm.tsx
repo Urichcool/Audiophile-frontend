@@ -14,6 +14,7 @@ interface IAddToCartFormProps {
   name: string | undefined;
   price: number | undefined;
   picture: string | undefined;
+  category:string | undefined
 }
 
 const AddToCartForm: FC<IAddToCartFormProps> = ({
@@ -21,6 +22,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
   name,
   price,
   picture,
+  category
 }) => {
   const dispatch: AppDispatch = useAppDispatch();
   const initialValues: IAddToCartFormValues = { quantity: 1 };
@@ -36,6 +38,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
             price: price,
             picture: picture,
             totalPrice: price ? price * values.quantity : price,
+            category: category
           })
         );
       }}

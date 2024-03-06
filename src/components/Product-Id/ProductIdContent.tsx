@@ -30,7 +30,8 @@ const ProductIdContent: FC = () => {
             description={data?.description}
             price={data?.price}
             productId={data?._id}
-            previewImage={data?.previewImage.mobile}
+              previewImage={data?.previewImage.mobile}
+              category={data?.category}
           />
           <ProductIdContentFeatures
             features={data?.features}
