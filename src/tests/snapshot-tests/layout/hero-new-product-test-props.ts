@@ -7,6 +7,7 @@ export const heroNewProductTestProps: {
     tablet: string;
     mobile: string;
   };
+  category: string;
 } = {
   name: "YX1 Wireless Earphones",
   description: "YX1 Wireless Earphones",
@@ -19,4 +20,5 @@ export const heroNewProductTestProps: {
     desktop:
       "https://res.cloudinary.com/dir4brsjf/image/upload/v1699443139/audiophile/goods/product-xx99-mark-two-headphones/desktop/image-product-removebg-desktop-removebg-preview_myfyr1.png",
   },
+  category:"headphones"
 };

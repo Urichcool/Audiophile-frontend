@@ -36,6 +36,7 @@ const CategoriesProductsListSection: FC<
                   description={product.description}
                   isEven={(index + 1) % 2 === 0}
                   id={product._id}
+                  category={product.category}
                 />
               ))}
             </ul>

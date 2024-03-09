@@ -24,7 +24,10 @@ const SummaryListItem: FC<ISummaryListItemProps> = ({
     <li className="summary-list-item">
       <button
         className="summary-list-item-nav-button"
-        onClick={(event: React.MouseEvent<HTMLButtonElement>) => navigate(`${category}/${id}`)}
+        type="button"
+        onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+          navigate(`/${category}/${id}`);
+        }}
       >
         <div className={"summary-list-item-picture-container"}>
           <img

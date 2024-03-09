@@ -9,7 +9,8 @@ interface ICategoriesProductsListItemProps {
   name: string;
   description: string;
   isEven: boolean;
-  id: string
+  id: string;
+  category: string;
 }
 
 const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
@@ -18,7 +19,8 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
   isNew,
   description,
   isEven,
-  id
+  id,
+  category
 }) => {
   return (
     <li
@@ -68,7 +70,7 @@ const CategoriesProductsListItem: FC<ICategoriesProductsListItemProps> = ({
           <p className="Body-manrope-medium categories-products-list-item-description">
             {description}
           </p>
-          <Button1 id={id} testId={"id-page-nav-button"} />
+          <Button1 id={id} testId={"id-page-nav-button"} category={category} />
         </div>
       </AnimationOnScroll>
     </li>

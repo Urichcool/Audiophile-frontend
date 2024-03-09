@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import HomePage from "./pages/HomePage";
 import HeadphonesPage from "./pages/HeadphonesPage";
@@ -21,7 +21,7 @@ const App: FC = () => {
         <Route element={<ProductIdPage />} path="earphones/:productId" />
         <Route element={<CheckoutPage />} path="checkout" />
       </Route>
-      {/* <Route path="*" element={<Navigate to={"/"} />} /> */}
+      <Route path="*" element={<Navigate to={"/"} />} />
     </Routes>
   );
 };

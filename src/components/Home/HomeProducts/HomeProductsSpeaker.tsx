@@ -86,7 +86,7 @@ const HomeProductsSpeaker: FC<IHomeProductsSpeakerProps> = ({
               <p className="Body-manrope-medium home-products-speakers-description">
                 {shortDescrFunc(data?.description)}
               </p>
-              <Button4 id={data?._id} />
+              <Button4 id={data?._id} category={data?.category} />
             </div>
           </AnimationOnScroll>
         </>

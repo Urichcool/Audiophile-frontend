@@ -34,7 +34,8 @@ const Hero: FC = () => {
                   name={data?.name}
                   description={data?.description}
                   productId={data?._id}
-                  previewImage={data?.previewImage}
+                    previewImage={data?.previewImage}
+                    category={data?.category}
                 />
               )}
             </div>

@@ -33,13 +33,15 @@ describe("reusable-components-snapshot-tests", () => {
       description,
       isEven,
       id,
+      category
     }: {
       previewImage: { mobile: string; tablet: string; desktop: string };
       isNew: boolean;
       name: string;
       description: string;
       isEven: boolean;
-      id: string;
+        id: string;
+      category:string
     } = categoriesProductListItemTestProps;
     renderWithReduxAndRouter(
       <CategoriesProductsListItem
@@ -49,6 +51,7 @@ describe("reusable-components-snapshot-tests", () => {
         description={description}
         isEven={isEven}
         id={id}
+        category={category}
       />
     );
     const categoriesListItem: HTMLLIElement = screen.getByTestId(
