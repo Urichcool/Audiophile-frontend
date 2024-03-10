@@ -4,9 +4,15 @@ import AddToCartButton from "../Reusable-Components/Buttons/AddToCartButton";
 import { useAppDispatch } from "../../redux/reduxHooks/reduxHooks";
 import { AppDispatch } from "../../redux/store";
 import { addProduct } from "../../redux/slices/cart/cartSlice";
+import * as yup from "yup";
 
 interface IAddToCartFormValues {
   quantity: number;
+  productId: string | undefined;
+  name: string | undefined;
+  price: number | undefined;
+  picture: string | undefined;
+  category: string | undefined;
 }
 
 interface IAddToCartFormProps {
@@ -14,31 +20,75 @@ interface IAddToCartFormProps {
   name: string | undefined;
   price: number | undefined;
   picture: string | undefined;
-  category:string | undefined
+  category: string | undefined;
 }
+
+const addToCartValidationSchema: yup.ObjectSchema<
+  {
+    productId: string | undefined;
+    name: string | undefined;
+    price: number | undefined;
+    picture: string | undefined;
+    category: string | undefined;
+    quantity: number | undefined;
+  },
+  yup.AnyObject,
+  {
+    productId: string | undefined;
+    name: string | undefined;
+    price: number | undefined;
+    picture: string | undefined;
+    category: string | undefined;
+    quantity: number | undefined;
+  },
+  ""
+> = yup.object().shape({
+  productId: yup.string().required(),
+  name: yup.string().required(),
+  price: yup.number().required(),
+  picture: yup.string().required(),
+  category: yup.string().required(),
+  quantity: yup.number().min(1)
+});
 
 const AddToCartForm: FC<IAddToCartFormProps> = ({
   productId,
   name,
   price,
   picture,
-  category
+  category,
 }) => {
   const dispatch: AppDispatch = useAppDispatch();
-  const initialValues: IAddToCartFormValues = { quantity: 1 };
+  const initialValues: IAddToCartFormValues = {
+    quantity: 1,
+    productId,
+    name,
+    price,
+    picture,
+    category,
+  };
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values: IAddToCartFormValues) => {
+      validationSchema={addToCartValidationSchema}
+      validateOnChange
+      onSubmit={({
+        productId,
+        name,
+        quantity,
+        price,
+        picture,
+        category,
+      }: IAddToCartFormValues) => {
         dispatch(
           addProduct({
             id: productId,
             name: name,
-            quantity: values.quantity,
+            quantity: quantity,
             price: price,
             picture: picture,
-            totalPrice: price ? price * values.quantity : price,
-            category: category
+            totalPrice: price ? price * quantity : price,
+            category: category,
           })
         );
       }}
