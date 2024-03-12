@@ -48,7 +48,7 @@ const addToCartValidationSchema: yup.ObjectSchema<
   price: yup.number().required(),
   picture: yup.string().required(),
   category: yup.string().required(),
-  quantity: yup.number().min(1)
+  quantity: yup.number().min(1),
 });
 
 const AddToCartForm: FC<IAddToCartFormProps> = ({
@@ -120,7 +120,10 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
           <button
             className="add-to-cart-input-plus-button"
             data-testid="add-to-cart-form-increase-button"
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+            onClick={async (e: React.MouseEvent<HTMLButtonElement>) => {
+              const stock = await fetch(`http://localhost:3000/stock/check/${props.values.productId}`);
+              const data = await stock.json();
+              console.log(data);
               if (props.values.quantity !== 99) {
                 props.setFieldValue("quantity", (props.values.quantity += 1));
               }
