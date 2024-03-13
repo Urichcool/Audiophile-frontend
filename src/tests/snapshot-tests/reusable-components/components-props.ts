@@ -5,6 +5,7 @@ export const categoriesProductListItemTestProps: {
   description: string;
   isEven: boolean;
   id: string;
+  category:string
 } = {
   previewImage: {
     mobile:
@@ -20,6 +21,7 @@ export const categoriesProductListItemTestProps: {
     "The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.",
   isEven: false,
   id: "652bdfecc2dd2dacebf6e267",
+  category:"headphones"
 };
 
 export const pictureComponentTestProps: {

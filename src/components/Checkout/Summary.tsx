@@ -21,26 +21,31 @@ const Summary: FC<{ errors: FormikErrors<ICheckOutFormValues> }> = ({
         price: number;
         picture: string;
         totalPrice: number;
+        category: string;
       }[]
     | [] = useAppSelector(selectCartProducts);
   const total: number = useAppSelector(selectTotal);
   const vat: number = Math.round((total / 100) * 20);
-  const shipping:number = 50
+  const shipping: number = 50;
   const grandTotal: number = total + shipping;
 
   return (
     <div className="summary-container">
       <h6 className="summary-title">Summary</h6>
       <ul className="summary-list">
-        {cartProducts.map(({ picture, name, totalPrice, quantity, id }) => (
-          <SummaryListItem
-            key={id}
-            picture={picture}
-            name={name}
-            totalPrice={totalPrice}
-            quantity={quantity}
-          />
-        ))}
+        {cartProducts.map(
+          ({ picture, name, totalPrice, quantity, id, category }) => (
+            <SummaryListItem
+              key={id}
+              picture={picture}
+              name={name}
+              totalPrice={totalPrice}
+              quantity={quantity}
+              id={id}
+              category={category}
+            />
+          )
+        )}
       </ul>
       <ul className="summary-total-list">
         <li className="summary-total-list-item">

@@ -5,6 +5,7 @@ export const cartItemTestProps: {
   price: number;
   picture: string;
   totalPrice: number;
+  category: string;
 } = {
   id: "652bdfecc2dd2dacebf6e264",
   name: "YX1 Wireless Earphones",
@@ -13,4 +14,5 @@ export const cartItemTestProps: {
   picture:
     "https://res.cloudinary.com/dir4brsjf/image/upload/v1697496515/audiophile/goods/product-yx1-earphones/desktop/wv1xzajrcrygkt1zarto.jpg",
   totalPrice: 1198,
+  category:"headphones"
 };

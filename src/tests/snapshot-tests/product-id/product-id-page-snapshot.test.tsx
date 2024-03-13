@@ -19,6 +19,7 @@ describe("product-id-page-snapshot-tests", () => {
       price,
       productId,
       previewImage,
+      category
     }: {
       pictureSrc: { desktop: string; tablet: string; mobile: string };
       name: string;
@@ -26,7 +27,8 @@ describe("product-id-page-snapshot-tests", () => {
       description: string;
       price: number;
       productId: string;
-      previewImage: string;
+        previewImage: string;
+        category: string;
     } = productIdContentDescriptionTestProps;
     renderWithReduxAndRouter(
       <ProductIdContentDescription
@@ -37,6 +39,7 @@ describe("product-id-page-snapshot-tests", () => {
         price={price}
         productId={productId}
         previewImage={previewImage}
+        category={category}
       />
     );
     const productIdDescription: HTMLDivElement = screen.getByTestId(

@@ -17,6 +17,7 @@ export interface IInitialCartState {
     price: number;
     totalPrice: number;
     picture: string;
+    category:string
   }[];
   isCartModalOpen: boolean;
   total: number;

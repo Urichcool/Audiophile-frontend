@@ -240,3 +240,23 @@ display: flex;
 padding-top: 150px;
 justify-content: center;
 }
+
+.product-id-page-not-found-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  justify-content: center;
+  svg{
+    width: 180px;
+    height: 180px;
+    margin-top: 20px;
+  }
+  h3{
+ font-size: 23px;
+ @include tablet{
+  font-size: 32px;
+ }
+  }
+}

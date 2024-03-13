@@ -12,7 +12,7 @@ describe("layout-snapshot-test", () => {
     expect(header).toMatchSnapshot();
   });
   test("hero-new-product-container-should-match-snapshot", () => {
-    const { name, description, productId, previewImage } =
+    const { name, description, productId, previewImage, category } =
       heroNewProductTestProps;
     renderWithReduxAndRouter(
       <HeroNewProductContainer
@@ -20,6 +20,7 @@ describe("layout-snapshot-test", () => {
         description={description}
         productId={productId}
         previewImage={previewImage}
+        category={category}
       />
     );
     const heroContainer: HTMLDivElement = screen.getByTestId("hero-container");

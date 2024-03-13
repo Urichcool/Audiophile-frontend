@@ -3,11 +3,12 @@ import WebSiteDescription from "../components/Reusable-Components/WebSiteDescrip
 import CategoriesList from "../components/Reusable-Components/CategoriesList";
 import CategoriesProductsListSection from "../components/Reusable-Components/CategoriesProductsListSection";
 import { useGetAllHeadphonesQuery } from "../redux/services/goods";
+import { scrollUpFunc } from "../utils/scrollUpFunc";
 
 const HeadphonesPage: FC = () => {
 const { data, isFetching } = useGetAllHeadphonesQuery();
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+   scrollUpFunc();
   }, [data]);
 
   

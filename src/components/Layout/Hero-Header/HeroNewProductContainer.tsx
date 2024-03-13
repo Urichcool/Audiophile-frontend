@@ -14,6 +14,7 @@ interface IHeroNewProductContainer {
         mobile: string;
       }
     | undefined;
+  category: string | undefined;
 }
 
 const HeroNewProductContainer: FC<IHeroNewProductContainer> = ({
@@ -21,6 +22,7 @@ const HeroNewProductContainer: FC<IHeroNewProductContainer> = ({
   description,
   productId,
   previewImage,
+  category,
 }) => {
   return (
     <div className="container" data-testid="hero-container">
@@ -32,7 +34,7 @@ const HeroNewProductContainer: FC<IHeroNewProductContainer> = ({
         <p className="Body-manrope-medium hero-new-product-description">
           {shortDescrFunc(description)}
         </p>
-        <Button1 id={productId} testId={"id-page-nav-button"} />
+        <Button1 id={productId} testId={"id-page-nav-button"} category={category} />
       </div>
       <Picture
         imageSrc={{
