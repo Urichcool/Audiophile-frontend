@@ -25,8 +25,8 @@ export const goodsApi = createApi({
     getAllSpeakers: builder.query<IGoods[], void>({
       query: () => "speakers",
     }),
-    getGoodsStock: builder.query<{name:string, stock:number}, number>({
-      query: () => "stock/check",
+    getGoodsStock: builder.query<{stock:number}, string>({
+      query: (id) => `stock/check/${id}`,
     }),
   }),
 });

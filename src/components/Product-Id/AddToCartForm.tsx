@@ -5,6 +5,7 @@ import { useAppDispatch } from "../../redux/reduxHooks/reduxHooks";
 import { AppDispatch } from "../../redux/store";
 import { addProduct } from "../../redux/slices/cart/cartSlice";
 import * as yup from "yup";
+import { useGetGoodsStockQuery } from "../../redux/services/goods";
 
 interface IAddToCartFormValues {
   quantity: number;
@@ -58,6 +59,9 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
   picture,
   category,
 }) => {
+  const { data, refetch, isSuccess, isFetching } = useGetGoodsStockQuery(
+    productId!
+  );
   const dispatch: AppDispatch = useAppDispatch();
   const initialValues: IAddToCartFormValues = {
     quantity: 1,
@@ -94,46 +98,48 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
       }}
     >
       {(props) => (
-        <Form className="add-to-cart-form">
-          <button
-            className="add-to-cart-input-minus-button"
-            data-testid="add-to-cart-form-decrease-button"
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-              if (props.values.quantity !== 1) {
-                props.setFieldValue("quantity", (props.values.quantity -= 1));
-              }
-            }}
-            type="button"
-          >
-            -
-          </button>
-          <Field
-            id="quantity"
-            name="quantity"
-            type="number"
-            className="add-to-cart-input"
-            readOnly="readonly"
-            value={props.values.quantity}
-            data-testid="add-to-cart-form-quantity"
-          />
+        <>
+          <Form className="add-to-cart-form">
+            <button
+              className="add-to-cart-input-minus-button"
+              data-testid="add-to-cart-form-decrease-button"
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                if (props.values.quantity !== 1) {
+                  refetch();
+                  props.setFieldValue("quantity", (props.values.quantity -= 1));
+                }
+              }}
+              type="button"
+            >
+              -
+            </button>
+            <Field
+              id="quantity"
+              name="quantity"
+              type="number"
+              className="add-to-cart-input"
+              readOnly="readonly"
+              value={props.values.quantity}
+              data-testid="add-to-cart-form-quantity"
+            />
 
-          <button
-            className="add-to-cart-input-plus-button"
-            data-testid="add-to-cart-form-increase-button"
-            onClick={async (e: React.MouseEvent<HTMLButtonElement>) => {
-              const stock = await fetch(`http://localhost:3000/stock/check/${props.values.productId}`);
-              const data = await stock.json();
-              console.log(data);
-              if (props.values.quantity !== 99) {
+            <button
+              className="add-to-cart-input-plus-button"
+              data-testid="add-to-cart-form-increase-button"
+              onClick={async (e: React.MouseEvent<HTMLButtonElement>) => {
+                refetch();
                 props.setFieldValue("quantity", (props.values.quantity += 1));
-              }
-            }}
-            type="button"
-          >
-            +
-          </button>
-          <AddToCartButton testId={"add-to-cart-button"} />
-        </Form>
+              }}
+              type="button"
+            >
+              +
+            </button>
+            <AddToCartButton testId={"add-to-cart-button"} />
+          </Form>
+          {isSuccess
+            ? data!.stock < props.values.quantity && <p>not enough products</p>
+            : null}
+        </>
       )}
     </Formik>
   );
