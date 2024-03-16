@@ -11,7 +11,7 @@ import { screen } from "@testing-library/react";
 describe("buttons-render-tests", () => {
   test("add-to-cart-button-should-renders-correctly", () => {
     renderWithReduxAndRouter(
-      <AddToCartButton testId="add-to-cart-test-button" />
+      <AddToCartButton testId="add-to-cart-test-button" isEnoughStock={true} isFetching={false} />
     );
     const addToCartButton: HTMLButtonElement = screen.getByTestId(
       "add-to-cart-test-button"
