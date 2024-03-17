@@ -65,6 +65,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
   category,
 }) => {
   const [isNotEnoughStockError, setIsNotEnoughStockError] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
   const { data, refetch, isSuccess, isFetching } = useGetGoodsStockQuery(
     productId!
   );
@@ -133,6 +134,10 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
             category: category,
           })
         );
+        setAddedToCart(true);
+        setTimeout(() => {
+          setAddedToCart(false);
+        }, 3000);
       }}
     >
       {(props) => (
@@ -145,7 +150,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
                   : "add-to-cart-input-button--disabled"
               }`}
               data-testid="add-to-cart-form-decrease-button"
-              disabled={isFetching && props.values.quantity > 1}
+              disabled={isFetching && props.values.quantity < 2}
               onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                 if (props.values.quantity !== 1) {
                   refetch();
@@ -156,32 +161,16 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
             >
               {props.values.quantity > 1 ? "-" : ""}
             </button>
-            {isFetching ? (
-              <div className="add-to-cart-input-loader">
-                <Oval
-                  height={25}
-                  width={25}
-                  color="rgba(0, 0, 0, 0.5)"
-                  wrapperStyle={{}}
-                  wrapperClass=""
-                  visible={true}
-                  ariaLabel="oval-loading"
-                  secondaryColor="rgba(0, 0, 0, 0.5)"
-                  strokeWidth={2}
-                  strokeWidthSecondary={2}
-                />
-              </div>
-            ) : (
-              <Field
-                id="quantity"
-                name="quantity"
-                type="number"
-                className="add-to-cart-input"
-                readOnly="readonly"
-                value={props.values.quantity}
-                data-testid="add-to-cart-form-quantity"
-              />
-            )}
+
+            <Field
+              id="quantity"
+              name="quantity"
+              type="number"
+              className="add-to-cart-input"
+              readOnly="readonly"
+              value={props.values.quantity}
+              data-testid="add-to-cart-form-quantity"
+            />
 
             <button
               className={`${
@@ -210,7 +199,9 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
               testId={"add-to-cart-button"}
               isFetching={isFetching}
               isEnoughStock={
-                isSuccess ? (data.stock < props.values.quantity || isNotEnoughStockError) : false
+                isSuccess
+                  ? data.stock < props.values.quantity || isNotEnoughStockError || addedToCart
+                  : false
               }
             />
           </Form>
@@ -221,6 +212,11 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
                 </p>
               )
             : null}
+          {addedToCart ? (
+            <p className="add-to-cart-success-message">
+              {`${name} ${props.values.quantity}x has been added to cart`}
+            </p>
+          ) : null}
         </>
       )}
     </Formik>

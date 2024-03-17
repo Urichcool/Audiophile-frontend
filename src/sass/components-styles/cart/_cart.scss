@@ -153,10 +153,13 @@
   height: 84px;
   background-color: $primaryGray;
   border-radius: 8px;
-  margin-right: 16px;
+  margin-right: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  @include tablet {
+    margin-right: 16px;
+  }
 }
 
 .cart-item-picture {
@@ -214,10 +217,15 @@
 }
 
 .cart-quantity-buttons-container {
+  width: 70px;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+
   height: 40px;
-  margin-left: auto;
+  @include tablet {
+    width: 113px;
+  }
 }
 
 .cart-quantity-button {
@@ -234,14 +242,12 @@
   line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
-  p {
-    cursor: pointer;
-    transition: 500ms;
-    transition-property: color;
-    &:hover,
-    &:focus {
-      color: $primaryOrange;
-    }
+  cursor: pointer;
+  transition: 500ms;
+  transition-property: color;
+  &:hover,
+  &:focus {
+    color: $primaryOrange;
   }
 }
 
