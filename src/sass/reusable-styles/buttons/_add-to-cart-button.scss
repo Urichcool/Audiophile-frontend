@@ -13,10 +13,27 @@
   text-transform: uppercase;
   cursor: pointer;
   border: none;
-transition: 500ms;
-transition-property: background-color;
-&:hover,
-&:focus{
+  transition: 500ms;
+  transition-property: background-color;
+  &:hover,
+  &:focus {
     background-color: $secondaryOrange;
+  }
 }
+
+.add-to-cart-button-loader {
+  position: relative;
+  width: 160px;
+  height: 48px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div{
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
+

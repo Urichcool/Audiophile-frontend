@@ -36,6 +36,15 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 15px 20px;
 }
 
+.add-to-cart-input-loader{
+  background-color: $primaryGray;
+  width: 80px;
+  height: 48px;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .add-to-cart-input-plus-button {
   width: 20px;
   color: $primaryBlack;
@@ -81,6 +90,13 @@ input[type="number"]::-webkit-outer-spin-button {
   &:focus {
     color: $primaryOrange;
   }
+}
+
+.add-to-cart-input-button--disabled{
+  background-color: $primaryGray;
+  width: 20px;
+  cursor: default;
+   border: none;
 }
 
 .add-to-cart-error-message {
