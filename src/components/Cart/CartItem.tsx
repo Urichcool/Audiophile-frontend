@@ -8,7 +8,11 @@ import {
 } from "../../redux/reduxHooks/reduxHooks";
 import { selectIsCartModalOpen } from "../../redux/slices/cart/selectors";
 import { AnyAction } from "@reduxjs/toolkit";
-import { switchCartModal } from "../../redux/slices/cart/cartSlice";
+import {
+  removeProductFromCart,
+  switchCartModal,
+} from "../../redux/slices/cart/cartSlice";
+import { RiDeleteBin2Fill } from "react-icons/ri";
 
 interface ICartItemProps {
   id: string;
@@ -17,7 +21,7 @@ interface ICartItemProps {
   price: number;
   picture: string;
   totalPrice: number;
-  category:string
+  category: string;
 }
 
 const CartItem: FC<ICartItemProps> = ({
@@ -27,17 +31,28 @@ const CartItem: FC<ICartItemProps> = ({
   price,
   picture,
   totalPrice,
-  category
+  category,
 }) => {
   const navigate: NavigateFunction = useNavigate();
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
   const dispatch: Dispatch<AnyAction> = useAppDispatch();
   const handleOnNavButtonClick = (id: string): void => {
-    dispatch(switchCartModal(!isCartModalOpen))
+    dispatch(switchCartModal(!isCartModalOpen));
     navigate(`${category}/${id}`);
+  };
+  const handleOnRemoveFromCartButtonClick = (id: string) => {
+    dispatch(removeProductFromCart({id}));
   };
   return (
     <li className="cart-list-item" data-testid="cart-item">
+      <button
+        className="cart-list-item-remove-from-cart-button"
+        onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+          handleOnRemoveFromCartButtonClick(id);
+        }}
+      >
+        <RiDeleteBin2Fill />
+      </button>
       <button
         className="cart-list-item-nav-button"
         onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
