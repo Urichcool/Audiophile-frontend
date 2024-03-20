@@ -13,6 +13,7 @@ import {
   switchCartModal,
 } from "../../redux/slices/cart/cartSlice";
 import { RiDeleteBin2Fill } from "react-icons/ri";
+import { useGetGoodsStockQuery } from "../../redux/services/goods";
 
 interface ICartItemProps {
   id: string;
@@ -41,8 +42,9 @@ const CartItem: FC<ICartItemProps> = ({
     navigate(`${category}/${id}`);
   };
   const handleOnRemoveFromCartButtonClick = (id: string) => {
-    dispatch(removeProductFromCart({id}));
+    dispatch(removeProductFromCart({ id }));
   };
+  const { data, refetch, isSuccess, isFetching } = useGetGoodsStockQuery(id);
   return (
     <li className="cart-list-item" data-testid="cart-item">
       <button

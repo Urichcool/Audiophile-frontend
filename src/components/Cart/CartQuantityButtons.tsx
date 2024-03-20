@@ -34,7 +34,11 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
   return (
     <div className="cart-quantity-buttons-container">
       <button
-        className="cart-quantity-button"
+        className={
+          quantity < 2
+            ? "cart-quantity-button-disabled"
+            : "cart-quantity-button"
+        }
         onClick={decreaseButtonHandler}
         data-testid="cart-decrease-button"
         disabled={quantity < 2}
