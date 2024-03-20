@@ -44,7 +44,7 @@ const CartItem: FC<ICartItemProps> = ({
   const handleOnRemoveFromCartButtonClick = (id: string) => {
     dispatch(removeProductFromCart({ id }));
   };
-  const { data, refetch, isSuccess, isFetching } = useGetGoodsStockQuery(id);
+ 
   return (
     <li className="cart-list-item" data-testid="cart-item">
       <button
@@ -69,7 +69,7 @@ const CartItem: FC<ICartItemProps> = ({
           <p className="cart-item-price">{priceWithCommas(totalPrice)}</p>
         </div>
       </button>
-      <CartQuantityButtons id={id} quantity={quantity} price={price} />
+      <CartQuantityButtons id={id} quantity={quantity} price={price}/>
     </li>
   );
 };

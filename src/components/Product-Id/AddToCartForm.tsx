@@ -174,14 +174,14 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
 
             <button
               className={`${
-                isSuccess && data.stock < props.values.quantity
+                isSuccess && data.stock === props.values.quantity
                   ? "add-to-cart-input-button--disabled"
                   : "add-to-cart-input-plus-button"
               }`}
               data-testid="add-to-cart-form-increase-button"
               disabled={
                 isFetching ||
-                (isSuccess ? data.stock < props.values.quantity : false)
+                (isSuccess ? data.stock === props.values.quantity : false)
               }
               onClick={async (e: React.MouseEvent<HTMLButtonElement>) => {
                 refetch();
@@ -190,7 +190,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
               type="button"
             >
               {isSuccess
-                ? data.stock < props.values.quantity
+                ? data.stock === props.values.quantity
                   ? ""
                   : "+"
                 : null}
@@ -200,13 +200,13 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
               isFetching={isFetching}
               isEnoughStock={
                 isSuccess
-                  ? data.stock < props.values.quantity || isNotEnoughStockError || addedToCart
+                  ? isNotEnoughStockError || addedToCart
                   : false
               }
             />
           </Form>
           {isSuccess
-            ? (data.stock < props.values.quantity || isNotEnoughStockError) && (
+            ? (isNotEnoughStockError) && (
                 <p className="add-to-cart-error-message">
                   There are not enough products in stock
                 </p>

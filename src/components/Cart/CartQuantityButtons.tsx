@@ -5,6 +5,7 @@ import {
   decreaseQuantity,
   increaseQuantity,
 } from "../../redux/slices/cart/cartSlice";
+import { useGetGoodsStockQuery } from "../../redux/services/goods";
 
 interface ICartQuantityButtons {
   id: string;
@@ -18,16 +19,23 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
   price,
 }) => {
   const dispatch: AppDispatch = useAppDispatch();
-
+  const { data, refetch, isSuccess } = useGetGoodsStockQuery(id);
   const increaseButtonHandler = (
     e: React.MouseEvent<HTMLButtonElement>
   ): void => {
+    refetch();
+    if (isSuccess) {
+      if (data?.stock === quantity) {
+        return;
+      }
+    }
     dispatch(increaseQuantity({ id: id, quantity: 1, price: price }));
   };
 
   const decreaseButtonHandler = (
     e: React.MouseEvent<HTMLButtonElement>
   ): void => {
+    refetch();
     dispatch(decreaseQuantity({ id: id, quantity: 1, price: price }));
   };
 
@@ -49,11 +57,16 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
         {quantity}
       </p>
       <button
-        className="cart-quantity-button"
+        className={
+          isSuccess && data.stock === quantity
+            ? "cart-quantity-button-disabled"
+            : "cart-quantity-button"
+        }
+        disabled={isSuccess && data.stock === quantity}
         onClick={increaseButtonHandler}
         data-testid="cart-increase-button"
       >
-        +
+        {isSuccess && data.stock === quantity ? "" : "+"}
       </button>
     </div>
   );
