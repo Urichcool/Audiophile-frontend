@@ -13,7 +13,6 @@ import {
   switchCartModal,
 } from "../../redux/slices/cart/cartSlice";
 import { RiDeleteBin2Fill } from "react-icons/ri";
-import { useGetGoodsStockQuery } from "../../redux/services/goods";
 
 interface ICartItemProps {
   id: string;
@@ -23,6 +22,7 @@ interface ICartItemProps {
   picture: string;
   totalPrice: number;
   category: string;
+  isStockCheckFetchingHandler: (isFetching: boolean) => void;
 }
 
 const CartItem: FC<ICartItemProps> = ({
@@ -33,6 +33,7 @@ const CartItem: FC<ICartItemProps> = ({
   picture,
   totalPrice,
   category,
+  isStockCheckFetchingHandler
 }) => {
   const navigate: NavigateFunction = useNavigate();
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
@@ -44,7 +45,7 @@ const CartItem: FC<ICartItemProps> = ({
   const handleOnRemoveFromCartButtonClick = (id: string) => {
     dispatch(removeProductFromCart({ id }));
   };
- 
+
   return (
     <li className="cart-list-item" data-testid="cart-item">
       <button
@@ -69,7 +70,12 @@ const CartItem: FC<ICartItemProps> = ({
           <p className="cart-item-price">{priceWithCommas(totalPrice)}</p>
         </div>
       </button>
-      <CartQuantityButtons id={id} quantity={quantity} price={price}/>
+      <CartQuantityButtons
+        id={id}
+        quantity={quantity}
+        price={price}
+        isStockCheckFetchingHandler={isStockCheckFetchingHandler}
+      />
     </li>
   );
 };

@@ -10,9 +10,10 @@ import { switchCartModal } from "../../../redux/slices/cart/cartSlice";
 
 interface ICheckoutButton {
   testId?: string;
+  isFetching: boolean;
 }
 
-const CheckoutButton: FC<ICheckoutButton> = ({ testId }) => {
+const CheckoutButton: FC<ICheckoutButton> = ({ testId, isFetching }) => {
   const navigate: NavigateFunction = useNavigate();
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
   const dispatch: AppDispatch = useAppDispatch();

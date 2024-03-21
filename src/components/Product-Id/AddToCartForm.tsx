@@ -10,7 +10,6 @@ import { addProduct } from "../../redux/slices/cart/cartSlice";
 import * as yup from "yup";
 import { useGetGoodsStockQuery } from "../../redux/services/goods";
 import { selectCartProducts } from "../../redux/slices/cart/selectors";
-import { Oval } from "react-loader-spinner";
 
 interface IAddToCartFormValues {
   quantity: number;

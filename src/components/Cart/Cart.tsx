@@ -1,4 +1,4 @@
-import { Dispatch, FC, useEffect } from "react";
+import { Dispatch, FC, useEffect, useState } from "react";
 import {
   useAppDispatch,
   useAppSelector,
@@ -23,6 +23,7 @@ import { AnyAction } from "@reduxjs/toolkit";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
+  const [isStockCheckFetching, setIsStockCheckFetch] = useState<boolean>(false);
   const cartProducts:
     | {
         id: string;
@@ -36,7 +37,6 @@ const Cart: FC = () => {
     | [] = useAppSelector(selectCartProducts);
   const total: number = useAppSelector(selectTotal);
   const dispatch: Dispatch<AnyAction> = useAppDispatch();
-
   useEffect(() => {
     dispatch(
       getTotal(
@@ -78,6 +78,10 @@ const Cart: FC = () => {
     e: React.MouseEvent<HTMLButtonElement>
   ): void => {
     dispatch(clearCart([]));
+  };
+
+  const isStockCheckFetchingHandler = (isFetching: boolean): void => {
+    setIsStockCheckFetch(isFetching);
   };
 
   return (
@@ -126,7 +130,15 @@ const Cart: FC = () => {
                 </div>
                 <ul className="cart-list">
                   {cartProducts.map(
-                    ({ id, name, quantity, price, picture, totalPrice, category }) => (
+                    ({
+                      id,
+                      name,
+                      quantity,
+                      price,
+                      picture,
+                      totalPrice,
+                      category,
+                    }) => (
                       <CartItem
                         key={id}
                         id={id}
@@ -136,6 +148,9 @@ const Cart: FC = () => {
                         picture={picture}
                         totalPrice={totalPrice}
                         category={category}
+                        isStockCheckFetchingHandler={
+                          isStockCheckFetchingHandler
+                        }
                       />
                     )
                   )}
@@ -144,7 +159,7 @@ const Cart: FC = () => {
                   <h6 className="cart-total-title">total</h6>
                   <p className="cart-total">{priceWithCommas(total)}</p>
                 </div>
-                <CheckoutButton />
+                <CheckoutButton isFetching={isStockCheckFetching} />
               </>
             )}
           </div>

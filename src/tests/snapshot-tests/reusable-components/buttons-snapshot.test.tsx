@@ -39,7 +39,7 @@ describe("buttons-render-tests", () => {
     expect(button4).toMatchSnapshot();
   });
   test("checkout-button-should-match-snapshot", () => {
-    renderWithReduxAndRouter(<CheckoutButton testId="checkout-test-button" />);
+    renderWithReduxAndRouter(<CheckoutButton testId="checkout-test-button" isFetching={false} />);
     const checkoutButton: HTMLButtonElement = screen.getByTestId(
       "checkout-test-button"
     );

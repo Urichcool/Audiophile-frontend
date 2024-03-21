@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { AppDispatch } from "../../redux/store";
 import { useAppDispatch } from "../../redux/reduxHooks/reduxHooks";
 import {
@@ -11,15 +11,23 @@ interface ICartQuantityButtons {
   id: string;
   quantity: number;
   price: number;
+  isStockCheckFetchingHandler: (isFetching: boolean) => void;
 }
 
 const CartQuantityButtons: FC<ICartQuantityButtons> = ({
   id,
   quantity,
   price,
+  isStockCheckFetchingHandler,
 }) => {
   const dispatch: AppDispatch = useAppDispatch();
-  const { data, refetch, isSuccess } = useGetGoodsStockQuery(id);
+  
+  const { data, refetch, isSuccess, isFetching } = useGetGoodsStockQuery(id);
+
+    useEffect(() => {
+      isStockCheckFetchingHandler(isFetching);
+    }, [isFetching, isStockCheckFetchingHandler]);
+
   const increaseButtonHandler = (
     e: React.MouseEvent<HTMLButtonElement>
   ): void => {
