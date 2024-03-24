@@ -20,3 +20,19 @@ transition-property: background-color;
 }
 }
 
+
+.checkout-button-loader {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div{
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

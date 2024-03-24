@@ -7,6 +7,7 @@ import {
 import { selectIsCartModalOpen } from "../../../redux/slices/cart/selectors";
 import { AppDispatch } from "../../../redux/store";
 import { switchCartModal } from "../../../redux/slices/cart/cartSlice";
+import { Oval } from "react-loader-spinner";
 
 interface ICheckoutButton {
   testId?: string;
@@ -23,13 +24,34 @@ const CheckoutButton: FC<ICheckoutButton> = ({ testId, isFetching }) => {
     dispatch(switchCartModal(!isCartModalOpen));
   };
   return (
-    <button
-      onClick={buttonClickHandler}
-      className="checkout-button"
-      data-testid={testId}
-    >
-      Checkout
-    </button>
+    <>
+      <button
+        onClick={buttonClickHandler}
+        className="checkout-button"
+        data-testid={testId}
+        disabled={isFetching}
+      >
+        {isFetching ? (
+          <div className="checkout-button-loader">
+            <p>Checkout</p>
+            <Oval
+              height={16}
+              width={16}
+              color="#fff"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              ariaLabel="oval-loading"
+              secondaryColor="#fff"
+              strokeWidth={2}
+              strokeWidthSecondary={2}
+            />
+          </div>
+        ) : (
+          <p>Checkout</p>
+        )}
+      </button>
+    </>
   );
 };
 
