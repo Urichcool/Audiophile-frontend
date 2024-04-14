@@ -4,10 +4,14 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../redux/reduxHooks/reduxHooks";
-import { selectIsCartModalOpen } from "../../../redux/slices/cart/selectors";
+import {
+  selectCartProducts,
+  selectIsCartModalOpen,
+} from "../../../redux/slices/cart/selectors";
 import { AppDispatch } from "../../../redux/store";
 import { switchCartModal } from "../../../redux/slices/cart/cartSlice";
 import { Oval } from "react-loader-spinner";
+import { useCheckGoodsCartStockMutation } from "../../../redux/services/goods";
 
 interface ICheckoutButton {
   testId?: string;
@@ -18,10 +22,27 @@ const CheckoutButton: FC<ICheckoutButton> = ({ testId, isFetching }) => {
   const navigate: NavigateFunction = useNavigate();
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
   const dispatch: AppDispatch = useAppDispatch();
+  const [checkCartStock, { data, isLoading, isSuccess }] =
+    useCheckGoodsCartStockMutation();
+  const cart: {
+    id: string;
+    name: string;
+    quantity: number;
+    price: number;
+    totalPrice: number;
+    picture: string;
+    category: string;
+  }[] = useAppSelector(selectCartProducts);
 
-  const buttonClickHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    navigate("checkout");
-    dispatch(switchCartModal(!isCartModalOpen));
+  const buttonClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // navigate("checkout");
+    // dispatch(switchCartModal(!isCartModalOpen));
+    checkCartStock(
+      cart.map(({ id, quantity }) => {
+        return { id: id, quantity: quantity };
+      })
+    );
+    console.log(isLoading);
   };
   return (
     <>
@@ -31,7 +52,7 @@ const CheckoutButton: FC<ICheckoutButton> = ({ testId, isFetching }) => {
         data-testid={testId}
         disabled={isFetching}
       >
-        {isFetching ? (
+        {isLoading ? (
           <div className="checkout-button-loader">
             <p>Checkout</p>
             <Oval
