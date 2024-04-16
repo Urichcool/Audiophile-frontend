@@ -24,7 +24,7 @@ const CheckoutButton: FC<ICheckoutButton> = ({ testId, isFetching }) => {
   const navigate: NavigateFunction = useNavigate();
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
   const dispatch: AppDispatch = useAppDispatch();
-  const [checkCartStock, { data, isLoading, isSuccess }] =
+  const [checkCartStock, { isLoading }] =
     useCheckGoodsCartStockMutation();
   const cart: {
     id: string;
@@ -37,16 +37,23 @@ const CheckoutButton: FC<ICheckoutButton> = ({ testId, isFetching }) => {
   }[] = useAppSelector(selectCartProducts);
 
   const buttonClickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    // navigate("checkout");
-    // dispatch(switchCartModal(!isCartModalOpen));
-    
-   await checkCartStock(
+    const result:
+      | {
+          data: {
+            isEnoughCartStock: boolean;
+          };
+        }
+      | {
+          error: FetchBaseQueryError | SerializedError;
+        } = await checkCartStock(
       cart.map(({ id, quantity }) => {
         return { id: id, quantity: quantity };
       })
     );
-
-    console.log(isSuccess);
+    if (Object.values(result)[0].isEnoughCartStock) {
+      navigate("checkout");
+      dispatch(switchCartModal(!isCartModalOpen));
+    }
   };
   return (
     <>
@@ -56,7 +63,7 @@ const CheckoutButton: FC<ICheckoutButton> = ({ testId, isFetching }) => {
         data-testid={testId}
         disabled={isFetching}
       >
-        {isLoading ? (
+        {isFetching || isLoading ? (
           <div className="checkout-button-loader">
             <p>Checkout</p>
             <Oval

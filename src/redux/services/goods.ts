@@ -29,13 +29,13 @@ export const goodsApi = createApi({
       query: (id) => `stock/check/${id}`,
     }),
     checkGoodsCartStock: builder.mutation<
-      { isEnoughStock: boolean },
+      { isEnoughCartStock: boolean },
       { id: string; quantity: number }[]
     >({
       query: (cart) => ({
         url: `stock/check/cart`,
         body: cart,
-        method:'POST'
+        method: "POST",
       }),
     }),
   }),
