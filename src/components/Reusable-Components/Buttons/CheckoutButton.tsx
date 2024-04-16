@@ -12,6 +12,8 @@ import { AppDispatch } from "../../../redux/store";
 import { switchCartModal } from "../../../redux/slices/cart/cartSlice";
 import { Oval } from "react-loader-spinner";
 import { useCheckGoodsCartStockMutation } from "../../../redux/services/goods";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { SerializedError } from "@reduxjs/toolkit";
 
 interface ICheckoutButton {
   testId?: string;
@@ -34,15 +36,17 @@ const CheckoutButton: FC<ICheckoutButton> = ({ testId, isFetching }) => {
     category: string;
   }[] = useAppSelector(selectCartProducts);
 
-  const buttonClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const buttonClickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
     // navigate("checkout");
     // dispatch(switchCartModal(!isCartModalOpen));
-    checkCartStock(
+    
+   await checkCartStock(
       cart.map(({ id, quantity }) => {
         return { id: id, quantity: quantity };
       })
     );
-    console.log(isLoading);
+
+    console.log(isSuccess);
   };
   return (
     <>
