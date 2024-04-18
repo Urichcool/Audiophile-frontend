@@ -1,60 +1,20 @@
 import React, { FC } from "react";
-import { NavigateFunction, useNavigate } from "react-router-dom";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../redux/reduxHooks/reduxHooks";
-import {
-  selectCartProducts,
-  selectIsCartModalOpen,
-} from "../../../redux/slices/cart/selectors";
-import { AppDispatch } from "../../../redux/store";
-import { switchCartModal } from "../../../redux/slices/cart/cartSlice";
 import { Oval } from "react-loader-spinner";
-import { useCheckGoodsCartStockMutation } from "../../../redux/services/goods";
-import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import { SerializedError } from "@reduxjs/toolkit";
+
 
 interface ICheckoutButton {
   testId?: string;
   isFetching: boolean;
+  buttonClickHandler?: (e: React.MouseEvent<HTMLButtonElement>) => Promise<void>;
+  isLoading: boolean;
 }
 
-const CheckoutButton: FC<ICheckoutButton> = ({ testId, isFetching }) => {
-  const navigate: NavigateFunction = useNavigate();
-  const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
-  const dispatch: AppDispatch = useAppDispatch();
-  const [checkCartStock, { isLoading }] =
-    useCheckGoodsCartStockMutation();
-  const cart: {
-    id: string;
-    name: string;
-    quantity: number;
-    price: number;
-    totalPrice: number;
-    picture: string;
-    category: string;
-  }[] = useAppSelector(selectCartProducts);
-
-  const buttonClickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    const result:
-      | {
-          data: {
-            isEnoughCartStock: boolean;
-          };
-        }
-      | {
-          error: FetchBaseQueryError | SerializedError;
-        } = await checkCartStock(
-      cart.map(({ id, quantity }) => {
-        return { id: id, quantity: quantity };
-      })
-    );
-    if (Object.values(result)[0].isEnoughCartStock) {
-      navigate("checkout");
-      dispatch(switchCartModal(!isCartModalOpen));
-    }
-  };
+const CheckoutButton: FC<ICheckoutButton> = ({
+  testId,
+  isFetching,
+  buttonClickHandler,
+  isLoading,
+}) => {
   return (
     <>
       <button

@@ -19,11 +19,16 @@ import CartItem from "./CartItem";
 import { priceWithCommas } from "../../utils/priceWithCommas";
 import CheckoutButton from "../Reusable-Components/Buttons/CheckoutButton";
 import Backdrop from "../Reusable-Components/Backdrop";
-import { AnyAction } from "@reduxjs/toolkit";
+import { AnyAction, SerializedError } from "@reduxjs/toolkit";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { useCheckGoodsCartStockMutation } from "../../redux/services/goods";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
   const [isStockCheckFetching, setIsStockCheckFetch] = useState<boolean>(false);
+  const navigate: NavigateFunction = useNavigate();
+  const [checkCartStock, { isLoading }] = useCheckGoodsCartStockMutation();
   const cartProducts:
     | {
         id: string;
@@ -82,6 +87,28 @@ const Cart: FC = () => {
 
   const isStockCheckFetchingHandler = (isFetching: boolean): void => {
     setIsStockCheckFetch(isFetching);
+  };
+
+  const buttonCheckCartClickHandler = async (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    const result:
+      | {
+          data: {
+            isEnoughCartStock: boolean;
+          };
+        }
+      | {
+          error: FetchBaseQueryError | SerializedError;
+        } = await checkCartStock(
+      cartProducts.map(({ id, quantity }) => {
+        return { id: id, quantity: quantity };
+      })
+    );
+    if (Object.values(result)[0].isEnoughCartStock) {
+      navigate("checkout");
+      dispatch(switchCartModal(!isCartModalOpen));
+    }
   };
 
   return (
@@ -159,7 +186,11 @@ const Cart: FC = () => {
                   <h6 className="cart-total-title">total</h6>
                   <p className="cart-total">{priceWithCommas(total)}</p>
                 </div>
-                <CheckoutButton isFetching={isStockCheckFetching} />
+                <CheckoutButton
+                  isFetching={isStockCheckFetching}
+                  buttonClickHandler={buttonCheckCartClickHandler}
+                  isLoading={isLoading}
+                />
               </>
             )}
           </div>
