@@ -87,6 +87,7 @@ const Cart: FC = () => {
 
   const isStockCheckFetchingHandler = (isFetching: boolean): void => {
     setIsStockCheckFetch(isFetching);
+  
   };
 
   const buttonCheckCartClickHandler = async (

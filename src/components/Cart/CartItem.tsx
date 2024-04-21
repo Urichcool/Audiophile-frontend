@@ -22,7 +22,7 @@ interface ICartItemProps {
   picture: string;
   totalPrice: number;
   category: string;
-  isStockCheckFetchingHandler: (isFetching: boolean) => void;
+  isStockCheckFetchingHandler: (id: boolean) => void;
 }
 
 const CartItem: FC<ICartItemProps> = ({

@@ -11,7 +11,7 @@ interface ICartQuantityButtons {
   id: string;
   quantity: number;
   price: number;
-  isStockCheckFetchingHandler: (isFetching: boolean) => void;
+  isStockCheckFetchingHandler: (id: boolean) => void;
 }
 
 const CartQuantityButtons: FC<ICartQuantityButtons> = ({
@@ -21,12 +21,8 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
   isStockCheckFetchingHandler,
 }) => {
   const dispatch: AppDispatch = useAppDispatch();
-  
-  const { data, refetch, isSuccess, isFetching } = useGetGoodsStockQuery(id);
 
-    useEffect(() => {
-      isStockCheckFetchingHandler(isFetching);
-    }, [isFetching, isStockCheckFetchingHandler]);
+  const { data, refetch, isSuccess, isFetching } = useGetGoodsStockQuery(id);
 
   const increaseButtonHandler = (
     e: React.MouseEvent<HTMLButtonElement>
@@ -57,7 +53,7 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
         }
         onClick={decreaseButtonHandler}
         data-testid="cart-decrease-button"
-        disabled={quantity < 2}
+        disabled={quantity < 2 || isFetching}
       >
         {quantity > 1 && "-"}
       </button>
@@ -70,7 +66,7 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
             ? "cart-quantity-button-disabled"
             : "cart-quantity-button"
         }
-        disabled={isSuccess && data.stock === quantity}
+        disabled={(isSuccess && data.stock === quantity) || isFetching}
         onClick={increaseButtonHandler}
         data-testid="cart-increase-button"
       >
