@@ -21,14 +21,19 @@ import CheckoutButton from "../Reusable-Components/Buttons/CheckoutButton";
 import Backdrop from "../Reusable-Components/Backdrop";
 import { AnyAction, SerializedError } from "@reduxjs/toolkit";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import { useCheckGoodsCartStockMutation } from "../../redux/services/goods";
+import { useCheckGoodsCartStockMutation, useGetGoodsStockQuery } from "../../redux/services/goods";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
-  const [isStockCheckFetching, setIsStockCheckFetch] = useState<boolean>(false);
+  const [isStockCheckFetchingId, setIsStockCheckFetch] = useState<string>("");
+   const { isFetching } = useGetGoodsStockQuery(isStockCheckFetchingId, {
+     skip: isStockCheckFetchingId === "",
+   });
   const navigate: NavigateFunction = useNavigate();
   const [checkCartStock, { isLoading }] = useCheckGoodsCartStockMutation();
+  const [isNotEnoughStockError, setIsNotEnoughStockError] =
+    useState<boolean>(false);
   const cartProducts:
     | {
         id: string;
@@ -85,8 +90,8 @@ const Cart: FC = () => {
     dispatch(clearCart([]));
   };
 
-  const isStockCheckFetchingHandler = (isFetching: boolean): void => {
-    setIsStockCheckFetch(isFetching);
+  const isStockCheckFetchingHandler = (id: string): void => {
+    setIsStockCheckFetch(id);
   
   };
 
@@ -110,6 +115,12 @@ const Cart: FC = () => {
       navigate("checkout");
       dispatch(switchCartModal(!isCartModalOpen));
     }
+     if (!Object.values(result)[0].isEnoughCartStock) {
+       setIsNotEnoughStockError(true);
+       setTimeout(() => {
+         setIsNotEnoughStockError(false);
+       }, 3000)
+     }
   };
 
   return (
@@ -188,7 +199,7 @@ const Cart: FC = () => {
                   <p className="cart-total">{priceWithCommas(total)}</p>
                 </div>
                 <CheckoutButton
-                  isFetching={isStockCheckFetching}
+                  isFetching={isFetching}
                   buttonClickHandler={buttonCheckCartClickHandler}
                   isLoading={isLoading}
                 />

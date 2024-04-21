@@ -11,7 +11,7 @@ const Button2: FC<IButton2Props> = ({id, testId, category}) => {
   const navigate: NavigateFunction = useNavigate();
 
  const buttonClickHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
-   navigate(`${category}/${id}`);
+   navigate(`/${category}/${id}`);
  };
 
     return (

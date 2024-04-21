@@ -11,14 +11,14 @@ interface ICartQuantityButtons {
   id: string;
   quantity: number;
   price: number;
-  isStockCheckFetchingHandler: (id: boolean) => void;
+  isStockCheckFetchingHandler: (id: string) => void;
 }
 
 const CartQuantityButtons: FC<ICartQuantityButtons> = ({
   id,
   quantity,
   price,
-  isStockCheckFetchingHandler,
+  isStockCheckFetchingHandler
 }) => {
   const dispatch: AppDispatch = useAppDispatch();
 
@@ -28,6 +28,7 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
     e: React.MouseEvent<HTMLButtonElement>
   ): void => {
     refetch();
+    isStockCheckFetchingHandler(id)
     if (isSuccess) {
       if (data?.stock === quantity) {
         return;
@@ -40,6 +41,7 @@ const CartQuantityButtons: FC<ICartQuantityButtons> = ({
     e: React.MouseEvent<HTMLButtonElement>
   ): void => {
     refetch();
+    isStockCheckFetchingHandler(id);
     dispatch(decreaseQuantity({ id: id, quantity: 1, price: price }));
   };
 

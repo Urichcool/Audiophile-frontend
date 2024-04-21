@@ -10,9 +10,15 @@ interface IAlsoLikeListItemProps {
     desktop: string;
   };
   id: string;
+  category: string;
 }
 
-const AlsoLikeListItem: FC<IAlsoLikeListItemProps> = ({ name, image, id }) => {
+const AlsoLikeListItem: FC<IAlsoLikeListItemProps> = ({
+  name,
+  image,
+  id,
+  category,
+}) => {
   return (
     <li className="also-like-list-item">
       <div className="also-like-list-item-picture-container">
@@ -36,7 +42,11 @@ const AlsoLikeListItem: FC<IAlsoLikeListItemProps> = ({ name, image, id }) => {
       </div>
       <div className="also-like-list-item-content-container">
         <h4 className="H5-manrope-bold also-like-list-item-title">{name}</h4>
-        <Button1 id={id} testId={"also-like-list-item-button"} />
+        <Button1
+          id={id}
+          testId={"also-like-list-item-button"}
+          category={category}
+        />
       </div>
     </li>
   );

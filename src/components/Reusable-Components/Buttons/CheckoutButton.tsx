@@ -21,7 +21,7 @@ const CheckoutButton: FC<ICheckoutButton> = ({
         onClick={buttonClickHandler}
         className="checkout-button"
         data-testid={testId}
-        disabled={isFetching}
+        disabled={isFetching || isLoading}
       >
         {isFetching || isLoading ? (
           <div className="checkout-button-loader">
