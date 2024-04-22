@@ -122,3 +122,22 @@ input[type="number"]::-webkit-outer-spin-button {
   position: absolute;
   width: 296px;
 }
+
+.add-to-cart-form-out-of-stock-container{
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.add-to-cart-form-out-of-stock-text{
+font-size: 18px;
+opacity: 0.8;
+font-weight: 600;
+ margin-right: 30px;
+ color: $primaryOrange;
+ text-transform: uppercase;
+}
+
+.add-to-cart-form-out-of-stock-icon{
+  height: 56px;
+}

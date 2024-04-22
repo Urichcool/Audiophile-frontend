@@ -21,15 +21,18 @@ import CheckoutButton from "../Reusable-Components/Buttons/CheckoutButton";
 import Backdrop from "../Reusable-Components/Backdrop";
 import { AnyAction, SerializedError } from "@reduxjs/toolkit";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import { useCheckGoodsCartStockMutation, useGetGoodsStockQuery } from "../../redux/services/goods";
+import {
+  useCheckGoodsCartStockMutation,
+  useGetGoodsStockQuery,
+} from "../../redux/services/goods";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
   const [isStockCheckFetchingId, setIsStockCheckFetch] = useState<string>("");
-   const { isFetching } = useGetGoodsStockQuery(isStockCheckFetchingId, {
-     skip: isStockCheckFetchingId === "",
-   });
+  const { isFetching } = useGetGoodsStockQuery(isStockCheckFetchingId, {
+    skip: isStockCheckFetchingId === "",
+  });
   const navigate: NavigateFunction = useNavigate();
   const [checkCartStock, { isLoading }] = useCheckGoodsCartStockMutation();
   const [isNotEnoughStockError, setIsNotEnoughStockError] =
@@ -92,7 +95,6 @@ const Cart: FC = () => {
 
   const isStockCheckFetchingHandler = (id: string): void => {
     setIsStockCheckFetch(id);
-  
   };
 
   const buttonCheckCartClickHandler = async (
@@ -115,12 +117,12 @@ const Cart: FC = () => {
       navigate("checkout");
       dispatch(switchCartModal(!isCartModalOpen));
     }
-     if (!Object.values(result)[0].isEnoughCartStock) {
-       setIsNotEnoughStockError(true);
-       setTimeout(() => {
-         setIsNotEnoughStockError(false);
-       }, 3000)
-     }
+    if (!Object.values(result)[0].isEnoughCartStock) {
+      setIsNotEnoughStockError(true);
+      setTimeout(() => {
+        setIsNotEnoughStockError(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -203,6 +205,11 @@ const Cart: FC = () => {
                   buttonClickHandler={buttonCheckCartClickHandler}
                   isLoading={isLoading}
                 />
+                {isNotEnoughStockError && (
+                  <p className="cart-error-message">
+                    There are not enough products in stock
+                  </p>
+                )}
               </>
             )}
           </div>
