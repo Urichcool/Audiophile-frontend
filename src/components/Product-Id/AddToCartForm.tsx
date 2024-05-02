@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import AddToCartButton from "../Reusable-Components/Buttons/AddToCartButton";
 import {
@@ -89,6 +89,10 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
         category: string;
       }[]
     | [] = useAppSelector(selectCartProducts);
+  
+  useEffect(() => {
+    refetch();
+  },[refetch])
   return (
     <Formik
       initialValues={initialValues}

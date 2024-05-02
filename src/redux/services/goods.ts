@@ -39,6 +39,16 @@ export const goodsApi = createApi({
         method: "POST",
       }),
     }),
+    getGoodsOutFromStock: builder.mutation<
+      { wasUpdated: boolean },
+      { id: string; quantity: number }[]
+    >({
+      query: (cart) => ({
+        url: `stock/update/stock`,
+        body: cart,
+        method: "PATCH",
+      }),
+    }),
   }),
 });
 
@@ -50,5 +60,6 @@ export const {
   useGetAllEarphonesQuery,
   useGetAllSpeakersQuery,
   useGetGoodsStockQuery,
-  useCheckGoodsCartStockMutation
+  useCheckGoodsCartStockMutation,
+  useGetGoodsOutFromStockMutation,
 } = goodsApi;

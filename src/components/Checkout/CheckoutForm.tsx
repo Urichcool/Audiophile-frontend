@@ -23,7 +23,7 @@ import {
 import { AnyAction, SerializedError } from "@reduxjs/toolkit";
 import { scrollUpFunc } from "../../utils/scrollUpFunc";
 import { selectCartProducts } from "../../redux/slices/cart/selectors";
-import { useCheckGoodsCartStockMutation } from "../../redux/services/goods";
+import { useCheckGoodsCartStockMutation, useGetGoodsOutFromStockMutation } from "../../redux/services/goods";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
 const CheckOutForm: FC = () => {
@@ -43,12 +43,13 @@ const CheckOutForm: FC = () => {
       }[]
     | [] = useAppSelector(selectCartProducts);
   const [checkCartStock, { isLoading }] = useCheckGoodsCartStockMutation();
+  const [getGoodsOutFromStock, {}] = useGetGoodsOutFromStockMutation();
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={async (values: ICheckOutFormValues) => {
-        const result:
+        const checkStockResult:
           | {
               data: {
                 isEnoughCartStock: boolean;
@@ -60,13 +61,20 @@ const CheckOutForm: FC = () => {
           cartProducts.map(({ id, quantity }) => {
             return { id: id, quantity: quantity };
           })
+        );
+        if (Object.values(checkStockResult)[0].isEnoughCartStock) {
+          const updateStockResult = await getGoodsOutFromStock(
+            cartProducts.map(({ id, quantity }) => {
+              return { id: id, quantity: quantity };
+            })
           );
-        if (Object.values(result)[0].isEnoughCartStock) {
+          console.log(updateStockResult);
+          if (Object.values(updateStockResult)[0].wasUpdated) {
             console.log(values);
             scrollUpFunc();
             dispatch(switchCheckOutModal(!isCheckOutModalOpen));
-         }
-       
+          }
+        }
       }}
       validationSchema={CheckOutValidationSchema}
       validateOnBlur={false}
