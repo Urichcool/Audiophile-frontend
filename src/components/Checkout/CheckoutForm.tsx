@@ -23,7 +23,10 @@ import {
 import { AnyAction, SerializedError } from "@reduxjs/toolkit";
 import { scrollUpFunc } from "../../utils/scrollUpFunc";
 import { selectCartProducts } from "../../redux/slices/cart/selectors";
-import { useCheckGoodsCartStockMutation, useGetGoodsOutFromStockMutation } from "../../redux/services/goods";
+import {
+  useCheckGoodsCartStockMutation,
+  useGetGoodsOutFromStockMutation,
+} from "../../redux/services/goods";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
 const CheckOutForm: FC = () => {
@@ -42,8 +45,10 @@ const CheckOutForm: FC = () => {
         category: string;
       }[]
     | [] = useAppSelector(selectCartProducts);
-  const [checkCartStock, { isLoading }] = useCheckGoodsCartStockMutation();
-  const [getGoodsOutFromStock, {}] = useGetGoodsOutFromStockMutation();
+  const [checkCartStock, { isLoading: isCheckCartStockLoading }] =
+    useCheckGoodsCartStockMutation();
+  const [getGoodsOutFromStock, { isLoading: isGetGoodsOutFromStockLoading }] =
+    useGetGoodsOutFromStockMutation();
 
   return (
     <Formik
@@ -96,7 +101,13 @@ const CheckOutForm: FC = () => {
               <CashInfo />
             )}
           </div>
-          <Summary errors={props.errors} />
+          <Summary
+            errors={props.errors}
+            isLoading={{
+              isCheckCartStockLoading,
+              isGetGoodsOutFromStockLoading,
+            }}
+          />
           <PersistFormikValues name="checkout-form" />
         </Form>
       )}
