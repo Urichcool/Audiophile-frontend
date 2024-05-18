@@ -9,8 +9,8 @@ export interface ICheckOutFormValues {
   city: string;
   country: string;
   radioValue: string;
-  eMoneyNumber: string;
-  eMoneyPin: string;
+  eMoneyNumber?: string;
+  eMoneyPin?: string;
 }
 
 export const initialValues: ICheckOutFormValues = {

@@ -1,6 +1,7 @@
 import { Store, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { goodsApi } from "./services/goods";
+import { ordersApi } from "./services/orders";
 import { mobileMenuSliceReducer } from "./slices/mobile-menu/mobileMenuSlice";
 import { cartSliceReducer } from "./slices/cart/cartSlice";
 import {
@@ -17,31 +18,32 @@ import persistReducer from "redux-persist/lib/persistReducer";
 import { checkOutModalSliceReducer } from "./slices/checkout-modal/checkOutModalSlice";
 
 const persistConfig = {
-  key: 'cart',
+  key: "cart",
   storage,
-  whitelist:['products']
-}
+  whitelist: ["products"],
+};
 
 export const store: Store = configureStore({
   reducer: {
     [goodsApi.reducerPath]: goodsApi.reducer,
+    [ordersApi.reducerPath]: ordersApi.reducer,
     mobileMenu: mobileMenuSliceReducer,
     cart: persistReducer(persistConfig, cartSliceReducer),
-    checkOutModal: checkOutModalSliceReducer
+    checkOutModal: checkOutModalSliceReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(goodsApi.middleware),
+    })
+      .concat(goodsApi.middleware)
+      .concat(ordersApi.middleware),
 });
-
-
 
 setupListeners(store.dispatch);
 
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 

@@ -28,6 +28,7 @@ import {
   useGetGoodsOutFromStockMutation,
 } from "../../redux/services/goods";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { usePostNewOrderMutation } from "../../redux/services/orders";
 
 const CheckOutForm: FC = () => {
   const dispatch: Dispatch<AnyAction> = useAppDispatch();
@@ -49,6 +50,8 @@ const CheckOutForm: FC = () => {
     useCheckGoodsCartStockMutation();
   const [getGoodsOutFromStock, { isLoading: isGetGoodsOutFromStockLoading }] =
     useGetGoodsOutFromStockMutation();
+  const [postNewOrderMutation, { isLoading: isPostNewOrderMutationLoading }] =
+    usePostNewOrderMutation();
 
   return (
     <Formik
@@ -73,9 +76,8 @@ const CheckOutForm: FC = () => {
               return { id: id, quantity: quantity };
             })
           );
-          console.log(updateStockResult);
           if (Object.values(updateStockResult)[0].wasUpdated) {
-            console.log(values);
+           const postNewOrder = await postNewOrderMutation(values);
             scrollUpFunc();
             dispatch(switchCheckOutModal(!isCheckOutModalOpen));
           }
