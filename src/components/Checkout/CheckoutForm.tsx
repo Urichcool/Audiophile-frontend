@@ -77,7 +77,10 @@ const CheckOutForm: FC = () => {
             })
           );
           if (Object.values(updateStockResult)[0].wasUpdated) {
-           const postNewOrder = await postNewOrderMutation(values);
+            const postNewOrder = await postNewOrderMutation({
+              shippingData: values,
+              products: cartProducts,
+            });
             scrollUpFunc();
             dispatch(switchCheckOutModal(!isCheckOutModalOpen));
           }
