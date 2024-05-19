@@ -25,8 +25,28 @@ export const goodsApi = createApi({
     getAllSpeakers: builder.query<IGoods[], void>({
       query: () => "speakers",
     }),
-    getGoodsStock: builder.query<{stock:number}, string>({
+    getGoodsStock: builder.query<{ stock: number }, string>({
       query: (id) => `stock/check/${id}`,
+    }),
+    checkGoodsCartStock: builder.mutation<
+      { isEnoughCartStock: boolean },
+      { id: string; quantity: number }[]
+    >({
+      query: (cart) => ({
+        url: `stock/check/cart`,
+        body: cart,
+        method: "POST",
+      }),
+    }),
+    getGoodsOutFromStock: builder.mutation<
+      { wasUpdated: boolean },
+      { id: string; quantity: number }[]
+    >({
+      query: (cart) => ({
+        url: `stock/update/stock`,
+        body: cart,
+        method: "PATCH",
+      }),
     }),
   }),
 });
@@ -38,5 +58,7 @@ export const {
   useGetAllHeadphonesQuery,
   useGetAllEarphonesQuery,
   useGetAllSpeakersQuery,
-  useGetGoodsStockQuery
+  useGetGoodsStockQuery,
+  useCheckGoodsCartStockMutation,
+  useGetGoodsOutFromStockMutation,
 } = goodsApi;

@@ -95,10 +95,27 @@ export const decreaseQuantityAction = (
   );
   if (product) {
     state.products[stateProductIndex].quantity -= action.payload.quantity;
-    if (!state.products[stateProductIndex].quantity) {
-      state.products.splice(stateProductIndex, 1);
-    } else {
-      state.products[stateProductIndex].totalPrice -= action.payload.price;
-    }
+    state.products[stateProductIndex].totalPrice -= action.payload.price;
+  }
+};
+
+export const removeProductFromCartAction = (
+  state: IInitialCartState,
+  action: PayloadAction<{ id: string }>
+): void => {
+  const product:
+    | {
+        id: string;
+        name: string;
+        quantity: number;
+        price: number;
+        totalPrice: number;
+      }
+    | undefined = state.products.find(({ id }) => id === action.payload.id);
+  const stateProductIndex: number = state.products.findIndex(
+    ({ id }) => action.payload.id === id
+  );
+  if (product) {
+     state.products.splice(stateProductIndex, 1);
   }
 };

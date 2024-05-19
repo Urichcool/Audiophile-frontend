@@ -20,21 +20,68 @@ import {
   selectIsCheckOutModalOpen,
   switchCheckOutModal,
 } from "../../redux/slices/checkout-modal/checkOutModalSlice";
-import { AnyAction } from "@reduxjs/toolkit";
+import { AnyAction, SerializedError } from "@reduxjs/toolkit";
 import { scrollUpFunc } from "../../utils/scrollUpFunc";
+import { selectCartProducts } from "../../redux/slices/cart/selectors";
+import {
+  useCheckGoodsCartStockMutation,
+  useGetGoodsOutFromStockMutation,
+} from "../../redux/services/goods";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { usePostNewOrderMutation } from "../../redux/services/orders";
 
 const CheckOutForm: FC = () => {
   const dispatch: Dispatch<AnyAction> = useAppDispatch();
   const isCheckOutModalOpen: boolean = useAppSelector(
     selectIsCheckOutModalOpen
   );
+  const cartProducts:
+    | {
+        id: string;
+        name: string;
+        quantity: number;
+        price: number;
+        picture: string;
+        totalPrice: number;
+        category: string;
+      }[]
+    | [] = useAppSelector(selectCartProducts);
+  const [checkCartStock, { isLoading: isCheckCartStockLoading }] =
+    useCheckGoodsCartStockMutation();
+  const [getGoodsOutFromStock, { isLoading: isGetGoodsOutFromStockLoading }] =
+    useGetGoodsOutFromStockMutation();
+  const [postNewOrderMutation, { isLoading: isPostNewOrderMutationLoading }] =
+    usePostNewOrderMutation();
+
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values: ICheckOutFormValues) => {
-        console.log(values);
-        scrollUpFunc();
-        dispatch(switchCheckOutModal(!isCheckOutModalOpen));
+      onSubmit={async (values: ICheckOutFormValues) => {
+        const checkStockResult:
+          | {
+              data: {
+                isEnoughCartStock: boolean;
+              };
+            }
+          | {
+              error: FetchBaseQueryError | SerializedError;
+            } = await checkCartStock(
+          cartProducts.map(({ id, quantity }) => {
+            return { id: id, quantity: quantity };
+          })
+        );
+        if (Object.values(checkStockResult)[0].isEnoughCartStock) {
+          const updateStockResult = await getGoodsOutFromStock(
+            cartProducts.map(({ id, quantity }) => {
+              return { id: id, quantity: quantity };
+            })
+          );
+          if (Object.values(updateStockResult)[0].wasUpdated) {
+           const postNewOrder = await postNewOrderMutation(values);
+            scrollUpFunc();
+            dispatch(switchCheckOutModal(!isCheckOutModalOpen));
+          }
+        }
       }}
       validationSchema={CheckOutValidationSchema}
       validateOnBlur={false}
@@ -56,7 +103,13 @@ const CheckOutForm: FC = () => {
               <CashInfo />
             )}
           </div>
-          <Summary errors={props.errors} />
+          <Summary
+            errors={props.errors}
+            isLoading={{
+              isCheckCartStockLoading,
+              isGetGoodsOutFromStockLoading,
+            }}
+          />
           <PersistFormikValues name="checkout-form" />
         </Form>
       )}

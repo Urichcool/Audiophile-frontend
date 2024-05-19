@@ -2,7 +2,7 @@ import { Field } from "formik";
 import { FC } from "react";
 
 interface ICheckOutFieldProps {
-  value: string;
+  value: string | undefined;
   id: string;
   name: string;
   label: string;

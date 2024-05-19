@@ -10,8 +10,9 @@ import SummaryListItem from "./SummaryListItem";
 import { FormikErrors } from "formik";
 import { ICheckOutFormValues } from "./CheckoutFormData";
 
-const Summary: FC<{ errors: FormikErrors<ICheckOutFormValues> }> = ({
+const Summary: FC<{ errors: FormikErrors<ICheckOutFormValues>, isLoading:{ isCheckCartStockLoading:boolean, isGetGoodsOutFromStockLoading:boolean }}> = ({
   errors,
+  isLoading
 }) => {
   const cartProducts:
     | {
@@ -73,7 +74,7 @@ const Summary: FC<{ errors: FormikErrors<ICheckOutFormValues> }> = ({
           </p>
         </li>
       </ul>
-      <ContinueAndPayButton />
+      <ContinueAndPayButton isLoading={isLoading} />
       {Object.values(errors).some((error: string) => error !== "") && (
         <p className="summary-submit-error-message">
           Some of the fields have invalid values

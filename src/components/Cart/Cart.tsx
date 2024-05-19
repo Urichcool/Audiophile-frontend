@@ -1,4 +1,4 @@
-import { Dispatch, FC, useEffect } from "react";
+import { Dispatch, FC, useEffect, useState } from "react";
 import {
   useAppDispatch,
   useAppSelector,
@@ -19,10 +19,24 @@ import CartItem from "./CartItem";
 import { priceWithCommas } from "../../utils/priceWithCommas";
 import CheckoutButton from "../Reusable-Components/Buttons/CheckoutButton";
 import Backdrop from "../Reusable-Components/Backdrop";
-import { AnyAction } from "@reduxjs/toolkit";
+import { AnyAction, SerializedError } from "@reduxjs/toolkit";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import {
+  useCheckGoodsCartStockMutation,
+  useGetGoodsStockQuery,
+} from "../../redux/services/goods";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const Cart: FC = () => {
   const isCartModalOpen: boolean = useAppSelector(selectIsCartModalOpen);
+  const [isStockCheckFetchingId, setIsStockCheckFetch] = useState<string>("");
+  const { isFetching } = useGetGoodsStockQuery(isStockCheckFetchingId, {
+    skip: isStockCheckFetchingId === "",
+  });
+  const navigate: NavigateFunction = useNavigate();
+  const [checkCartStock, { isLoading }] = useCheckGoodsCartStockMutation();
+  const [isNotEnoughStockError, setIsNotEnoughStockError] =
+    useState<boolean>(false);
   const cartProducts:
     | {
         id: string;
@@ -36,7 +50,6 @@ const Cart: FC = () => {
     | [] = useAppSelector(selectCartProducts);
   const total: number = useAppSelector(selectTotal);
   const dispatch: Dispatch<AnyAction> = useAppDispatch();
-
   useEffect(() => {
     dispatch(
       getTotal(
@@ -78,6 +91,38 @@ const Cart: FC = () => {
     e: React.MouseEvent<HTMLButtonElement>
   ): void => {
     dispatch(clearCart([]));
+  };
+
+  const isStockCheckFetchingHandler = (id: string): void => {
+    setIsStockCheckFetch(id);
+  };
+
+  const buttonCheckCartClickHandler = async (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    const result:
+      | {
+          data: {
+            isEnoughCartStock: boolean;
+          };
+        }
+      | {
+          error: FetchBaseQueryError | SerializedError;
+        } = await checkCartStock(
+      cartProducts.map(({ id, quantity }) => {
+        return { id: id, quantity: quantity };
+      })
+    );
+    if (Object.values(result)[0].isEnoughCartStock) {
+      navigate("checkout");
+      dispatch(switchCartModal(!isCartModalOpen));
+    }
+    if (!Object.values(result)[0].isEnoughCartStock) {
+      setIsNotEnoughStockError(true);
+      setTimeout(() => {
+        setIsNotEnoughStockError(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -126,7 +171,15 @@ const Cart: FC = () => {
                 </div>
                 <ul className="cart-list">
                   {cartProducts.map(
-                    ({ id, name, quantity, price, picture, totalPrice, category }) => (
+                    ({
+                      id,
+                      name,
+                      quantity,
+                      price,
+                      picture,
+                      totalPrice,
+                      category,
+                    }) => (
                       <CartItem
                         key={id}
                         id={id}
@@ -136,6 +189,9 @@ const Cart: FC = () => {
                         picture={picture}
                         totalPrice={totalPrice}
                         category={category}
+                        isStockCheckFetchingHandler={
+                          isStockCheckFetchingHandler
+                        }
                       />
                     )
                   )}
@@ -144,7 +200,16 @@ const Cart: FC = () => {
                   <h6 className="cart-total-title">total</h6>
                   <p className="cart-total">{priceWithCommas(total)}</p>
                 </div>
-                <CheckoutButton />
+                <CheckoutButton
+                  isFetching={isFetching}
+                  buttonClickHandler={buttonCheckCartClickHandler}
+                  isLoading={isLoading}
+                />
+                {isNotEnoughStockError && (
+                  <p className="cart-error-message">
+                    There are not enough products in stock
+                  </p>
+                )}
               </>
             )}
           </div>

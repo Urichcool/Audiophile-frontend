@@ -111,6 +111,7 @@
 }
 
 .cart-list-item {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -153,10 +154,13 @@
   height: 84px;
   background-color: $primaryGray;
   border-radius: 8px;
-  margin-right: 16px;
+  margin-right: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  @include tablet {
+    margin-right: 16px;
+  }
 }
 
 .cart-item-picture {
@@ -214,10 +218,15 @@
 }
 
 .cart-quantity-buttons-container {
+  width: 70px;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+
   height: 40px;
-  margin-left: auto;
+  @include tablet {
+    width: 113px;
+  }
 }
 
 .cart-quantity-button {
@@ -234,16 +243,23 @@
   line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
-  p {
-    cursor: pointer;
-    transition: 500ms;
-    transition-property: color;
-    &:hover,
-    &:focus {
-      color: $primaryOrange;
-    }
+  cursor: pointer;
+  transition: 500ms;
+  transition-property: color;
+  &:hover,
+  &:focus {
+    color: $primaryOrange;
   }
 }
+
+.cart-quantity-button-disabled{
+  cursor: default;
+   background-color: $primaryGray;
+  width: 40px;
+  height: 100%;
+  border: none;
+}
+
 
 .cart-quantity-text {
   background-color: $primaryGray;
@@ -261,4 +277,36 @@
   line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+
+.cart-list-item-remove-from-cart-button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  svg{
+    width: 18px;
+    height: 18px;
+    transition: 500ms;
+    transition-property: fill;
+    &:hover,
+    &:focus{
+      fill: $primaryOrange;
+    }
+  }
+}
+
+.cart-error-message{
+   color: #cd2c2c;
+  font-family: $fontFamily;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.21px;
+  margin-top: 3px;
+  position: absolute;
+  width: 296px;
 }

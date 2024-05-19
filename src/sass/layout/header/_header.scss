@@ -102,8 +102,6 @@ position: relative;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 11px;
-  color: $primaryWhite;
   width:20px;
   height: 20px;
   background-color: $primaryOrange;
@@ -111,6 +109,11 @@ position: relative;
   position: absolute;
   top: -8px;
   right: -13px;
+p{
+ font-size: 11px;
+  color: $primaryWhite;
+  margin-left: 1px;
+}
 }
 
 .header-navigation {

@@ -80,15 +80,17 @@ const Header: FC = () => {
             >
               <CartIcon />
               {cartProducts.length !== 0 && (
-                <p
-                  className="cart-button-quantity H6-manrope-bold"
-                  data-testid="cart-button-quantity"
-                >
-                  {[...cartProducts].reduce(
-                    (total, product) => (total += product.quantity),
-                    0
-                  )}
-                </p>
+                <div className="cart-button-quantity">
+                  <p
+                    className="H6-manrope-bold"
+                    data-testid="cart-button-quantity"
+                  >
+                    {[...cartProducts].reduce(
+                      (total, product) => (total += product.quantity),
+                      0
+                    )}
+                  </p>
+                </div>
               )}
             </button>
           </div>

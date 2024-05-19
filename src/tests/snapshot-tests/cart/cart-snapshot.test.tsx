@@ -32,6 +32,7 @@ describe("cart-item-snapshot-tests", () => {
         picture={picture}
         totalPrice={totalPrice}
         category={category}
+        isStockCheckFetchingHandler={() => {}}
       />
     );
     const cartItem: HTMLLIElement = screen.getByTestId("cart-item");

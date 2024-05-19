@@ -7,6 +7,7 @@ import {
   getTotalAction,
   increaseQuantityAction,
   decreaseQuantityAction,
+  removeProductFromCartAction
 } from "./actions";
 
 export interface IInitialCartState {
@@ -39,6 +40,7 @@ const cartSlice: Slice = createSlice({
     getTotalAction,
     increaseQuantityAction,
     decreaseQuantityAction,
+    removeProductFromCartAction
   },
 });
 
@@ -48,5 +50,6 @@ export const clearCart = cartSlice.actions.clearCartAction;
 export const getTotal = cartSlice.actions.getTotalAction;
 export const increaseQuantity = cartSlice.actions.increaseQuantityAction;
 export const decreaseQuantity = cartSlice.actions.decreaseQuantityAction;
+export const removeProductFromCart = cartSlice.actions.removeProductFromCartAction;
 
 export const cartSliceReducer: Reducer = cartSlice.reducer;

@@ -9,8 +9,8 @@ export interface ICheckOutFormValues {
   city: string;
   country: string;
   radioValue: string;
-  eMoneyNumber: string;
-  eMoneyPin: string;
+  eMoneyNumber?: string;
+  eMoneyPin?: string;
 }
 
 export const initialValues: ICheckOutFormValues = {
@@ -165,4 +165,18 @@ export const CheckOutValidationSchema: yup.ObjectSchema<
         return true;
       },
     }),
+  products: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id: yup.string(),
+        name: yup.string(),
+        quantity: yup.number(),
+        price: yup.number(),
+        picture: yup.string(),
+        totalPrice: yup.number(),
+        category: yup.string(),
+      })
+      .required()
+  ),
 });

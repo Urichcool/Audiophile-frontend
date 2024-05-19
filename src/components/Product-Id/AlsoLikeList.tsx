@@ -22,12 +22,13 @@ const AlsoLikeList: FC = () => {
           offset={0}
         >
           <ul className="also-like-list">
-            {data?.map(({ name, previewImage, _id }) => (
+            {data?.map(({ name, previewImage, _id, category }) => (
               <AlsoLikeListItem
                 key={_id}
                 name={name}
                 image={previewImage}
                 id={_id}
+                category={category}
               />
             ))}
           </ul>

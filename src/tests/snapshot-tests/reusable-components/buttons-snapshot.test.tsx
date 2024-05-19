@@ -11,7 +11,7 @@ import { screen } from "@testing-library/react";
 describe("buttons-render-tests", () => {
   test("add-to-cart-button-should-renders-correctly", () => {
     renderWithReduxAndRouter(
-      <AddToCartButton testId="add-to-cart-test-button" />
+      <AddToCartButton testId="add-to-cart-test-button" isEnoughStock={true} isFetching={false} />
     );
     const addToCartButton: HTMLButtonElement = screen.getByTestId(
       "add-to-cart-test-button"
@@ -39,7 +39,7 @@ describe("buttons-render-tests", () => {
     expect(button4).toMatchSnapshot();
   });
   test("checkout-button-should-match-snapshot", () => {
-    renderWithReduxAndRouter(<CheckoutButton testId="checkout-test-button" />);
+    renderWithReduxAndRouter(<CheckoutButton testId="checkout-test-button" isFetching={false} isLoading={false}  />);
     const checkoutButton: HTMLButtonElement = screen.getByTestId(
       "checkout-test-button"
     );
