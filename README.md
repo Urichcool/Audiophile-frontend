@@ -47,7 +47,7 @@ Then open http://localhost:3000 in your browser.
 <p>&nbsp;</p>
 🖥 Backend
 
-This project uses a custom backend API built with Node.js and Express. A separate README will be provided for API setup.
+This project uses a [custom backend](https://github.com/Urichcool/Audiophile-backend) API built with Node.js and Express. A separate README will be provided for API setup.
 <p>&nbsp;</p>
 🧪 Testing
 Run tests with:
