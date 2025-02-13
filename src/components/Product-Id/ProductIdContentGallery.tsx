@@ -43,7 +43,7 @@ const ProductIdContentGallery: FC<IProductIdContentGalleryProps> = ({
           imageSrc={{
             desktop: gallery?.second.desktop,
             tablet: gallery?.second.tablet,
-            mobile: gallery?.third.mobile,
+            mobile: gallery?.second.mobile,
           }}
           sizes={{
             desktopWidth: "445",
