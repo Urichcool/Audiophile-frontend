@@ -10,7 +10,7 @@ import SummaryListItem from "./SummaryListItem";
 import { FormikErrors } from "formik";
 import { ICheckOutFormValues } from "./CheckoutFormData";
 
-const Summary: FC<{ errors: FormikErrors<ICheckOutFormValues>, isLoading:{ isCheckCartStockLoading:boolean, isGetGoodsOutFromStockLoading:boolean }}> = ({
+const Summary: FC<{ errors: FormikErrors<ICheckOutFormValues>, isLoading:{ isCheckCartStockLoading:boolean, isGetGoodsOutFromStockLoading:boolean,isPostNewOrderMutationLoading:boolean }}> = ({
   errors,
   isLoading
 }) => {

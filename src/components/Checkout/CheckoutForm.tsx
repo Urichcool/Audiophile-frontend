@@ -22,7 +22,10 @@ import {
 } from "../../redux/slices/checkout-modal/checkOutModalSlice";
 import { AnyAction, SerializedError } from "@reduxjs/toolkit";
 import { scrollUpFunc } from "../../utils/scrollUpFunc";
-import { selectCartProducts } from "../../redux/slices/cart/selectors";
+import {
+  selectCartProducts,
+  selectTotal,
+} from "../../redux/slices/cart/selectors";
 import {
   useCheckGoodsCartStockMutation,
   useGetGoodsOutFromStockMutation,
@@ -46,6 +49,7 @@ const CheckOutForm: FC = () => {
         category: string;
       }[]
     | [] = useAppSelector(selectCartProducts);
+  const total: number = useAppSelector(selectTotal);
   const [checkCartStock, { isLoading: isCheckCartStockLoading }] =
     useCheckGoodsCartStockMutation();
   const [getGoodsOutFromStock, { isLoading: isGetGoodsOutFromStockLoading }] =
@@ -57,6 +61,10 @@ const CheckOutForm: FC = () => {
     <Formik
       initialValues={initialValues}
       onSubmit={async (values: ICheckOutFormValues) => {
+        if(values.radioValue === "cash"){
+          values.eMoneyNumber = undefined;
+          values.eMoneyPin = undefined;
+        }
         const checkStockResult:
           | {
               data: {
@@ -77,7 +85,11 @@ const CheckOutForm: FC = () => {
             })
           );
           if (Object.values(updateStockResult)[0].wasUpdated) {
-           const postNewOrder = await postNewOrderMutation(values);
+            const postNewOrder = await postNewOrderMutation({
+              shippingData: values,
+              products: cartProducts,
+              total: total,
+            });
             scrollUpFunc();
             dispatch(switchCheckOutModal(!isCheckOutModalOpen));
           }
@@ -108,6 +120,7 @@ const CheckOutForm: FC = () => {
             isLoading={{
               isCheckCartStockLoading,
               isGetGoodsOutFromStockLoading,
+              isPostNewOrderMutationLoading,
             }}
           />
           <PersistFormikValues name="checkout-form" />
