@@ -9,13 +9,15 @@ All functionality, logic, and implementation were developed independently.
 <p>&nbsp;</p>
 🛠 Tech Stack
 
-Frontend: React, Redux Toolkit, React Router, TypeScript, SCSS
+Frontend: React, Redux Toolkit, React Router, TypeScript
 
 State Management: Redux Toolkit
 
 Testing: React Testing Library
 
-Animations & Styling: SCSS
+Forms: Formik, Yup
+
+Animations & Styling: SCSS, React animation on scroll.
 <p>&nbsp;</p>
 📌 Features
 
