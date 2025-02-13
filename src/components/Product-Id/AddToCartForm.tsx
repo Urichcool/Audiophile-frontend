@@ -223,7 +223,7 @@ const AddToCartForm: FC<IAddToCartFormProps> = ({
               {isSuccess
                 ? isNotEnoughStockError && (
                     <p className="add-to-cart-error-message">
-                      There are not enough products in stock
+                      There is not enough products in stock
                     </p>
                   )
                 : null}
