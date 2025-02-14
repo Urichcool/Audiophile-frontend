@@ -25,11 +25,44 @@ Animations & Styling: SCSS, React animation on scroll.
 
 ![audiophile1](https://github.com/user-attachments/assets/fd631eaf-d4ea-4fa0-9d0e-88611772b605)
 
+This cart functionality allows users to manage the quantity of items before proceeding to checkout. The key features include:
+
+Increment & Decrement Buttons: Users can increase (+) or decrease (-) the quantity of each product.
+Delete Item: A trash icon next to each product allows users to remove specific items from the cart.
+Remove All Items: A "Remove all" option clears the entire cart.
+Total Price Calculation: The total price dynamically updates based on the quantity of products.
+Checkout Button: Users can proceed to checkout after finalizing their cart.
+This functionality enhances user experience by providing flexibility in managing their purchases before confirming the order. 
+
 ![audiophile2](https://github.com/user-attachments/assets/8b56770e-f633-4061-895f-f86047702f48)
+
+Every time the + or - button is clicked, a request is sent to the backend to check stock availability.
+If the stock limit is reached, the + button disappears to prevent over-ordering.
+The cart dynamically updates based on backend responses.
+This functionality ensures a seamless and user-friendly shopping experience while preventing stock issues.
 
 ![audiophile3](https://github.com/user-attachments/assets/b2536988-6b2b-4ea4-960b-19c3efe7ae62)
 
+When a user attempts to add more products than are available in stock, the system prevents over-ordering by displaying a warning message:
+
+How it Works:
+
+Each time the + button is clicked, a request is sent to the backend to check stock availability.
+If the user tries to exceed the available stock:
+The + button disappears, preventing further increases.
+The "Add to Cart" button remains active but only allows adding the available quantity.
+If user clicks it he'll get a warning message: "There is not enough products in stock".
+This feature ensures that users cannot add more items than are available, maintaining accurate stock levels. 
+
 ![Audiophile10](https://github.com/user-attachments/assets/df2e063e-80b6-4659-ba68-19a0d00cfce2)
+
+When a product is completely sold out, the system informs users that the item is unavailable.
+
+If the stock reaches zero, the product page updates automatically.
+The "Add to Cart" button is disabled.
+A clear "OUT OF STOCK" message is displayed along with an icon.
+Users are prevented from adding the item to their cart.
+This feature ensures transparency and prevents users from attempting to purchase unavailable products.
 
 
 ✅ Form validation for checkout
@@ -74,7 +107,7 @@ Then open http://localhost:3000 in your browser.
 <p>&nbsp;</p>
 🖥 Backend
 
-This project uses a [custom backend API](https://github.com/Urichcool/Audiophile-backend) aslso built from scratch by me using Node.js and Express framework. A separate README will be provided for API setup.
+This project uses a [custom backend API](https://github.com/Urichcool/Audiophile-backend) also built from scratch by me using Node.js and Express framework. A separate README will be provided for API setup.
 <p>&nbsp;</p>
 🧪 Testing
 Run tests with:
