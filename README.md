@@ -77,6 +77,17 @@ This feature ensures transparency and prevents users from attempting to purchase
 
 ![audiophile8](https://github.com/user-attachments/assets/ab51aee2-890a-4396-923d-4821da75ca0c)
 
+The checkout form includes built-in validation to ensure accurate and complete user input.
+
+Validation Rules:
+
+Required Fields – All input fields must be filled before submission.
+Email Validation – Ensures a properly formatted email address (e.g., user@example.com).
+Phone Number Validation – Requires a valid phone number format to prevent incorrect entries.
+E-Money Number Validation – Must be a valid number and contain 9 digits to proceed with e-money payments.
+E-Money PIN Validation – Ensures the PIN is valid number and contain 4 digits.
+
+If any validation fails, the user receives an error message prompting them to correct the input. This improves data accuracy and enhances user experience. 🚀
 
 ✅ Smooth animations for better UX
 
