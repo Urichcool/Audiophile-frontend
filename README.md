@@ -1,3 +1,5 @@
+
+https://github.com/user-attachments/assets/dbab1a75-8ef4-46c5-8535-841003ac5571
 🎧 Audiophile E-Commerce Shop
 An e-commerce platform for high-quality sound gear, including headphones and speakers.
 Built from scratch by me, using only a ready-made layout as a reference.  
@@ -20,7 +22,7 @@ Forms: Formik, Yup
 Animations & Styling: SCSS, React animation on scroll.
 <p>&nbsp;</p>
 📌 Features
-
+<p>&nbsp;</p>
 ✅ Cart functionality with stock validation
 
 ![audiophile1](https://github.com/user-attachments/assets/fd631eaf-d4ea-4fa0-9d0e-88611772b605)
@@ -63,8 +65,7 @@ The "Add to Cart" button is disabled.
 A clear "OUT OF STOCK" message is displayed along with an icon.
 Users are prevented from adding the item to their cart.
 This feature ensures transparency and prevents users from attempting to purchase unavailable products.
-
-
+<p>&nbsp;</p>
 ✅ Form validation for checkout
 
 ![audiophile4](https://github.com/user-attachments/assets/04f4c7a9-14b6-4280-bc35-6856ef3bb10a)
@@ -74,8 +75,6 @@ This feature ensures transparency and prevents users from attempting to purchase
 ![audiophile6](https://github.com/user-attachments/assets/5b9373ad-8eb6-4815-9fd7-8331ad573e77)
 
 ![audiphile7](https://github.com/user-attachments/assets/6a90176e-f5a2-4336-bf09-c054838cccdd)
-
-![audiophile8](https://github.com/user-attachments/assets/ab51aee2-890a-4396-923d-4821da75ca0c)
 
 The checkout form includes built-in validation to ensure accurate and complete user input.
 
@@ -89,18 +88,24 @@ E-Money PIN Validation – Ensures the PIN is valid number and contain 4 digits.
 
 If any validation fails, the user receives an error message prompting them to correct the input. This improves data accuracy and enhances user experience. 🚀
 
-✅ Smooth animations for better UX
+![audiophile8](https://github.com/user-attachments/assets/ab51aee2-890a-4396-923d-4821da75ca0c)
 
-✅ Fully responsive design (RWD)
+The checkout form memorize user input even when the page is refreshed or the route is changed. This ensures a seamless shopping experience by preventing data loss before order submission.
 
-✅ Tests for UI components and logic
-
-✅ Product stock verification before order confirmation 
-
+<p>&nbsp;</p>
 ✅ Short email confirmation with order details which functionality i made on backend side
 
 ![Audiophile9](https://github.com/user-attachments/assets/3ca2c650-94dc-4190-bba5-ca28cfb5a136)
+<p>&nbsp;</p>
+✅ Smooth animations for better UX
 
+https://github.com/user-attachments/assets/d8359ef9-977e-4d95-a8f3-a4fc2a257caf
+<p>&nbsp;</p>
+✅ Fully responsive design (RWD)
+
+https://github.com/user-attachments/assets/bc89ca8a-ea0e-49fe-83b8-d88fc2d75a66
+<p>&nbsp;</p>
+✅ Tests for UI components and logic
 <p>&nbsp;</p>
 📦 Installation & Setup
 
