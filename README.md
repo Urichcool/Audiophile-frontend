@@ -1,5 +1,3 @@
-
-https://github.com/user-attachments/assets/dbab1a75-8ef4-46c5-8535-841003ac5571
 🎧 Audiophile E-Commerce Shop
 An e-commerce platform for high-quality sound gear, including headphones and speakers.
 Built from scratch by me, using only a ready-made layout as a reference.  
